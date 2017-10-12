@@ -1,0 +1,860 @@
+md-bottom-sheet.md-default-theme.md-list md-list-item , md-bottom-sheet.md-list md-list-item {
+  color: rgba(0,0,0,0.87);
+}
+md-bottom-sheet.md-default-theme .md-subheader , md-bottom-sheet .md-subheader {
+  color: rgba(0,0,0,0.87);
+}
+.md-button.md-default-theme.md-primary , .md-button.md-primary {
+  color: rgb(246,140,33);
+}
+.md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab , .md-button.md-primary.md-fab {
+  color: rgba(255,255,255,0.87);
+  background-color: rgb(246,140,33);
+}
+.md-button.md-default-theme.md-primary.md-raised:not([disabled]) md-icon, .md-button.md-primary.md-raised:not([disabled]) md-icon, .md-button.md-default-theme.md-primary.md-fab:not([disabled]) md-icon , .md-button.md-primary.md-fab:not([disabled]) md-icon {
+  color: rgba(255,255,255,0.87);
+}
+.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover , .md-button.md-primary.md-fab:not([disabled]):hover {
+  background-color: rgb(251,168,25);
+}
+.md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-focused , .md-button.md-primary.md-fab:not([disabled]).md-focused {
+  background-color: rgb(251,168,25);
+}
+.md-button.md-default-theme.md-primary:not([disabled]) md-icon , .md-button.md-primary:not([disabled]) md-icon {
+  color: rgb(246,140,33);
+}
+a.md-default-theme:not(.md-button).md-primary , a:not(.md-button).md-primary {
+  color: rgb(246,140,33);
+}
+a.md-default-theme:not(.md-button).md-primary:hover , a:not(.md-button).md-primary:hover {
+  color: rgb(2,94,233);
+}
+md-card.md-default-theme .md-card-image , md-card .md-card-image {
+  border-radius: 2px 2px 0 0;
+}
+md-card.md-default-theme md-card-header md-card-header-text .md-subhead , md-card md-card-header md-card-header-text .md-subhead {
+  color: rgba(0,0,0,0.54);
+}
+md-card.md-default-theme md-card-title md-card-title-text:not(:only-child) .md-subhead , md-card md-card-title md-card-title-text:not(:only-child) .md-subhead {
+  color: rgba(0,0,0,0.54);
+}
+md-checkbox.md-default-theme .md-ink-ripple , md-checkbox .md-ink-ripple {
+  color: rgba(0,0,0,0.54);
+}
+md-checkbox.md-default-theme ._md-icon , md-checkbox ._md-icon {
+  border-color: rgba(0,0,0,0.54);
+}
+md-checkbox.md-default-theme:not([disabled]).md-primary .md-ripple , md-checkbox:not([disabled]).md-primary .md-ripple {
+  color: rgb(251,168,25);
+}
+md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked .md-ripple , md-checkbox:not([disabled]).md-primary.md-checked .md-ripple {
+  color: rgb(117,117,117);
+}
+md-checkbox.md-default-theme:not([disabled]).md-primary .md-ink-ripple , md-checkbox:not([disabled]).md-primary .md-ink-ripple {
+  color: rgba(0,0,0,0.54);
+}
+md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked .md-ink-ripple , md-checkbox:not([disabled]).md-primary.md-checked .md-ink-ripple {
+  color: rgba(246,140,33,1);
+}
+md-checkbox.md-default-theme:not([disabled]).md-primary ._md-icon , md-checkbox:not([disabled]).md-primary ._md-icon {
+  border-color: rgba(0,0,0,0.54);
+}
+md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked ._md-icon , md-checkbox:not([disabled]).md-primary.md-checked ._md-icon {
+  background-color: rgba(246,140,33,1);
+}
+md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked.md-focused ._md-container:before , md-checkbox:not([disabled]).md-primary.md-checked.md-focused ._md-container:before {
+  background-color: rgba(246,140,33,1);
+}
+md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked ._md-icon:after , md-checkbox:not([disabled]).md-primary.md-checked ._md-icon:after {
+  border-color: rgba(255,255,255,0.87);
+}
+md-checkbox.md-default-theme:not([disabled]).md-primary .md-indeterminate[disabled] ._md-container , md-checkbox:not([disabled]).md-primary .md-indeterminate[disabled] ._md-container {
+  color: rgba(0,0,0,0.38);
+}
+md-checkbox.md-default-theme[disabled] ._md-icon , md-checkbox[disabled] ._md-icon {
+  border-color: rgba(0,0,0,0.38);
+}
+md-checkbox.md-default-theme[disabled] ._md-label , md-checkbox[disabled] ._md-label {
+  color: rgba(0,0,0,0.38);
+}
+md-chips.md-default-theme .md-chips , md-chips .md-chips {
+  box-shadow: 0 1px rgba(0,0,0,0.12);
+}
+md-chips.md-default-theme .md-chips.md-focused , md-chips .md-chips.md-focused {
+  box-shadow: 0 2px rgb(246,140,33);
+}
+md-chips.md-default-theme .md-chips ._md-chip-input-container input , md-chips .md-chips ._md-chip-input-container input {
+  color: rgba(0,0,0,0.87);
+}
+md-chips.md-default-theme .md-chips ._md-chip-input-container input::-webkit-input-placeholder , md-chips .md-chips ._md-chip-input-container input::-webkit-input-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-chips.md-default-theme .md-chips ._md-chip-input-container input:-moz-placeholder , md-chips .md-chips ._md-chip-input-container input:-moz-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-chips.md-default-theme .md-chips ._md-chip-input-container input::-moz-placeholder , md-chips .md-chips ._md-chip-input-container input::-moz-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-chips.md-default-theme .md-chips ._md-chip-input-container input:-ms-input-placeholder , md-chips .md-chips ._md-chip-input-container input:-ms-input-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-chips.md-default-theme .md-chips ._md-chip-input-container input::-webkit-input-placeholder , md-chips .md-chips ._md-chip-input-container input::-webkit-input-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-chips.md-default-theme md-chip.md-focused , md-chips md-chip.md-focused {
+  background: rgb(246,140,33);
+  color: rgba(255,255,255,0.87);
+}
+md-chips.md-default-theme md-chip.md-focused md-icon , md-chips md-chip.md-focused md-icon {
+  color: rgba(255,255,255,0.87);
+}
+.md-default-theme .md-calendar-date.md-calendar-date-today .md-calendar-date-selection-indicator ,  .md-calendar-date.md-calendar-date-today .md-calendar-date-selection-indicator {
+  border: 1px solid rgb(246,140,33);
+}
+.md-default-theme .md-calendar-date.md-calendar-date-today.md-calendar-date-disabled ,  .md-calendar-date.md-calendar-date-today.md-calendar-date-disabled {
+  color: rgba(246,140,33,0.6);
+}
+.md-default-theme .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator,  .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator,.md-default-theme .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator ,  .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator {
+  background: rgb(246,140,33);
+  color: rgba(255,255,255,0.87);
+  border-color: transparent;
+}
+.md-default-theme .md-calendar-date-disabled,  .md-calendar-date-disabled,.md-default-theme .md-calendar-month-label-disabled ,  .md-calendar-month-label-disabled {
+  color: rgba(0,0,0,0.38);
+}
+/** Theme styles for mdDatepicker. */.md-default-theme .md-datepicker-input ,  .md-datepicker-input {
+  color: rgba(0,0,0,0.87);
+}
+.md-default-theme .md-datepicker-input::-webkit-input-placeholder ,  .md-datepicker-input::-webkit-input-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+.md-default-theme .md-datepicker-input:-moz-placeholder ,  .md-datepicker-input:-moz-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+.md-default-theme .md-datepicker-input::-moz-placeholder ,  .md-datepicker-input::-moz-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+.md-default-theme .md-datepicker-input:-ms-input-placeholder ,  .md-datepicker-input:-ms-input-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+.md-default-theme .md-datepicker-input::-webkit-input-placeholder ,  .md-datepicker-input::-webkit-input-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+.md-default-theme .md-datepicker-input-container.md-datepicker-focused ,  .md-datepicker-input-container.md-datepicker-focused {
+  border-bottom-color: rgb(246,140,33);
+}
+.md-default-theme .md-datepicker-triangle-button .md-datepicker-expand-triangle ,  .md-datepicker-triangle-button .md-datepicker-expand-triangle {
+  border-top-color: rgba(0,0,0,0.38);
+}
+.md-default-theme .md-datepicker-triangle-button:hover .md-datepicker-expand-triangle ,  .md-datepicker-triangle-button:hover .md-datepicker-expand-triangle {
+  border-top-color: rgba(0,0,0,0.54);
+}
+.md-default-theme .md-datepicker-open .md-datepicker-calendar-icon ,  .md-datepicker-open .md-datepicker-calendar-icon {
+  fill: rgb(246,140,33);
+}
+md-dialog.md-default-theme.md-content-overflow .md-actions, md-dialog.md-content-overflow .md-actions, md-dialog.md-default-theme.md-content-overflow md-dialog-actions , md-dialog.md-content-overflow md-dialog-actions {
+  border-top-color: rgba(0,0,0,0.12);
+}
+md-divider.md-default-theme , md-divider {
+  border-top-color: rgba(0,0,0,0.12);
+}
+.layout-row > md-divider.md-default-theme, .layout-row > md-divider,.layout-xs-row > md-divider.md-default-theme, .layout-xs-row > md-divider, .layout-gt-xs-row > md-divider.md-default-theme,  .layout-gt-xs-row > md-divider,.layout-sm-row > md-divider.md-default-theme, .layout-sm-row > md-divider, .layout-gt-sm-row > md-divider.md-default-theme,  .layout-gt-sm-row > md-divider,.layout-md-row > md-divider.md-default-theme, .layout-md-row > md-divider, .layout-gt-md-row > md-divider.md-default-theme,  .layout-gt-md-row > md-divider,.layout-lg-row > md-divider.md-default-theme, .layout-lg-row > md-divider, .layout-gt-lg-row > md-divider.md-default-theme,  .layout-gt-lg-row > md-divider,.layout-xl-row > md-divider.md-default-theme , .layout-xl-row > md-divider {
+  border-right-color: rgba(0,0,0,0.12);
+}
+md-icon.md-default-theme , md-icon {
+  color: #ff8c04;
+}
+md-icon.md-default-theme.md-primary , md-icon.md-primary {
+  color: rgb(246,140,33);
+}
+md-input-container.md-default-theme .md-input , md-input-container .md-input {
+  color: rgba(0,0,0,0.87);
+  border-color: rgba(0,0,0,0.12);
+}
+md-input-container.md-default-theme .md-input::-webkit-input-placeholder , md-input-container .md-input::-webkit-input-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-input-container.md-default-theme .md-input:-moz-placeholder , md-input-container .md-input:-moz-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-input-container.md-default-theme .md-input::-moz-placeholder , md-input-container .md-input::-moz-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-input-container.md-default-theme .md-input:-ms-input-placeholder , md-input-container .md-input:-ms-input-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-input-container.md-default-theme .md-input::-webkit-input-placeholder , md-input-container .md-input::-webkit-input-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-input-container.md-default-theme > md-icon , md-input-container > md-icon {
+  color: rgba(0,0,0,0.87);
+}
+md-input-container.md-default-theme label, md-input-container label,md-input-container.md-default-theme ._md-placeholder , md-input-container ._md-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-input-container.md-default-theme:not(.md-input-focused):not(.md-input-invalid) label.md-required:after , md-input-container:not(.md-input-focused):not(.md-input-invalid) label.md-required:after {
+  color: rgba(0,0,0,0.54);
+}
+md-input-container.md-default-theme .md-input-messages-animation .md-char-counter, md-input-container .md-input-messages-animation .md-char-counter, md-input-container.md-default-theme .md-input-message-animation .md-char-counter , md-input-container .md-input-message-animation .md-char-counter {
+  color: rgba(0,0,0,0.87);
+}
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value label , md-input-container:not(.md-input-invalid).md-input-has-value label {
+  color: rgba(0,0,0,0.54);
+}
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input , md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+  border-color: rgb(246,140,33);
+}
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label , md-input-container:not(.md-input-invalid).md-input-focused label {
+  color: rgb(246,140,33);
+}
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon , md-input-container:not(.md-input-invalid).md-input-focused md-icon {
+  color: rgb(246,140,33);
+}
+md-list.md-default-theme md-list-item.md-2-line .md-list-item-text h3, md-list md-list-item.md-2-line .md-list-item-text h3, md-list.md-default-theme md-list-item.md-2-line .md-list-item-text h4, md-list md-list-item.md-2-line .md-list-item-text h4,md-list.md-default-theme md-list-item.md-3-line .md-list-item-text h3, md-list md-list-item.md-3-line .md-list-item-text h3,md-list.md-default-theme md-list-item.md-3-line .md-list-item-text h4 , md-list md-list-item.md-3-line .md-list-item-text h4 {
+  color: rgba(0,0,0,0.87);
+}
+md-list.md-default-theme md-list-item.md-2-line .md-list-item-text p, md-list md-list-item.md-2-line .md-list-item-text p,md-list.md-default-theme md-list-item.md-3-line .md-list-item-text p , md-list md-list-item.md-3-line .md-list-item-text p {
+  color: rgba(0,0,0,0.54);
+}
+md-list.md-default-theme md-list-item > md-icon , md-list md-list-item > md-icon {
+  color: rgba(0,0,0,0.54);
+}
+md-list.md-default-theme md-list-item > md-icon.md-highlight , md-list md-list-item > md-icon.md-highlight {
+  color: rgb(246,140,33);
+}
+md-menu-bar.md-default-theme > button.md-button , md-menu-bar > button.md-button {
+  color: rgba(0,0,0,0.54);
+  border-radius: 2px;
+}
+md-toolbar.md-default-theme.md-menu-toolbar md-toolbar-filler , md-toolbar.md-menu-toolbar md-toolbar-filler {
+  background-color: rgb(246,140,33);
+  color: rgba(255,255,255,0.87);
+}
+md-progress-circular.md-default-theme path , md-progress-circular path {
+  stroke: rgb(246,140,33);
+}
+md-progress-linear.md-default-theme ._md-container , md-progress-linear ._md-container {
+  background-color: rgb(170,209,249);
+}
+md-progress-linear.md-default-theme ._md-bar , md-progress-linear ._md-bar {
+  background-color: rgb(246,140,33);
+}
+md-radio-button.md-default-theme ._md-off , md-radio-button ._md-off {
+  border-color: rgba(0,0,0,0.54);
+}
+md-radio-group.md-default-theme:not([disabled]) .md-primary ._md-on, md-radio-group:not([disabled]) .md-primary ._md-on, md-radio-group.md-default-theme:not([disabled]).md-primary ._md-on, md-radio-group:not([disabled]).md-primary ._md-on,md-radio-button.md-default-theme:not([disabled]) .md-primary ._md-on, md-radio-button:not([disabled]) .md-primary ._md-on,md-radio-button.md-default-theme:not([disabled]).md-primary ._md-on , md-radio-button:not([disabled]).md-primary ._md-on {
+  background-color: rgba(246,140,33,1);
+}
+md-radio-group.md-default-theme:not([disabled]) .md-primary .md-checked ._md-off, md-radio-group:not([disabled]) .md-primary .md-checked ._md-off, md-radio-group.md-default-theme:not([disabled]) .md-primary.md-checked ._md-off, md-radio-group:not([disabled]) .md-primary.md-checked ._md-off, md-radio-group.md-default-theme:not([disabled]).md-primary .md-checked ._md-off, md-radio-group:not([disabled]).md-primary .md-checked ._md-off, md-radio-group.md-default-theme:not([disabled]).md-primary.md-checked ._md-off, md-radio-group:not([disabled]).md-primary.md-checked ._md-off,md-radio-button.md-default-theme:not([disabled]) .md-primary .md-checked ._md-off, md-radio-button:not([disabled]) .md-primary .md-checked ._md-off,md-radio-button.md-default-theme:not([disabled]) .md-primary.md-checked ._md-off, md-radio-button:not([disabled]) .md-primary.md-checked ._md-off,md-radio-button.md-default-theme:not([disabled]).md-primary .md-checked ._md-off, md-radio-button:not([disabled]).md-primary .md-checked ._md-off,md-radio-button.md-default-theme:not([disabled]).md-primary.md-checked ._md-off , md-radio-button:not([disabled]).md-primary.md-checked ._md-off {
+  border-color: rgba(246,140,33,1);
+}
+md-radio-group.md-default-theme:not([disabled]) .md-primary .md-checked .md-ink-ripple, md-radio-group:not([disabled]) .md-primary .md-checked .md-ink-ripple, md-radio-group.md-default-theme:not([disabled]) .md-primary.md-checked .md-ink-ripple, md-radio-group:not([disabled]) .md-primary.md-checked .md-ink-ripple, md-radio-group.md-default-theme:not([disabled]).md-primary .md-checked .md-ink-ripple, md-radio-group:not([disabled]).md-primary .md-checked .md-ink-ripple, md-radio-group.md-default-theme:not([disabled]).md-primary.md-checked .md-ink-ripple, md-radio-group:not([disabled]).md-primary.md-checked .md-ink-ripple,md-radio-button.md-default-theme:not([disabled]) .md-primary .md-checked .md-ink-ripple, md-radio-button:not([disabled]) .md-primary .md-checked .md-ink-ripple,md-radio-button.md-default-theme:not([disabled]) .md-primary.md-checked .md-ink-ripple, md-radio-button:not([disabled]) .md-primary.md-checked .md-ink-ripple,md-radio-button.md-default-theme:not([disabled]).md-primary .md-checked .md-ink-ripple, md-radio-button:not([disabled]).md-primary .md-checked .md-ink-ripple,md-radio-button.md-default-theme:not([disabled]).md-primary.md-checked .md-ink-ripple , md-radio-button:not([disabled]).md-primary.md-checked .md-ink-ripple {
+  color: rgba(246,140,33,1);
+}
+md-radio-group.md-default-theme:not([disabled]) .md-primary ._md-container .md-ripple, md-radio-group:not([disabled]) .md-primary ._md-container .md-ripple, md-radio-group.md-default-theme:not([disabled]).md-primary ._md-container .md-ripple, md-radio-group:not([disabled]).md-primary ._md-container .md-ripple,md-radio-button.md-default-theme:not([disabled]) .md-primary ._md-container .md-ripple, md-radio-button:not([disabled]) .md-primary ._md-container .md-ripple,md-radio-button.md-default-theme:not([disabled]).md-primary ._md-container .md-ripple , md-radio-button:not([disabled]).md-primary ._md-container .md-ripple {
+  color: rgb(251,168,25);
+}
+md-radio-group.md-default-theme[disabled], md-radio-group[disabled],md-radio-button.md-default-theme[disabled] , md-radio-button[disabled] {
+  color: rgba(0,0,0,0.38);
+}
+md-radio-group.md-default-theme[disabled] ._md-container ._md-off, md-radio-group[disabled] ._md-container ._md-off,  md-radio-button.md-default-theme[disabled] ._md-container ._md-off ,   md-radio-button[disabled] ._md-container ._md-off {
+  border-color: rgba(0,0,0,0.38);
+}
+md-radio-group.md-default-theme[disabled] ._md-container ._md-on, md-radio-group[disabled] ._md-container ._md-on,  md-radio-button.md-default-theme[disabled] ._md-container ._md-on ,   md-radio-button[disabled] ._md-container ._md-on {
+  border-color: rgba(0,0,0,0.38);
+}
+md-radio-group.md-default-theme.md-primary .md-checked:not([disabled]) .md-ink-ripple, md-radio-group.md-primary .md-checked:not([disabled]) .md-ink-ripple, md-radio-group.md-default-theme .md-checked:not([disabled]).md-primary .md-ink-ripple , md-radio-group .md-checked:not([disabled]).md-primary .md-ink-ripple {
+  color: rgba(246,140,33,1);
+}
+md-radio-group.md-default-theme .md-checked.md-primary .md-ink-ripple , md-radio-group .md-checked.md-primary .md-ink-ripple {
+  color: '-0.26';
+}
+md-radio-group.md-default-theme.md-focused:not(:empty).md-primary .md-checked ._md-container:before, md-radio-group.md-focused:not(:empty).md-primary .md-checked ._md-container:before,md-radio-group.md-default-theme.md-focused:not(:empty) .md-checked.md-primary ._md-container:before , md-radio-group.md-focused:not(:empty) .md-checked.md-primary ._md-container:before {
+  background-color: rgba(246,140,33,1);
+}
+md-select.md-default-theme ._md-select-value , md-select ._md-select-value {
+  border-bottom-color: rgba(0,0,0,0.12);
+}
+md-select.md-default-theme ._md-select-value._md-select-placeholder , md-select ._md-select-value._md-select-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-select.md-default-theme:not([disabled]):focus ._md-select-value , md-select:not([disabled]):focus ._md-select-value {
+  border-bottom-color: rgb(246,140,33);
+  color: rgba(0,0,0,0.87);
+}
+md-select.md-default-theme:not([disabled]):focus ._md-select-value._md-select-placeholder , md-select:not([disabled]):focus ._md-select-value._md-select-placeholder {
+  color: rgba(0,0,0,0.87);
+}
+md-select.md-default-theme[disabled] ._md-select-value , md-select[disabled] ._md-select-value {
+  color: rgba(0,0,0,0.38);
+}
+md-select.md-default-theme[disabled] ._md-select-value._md-select-placeholder , md-select[disabled] ._md-select-value._md-select-placeholder {
+  color: rgba(0,0,0,0.38);
+}
+md-select-menu.md-default-theme md-content md-option[selected] , md-select-menu md-content md-option[selected] {
+  color: rgb(246,140,33);
+}
+md-select-menu.md-default-theme md-content md-option[selected]:focus , md-select-menu md-content md-option[selected]:focus {
+  color: rgb(251,168,25);
+}
+[md-checkbox-enabled].md-default-theme .md-ripple ,  .md-ripple {
+  color: rgb(251,168,25);
+}
+[md-checkbox-enabled].md-default-theme .md-ink-ripple ,  .md-ink-ripple {
+  color: rgba(0,0,0,0.54);
+}
+[md-checkbox-enabled].md-default-theme[selected] .md-ink-ripple , [selected] .md-ink-ripple {
+  color: rgba(246,140,33,1);
+}
+[md-checkbox-enabled].md-default-theme ._md-icon ,  ._md-icon {
+  border-color: rgba(0,0,0,0.54);
+}
+[md-checkbox-enabled].md-default-theme[selected] ._md-icon , [selected] ._md-icon {
+  background-color: rgba(246,140,33,1);
+}
+[md-checkbox-enabled].md-default-theme[selected].md-focused ._md-container:before , [selected].md-focused ._md-container:before {
+  background-color: rgba(246,140,33,1);
+}
+[md-checkbox-enabled].md-default-theme[selected] ._md-icon:after , [selected] ._md-icon:after {
+  border-color: rgba(255,255,255,0.87);
+}
+[md-checkbox-enabled].md-default-theme .md-indeterminate[disabled] ._md-container ,  .md-indeterminate[disabled] ._md-container {
+  color: rgba(0,0,0,0.38);
+}
+md-slider.md-default-theme.md-primary ._md-focus-ring , md-slider.md-primary ._md-focus-ring {
+  background-color: rgba(123,184,245,0.38);
+}
+md-slider.md-default-theme.md-primary ._md-track._md-track-fill , md-slider.md-primary ._md-track._md-track-fill {
+  background-color: rgb(246,140,33);
+}
+md-slider.md-default-theme.md-primary ._md-thumb:after , md-slider.md-primary ._md-thumb:after {
+  border-color: rgb(246,140,33);
+  background-color: rgb(246,140,33);
+}
+md-slider.md-default-theme.md-primary ._md-sign , md-slider.md-primary ._md-sign {
+  background-color: rgb(246,140,33);
+}
+md-slider.md-default-theme.md-primary ._md-sign:after , md-slider.md-primary ._md-sign:after {
+  border-top-color: rgb(246,140,33);
+}
+md-slider.md-default-theme.md-primary[md-vertical] ._md-sign:after , md-slider.md-primary[md-vertical] ._md-sign:after {
+  border-top-color: transparent;
+  border-left-color: rgb(246,140,33);
+}
+md-slider.md-default-theme.md-primary ._md-thumb-text , md-slider.md-primary ._md-thumb-text {
+  color: rgba(255,255,255,0.87);
+}
+md-slider.md-default-theme[disabled] ._md-thumb:after , md-slider[disabled] ._md-thumb:after {
+  border-color: transparent;
+}
+md-slider-container[disabled] > *:first-child:not(md-slider),md-slider-container[disabled] > *:last-child:not(md-slider) {
+  color: rgba(0,0,0,0.38);
+}
+.md-subheader.md-default-theme.md-primary , .md-subheader.md-primary {
+  color: rgb(246,140,33);
+}
+md-switch.md-default-theme.md-checked.md-primary .md-ink-ripple , md-switch.md-checked.md-primary .md-ink-ripple {
+  color: rgb(246,140,33);
+}
+md-switch.md-default-theme.md-checked.md-primary ._md-thumb , md-switch.md-checked.md-primary ._md-thumb {
+  background-color: rgb(246,140,33);
+}
+md-switch.md-default-theme.md-checked.md-primary ._md-bar , md-switch.md-checked.md-primary ._md-bar {
+  background-color: rgba(246,140,33,0.5);
+}
+md-switch.md-default-theme.md-checked.md-primary.md-focused ._md-thumb:before , md-switch.md-checked.md-primary.md-focused ._md-thumb:before {
+  background-color: rgba(246,140,33,1);
+}
+md-tabs.md-default-theme .md-paginator md-icon , md-tabs .md-paginator md-icon {
+  color: rgb(246,140,33);
+}
+md-tabs.md-default-theme .md-tab , md-tabs .md-tab {
+  color: rgba(0,0,0,0.54);
+}
+md-tabs.md-default-theme .md-tab[disabled], md-tabs .md-tab[disabled], md-tabs.md-default-theme .md-tab[disabled] md-icon , md-tabs .md-tab[disabled] md-icon {
+  color: rgba(0,0,0,0.38);
+}
+md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon , md-tabs .md-tab.md-focused md-icon {
+  color: rgb(246,140,33);
+}
+md-tabs.md-default-theme .md-tab.md-focused , md-tabs .md-tab.md-focused {
+  background: rgba(246,140,33,0.1);
+}
+md-tabs.md-default-theme.md-primary > md-tabs-wrapper , md-tabs.md-primary > md-tabs-wrapper {
+  background-color: rgb(246,140,33);
+}
+md-tabs.md-default-theme.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]) , md-tabs.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]) {
+  color: rgb(170,209,249);
+}
+md-tabs.md-default-theme.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active, md-tabs.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active, md-tabs.md-default-theme.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active md-icon, md-tabs.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active md-icon, md-tabs.md-default-theme.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused, md-tabs.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused, md-tabs.md-default-theme.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused md-icon , md-tabs.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused md-icon {
+  color: rgba(255,255,255,0.87);
+}
+md-tabs.md-default-theme.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused , md-tabs.md-primary > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused {
+  background: rgba(255,255,255,0.1);
+}
+md-toolbar > md-tabs.md-default-theme > md-tabs-wrapper , md-toolbar > md-tabs > md-tabs-wrapper {
+  background-color: rgb(246,140,33);
+}
+md-toolbar > md-tabs.md-default-theme > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]) , md-toolbar > md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]) {
+  color: rgb(170,209,249);
+}
+md-toolbar > md-tabs.md-default-theme > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active, md-toolbar > md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active, md-toolbar > md-tabs.md-default-theme > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active md-icon,  md-toolbar > md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active md-icon, md-toolbar > md-tabs.md-default-theme > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused,  md-toolbar > md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused, md-toolbar > md-tabs.md-default-theme > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused md-icon ,  md-toolbar > md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused md-icon {
+  color: rgba(255,255,255,0.87);
+}
+md-toolbar > md-tabs.md-default-theme > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused , md-toolbar > md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused {
+  background: rgba(255,255,255,0.1);
+}
+md-toast.md-default-theme .md-toast-content .md-button.md-highlight.md-primary , md-toast .md-toast-content .md-button.md-highlight.md-primary {
+  color: rgb(68,138,255);
+}
+md-toolbar.md-default-theme:not(.md-menu-toolbar) , md-toolbar:not(.md-menu-toolbar) {
+  background-color: #0e2144;
+  color: #ff8c04;
+
+}
+md-toolbar.md-default-theme:not(.md-menu-toolbar) md-icon , md-toolbar:not(.md-menu-toolbar) md-icon {
+  color: rgba(255,255,255,0.87);
+  fill: rgba(255,255,255,0.87);
+}
+md-toolbar.md-default-theme:not(.md-menu-toolbar) .md-button[disabled] md-icon , md-toolbar:not(.md-menu-toolbar) .md-button[disabled] md-icon {
+  color: rgba(255,255,255,0.26);
+  fill: rgba(255,255,255,0.26);
+}
+md-radio-button.md-default-theme .md-on, md-radio-button .md-on{
+      background: #ff8c04 url("../img/check.png");
+      background-repeat: no-repeat;
+      background-size: 17px 17px;
+      background-position: 1px 2px;
+    
+}
+md-radio-button.md-checked .md-on{
+  transform: scale(1);
+}
+
+md-switch.md-default-theme.md-checked.md-primary .md-thumb, md-switch.md-checked.md-primary .md-thumb,
+md-progress-linear.md-default-theme .md-bar, md-progress-linear .md-bar,
+md-radio-button.md-default-theme.md-checked ._md-off, md-radio-button.md-checked ._md-off{
+    background-color:#ff8c04;
+}
+md-switch.md-default-theme.md-checked.md-primary .md-bar, md-switch.md-checked.md-primary .md-bar,
+md-progress-linear .md-container,
+md-radio-button .md-off{
+    box-shadow: 1px 2px rgba(128, 128, 128, 0.53); 
+}
+
+md-radio-button.md-default-theme.md-checked .md-off, md-radio-button.md-checked .md-off,
+md-radio-button.md-default-theme .md-off, md-radio-button .md-off {
+    border-color: #ff8c04;
+}
+
+md-progress-linear .md-container{
+    height: 10px;
+    border-radius: 5px;
+}
+
+md-switch.md-default-theme.md-checked.md-primary .md-bar, md-switch.md-checked.md-primary .md-bar{
+  background-color:#faa819;
+}
+md-progress-linear.md-default-theme .md-container, md-progress-linear .md-container{
+  background-color:white;
+}
+md-progress-linear .md-container .md-bar{
+  height:10px;
+}
+.signup-container {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.pale-blue{
+  color:#f71859e;
+}
+.white{
+  color:#fff;
+}
+.dark-blue{
+  color:#0e2144
+}
+.center-align {
+  text-align: center !important;
+  cursor: pointer;
+}
+
+.item, ion-item, ion-item a, .input-label, .item-input input, .bar-positive {
+  background-color:#0e2144 !important;
+  padding-right: 5px;
+  color: white;
+}
+
+
+.item-input{
+  padding-left:9px;
+}
+
+.item-input input{
+  background-color: white !important;
+  color:black;
+  padding-left: 2px;
+}
+
+.login-container{
+  background: url("../img/MomBabyWhite_Transparent.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  width: 100%;
+  height: 100%;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color:#83d1e2;
+}
+
+.text24{
+  font-size: 24px;
+}
+
+.text18{
+  font-size:18px;
+}
+
+.text16{
+  font-size:16px;
+}
+
+.text14{
+  font-size:14px;
+}
+
+.text13{
+  font-size:13px;
+}
+
+.md-toolbar-tools{
+  height:70px;
+  min-height:70px;
+}
+
+.md-button{
+  height:40px;
+  padding:0 16px;
+  border-radius:6px;
+}
+.survey-btn .md-button{
+  padding:0 8px;
+}
+
+label,input,textarea{
+  font-size:16px !important;
+}
+.item-select{
+  height:49px;
+}
+.item-select select {
+  padding: 0 30px 0 18px;
+  background: none;
+  color: white;
+}
+.md-label{
+  font-size:16px;
+}
+
+.container, .view-container{
+  overflow:scroll;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#83d1e2+0,2c8190+100 */
+background: #83d1e2; /* Old browsers */
+background: -moz-linear-gradient(top,  #83d1e2 0%, #2c8190 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #83d1e2 0%,#2c8190 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #83d1e2 0%,#2c8190 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#83d1e2', endColorstr='#2c8190',GradientType=0 ); /* IE6-9 */
+
+  height:100%;
+  width:100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*customize radio button vertical layout*/
+.vertical-radio-parent{
+  height:80px;
+  padding: 0 3px 0 0;
+}
+.md-radio-button-vertical{
+  width:90px;
+}
+
+.md-radio-button-vertical .md-label {
+    margin-left: 0px;
+    margin-top: 65%;
+    padding-right: 1px;
+    padding-left: 1px;
+    text-align: center;
+    overflow: hidden;
+    width: 88px;
+}
+.md-radio-button-vertical .md-container{
+    height:30px;
+    left: 36%;
+    top:40%;
+}
+.forgot-password {
+  text-align: center !important;
+}
+
+.forgot-password a {
+  color: white;
+}
+.orange {
+  color: #faa819;
+  text-align: center;
+}
+
+.white {
+  color: white;
+  text-align: center;
+}
+
+.button-energized {
+  background-color: #faa819 !important;
+}
+.button-positive {
+  border: 3px solid white !important;
+}
+.list{
+  margin-bottom: 0px !important;
+}
+ion-content {
+  overflow:scroll;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#83d1e2+0,2c8190+100 */
+background: #83d1e2; /* Old browsers */
+background: -moz-linear-gradient(top,  #83d1e2 0%, #2c8190 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #83d1e2 0%,#2c8190 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #83d1e2 0%,#2c8190 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#83d1e2', endColorstr='#2c8190',GradientType=0 ); /* IE6-9 */
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.dilaog-content{
+  padding-top:0px;
+}
+
+.dialog-header{
+  background-color:#0E2144;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.dialog-border{
+  border: 2px solid #0E2144;
+}
+
+.grey-button{
+    background-color: rgba(128, 128, 128, 0.29) !important;
+    border: 1px solid rgba(128, 128, 128, 0.5) !important;
+}
+
+.md-dialog-content-body {
+  padding:10px;
+}
+
+md-input-container{
+  margin:5px 0;
+
+}
+.text22{
+  font-size: 22px;
+}
+.text20{
+  font-size: 20px;
+}
+.has-header {
+    top: 70px;
+}
+
+.didyouknow {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  border: 1px solid #335773;
+  border-radius: 6px;
+  color: #162c54;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+.didyouknow > md-icon {
+  font-size: 30px !important;
+  margin-top: 3px;
+  margin-bottom: 12px;
+}
+.didyouknow > p {
+  margin-left: 10px;
+}
+.innerdidyouknow {
+  color: #ff8c04;
+  font-size: 24px !important;
+  font-weight: 500;
+}
+md-dialog{
+  max-width: 90%;
+}
+md-dialog input{
+  border:0px;
+}
+.FL{float:left;}
+.FR{float:right;}
+
+
+.MT10{margin-top:10px;}
+.MT20{margin-top:20px;}
+.MT8{margin-top:8px;}
+.MT30{margin-top:30px;}
+.MT44{margin-top:44px;}
+
+.MB10{margin-bottom:10px;}
+
+.ML5{margin-left:5px;}
+
+.Width100P{width:100%;}
+.Width250{width:250px !important;}
+.Width450{width:300px !important;}
+.Height190{height:190px;}
+.Height100P{height:100%;}
+
+.PT10{padding-top:10px;}
+.PT44{padding-top:44px;}
+.PT100{padding-top:100px;}
+.PB20{padding-bottom:20px;}
+
+.health-care-main-content{margin:10px;}
+
+.Scroll-Y{
+  overflow-y:scroll;
+}
+ion-list ion-item.active{
+  background-color: rgb(246,140,33) !important;
+}
+
+.ionic-side-menu{
+  top:85px;
+}
+
+.toggle-btn{
+  background-color:white !important;
+  padding-right:40px;
+  border:0px;
+}
+.transparent-input{
+  background-color:white !important;
+  color:black;
+  border:1px solid #C0C0C0 !important;
+}
+
+@media (min-width: 767px) {
+  .menu-content {
+    -webkit-transform: translate3d(270px, 0px, 0px) !important;
+    width: calc(100% - 270px) !important;
+  }
+
+  .bar-header button.ion-navicon {
+     display: none;
+  }
+
+  .Width450{width:450px !important;}
+}
+
+.fadea.ng-hide {
+  opacity: 0;
+}
+
+.fadea.ng-hide-remove,
+.fadea.ng-hide-add {
+  display: inline-block !important;
+}
+
+.fadea.ng-hide-remove {
+  transition: all ease 800ms;
+}
+
+.fadea.ng-hide-add {
+  transition: all ease 200ms;
+}
+
+.padding-special {
+  padding-right: 80px;
+}
+
+.background-white {
+  background: none !important;
+  background-color: white !important;
+}
+
+ion-popover-vew {
+      top: 47px !important;
+    left: 106px !important;
+}
+.popover {
+  width: 300px !important;
+  height:auto !important;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.row.extra-height {
+    background-color: white;
+}
+/*
+.iOS-status-bar{
+  margin-top:20px;
+}*/
+.text13{
+  font-size:13px;
+}
+.MT-15{margin-top:-15px;}
+.ML45{margin-left:45px;}
+.text-red{
+  color:red;
+}
+
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+md-dialog{
+    width: 90%;
+}
+
+.handle-decoration span{
+  text-decoration: underline;
+  margin: 0px;
+}
+.handle-decoration b{
+  margin:0px;
+}
+
+form[name="signupForm"].ng-submitted .ng-invalid
+{
+    border:1px solid #f00 !important;
+    box-shadow: 0 0 5px #f00 !important;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  { 
+  md-dialog{
+    width: 70%;
+  }
+  .md-radio-button-vertical{
+    width:140px;
+  }
+  .md-radio-button-vertical .md-container{
+    left:38%;
+  }
+  .md-radio-button-vertical .md-label{
+    margin-top: 40%;
+    width:130px;
+  }
+}
+

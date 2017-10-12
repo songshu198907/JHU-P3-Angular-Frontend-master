@@ -1,0 +1,148 @@
+<md-dialog class="md-transition-in dialog-border">
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text24 white" layout-margin="">{{updateFormData.submitText}} Video</div>
+    </div>
+
+<md-dialog-content >
+  <div class="md-dialog-content-body">
+  <form name="updateForm" ng-submit="videoSubmit(updateForm)">
+    <div layout="row">
+      <div layout="column" flex="45">
+       
+        
+         <md-input-container >
+         <input name="Title" placeholder="Title*" ng-model="updateFormData.title" ng-required="true">
+          <div ng-messages="updateForm.Title.$error" ng-show="updateForm.Title.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+   <!--        <div class="text-red" ng-show="updateForm.Title.$viewValue==''">
+          This is required!
+          </div> -->
+        </md-input-container>
+        
+        <!-- <md-input-container style="margin-top:0px;">
+           <md-select name="Topic" placeholder="Select Topic*" ng-model="updateFormData.selected_topic" style="min-width: 100px;" ng-required="true">
+            <md-option ng-value="topic" ng-repeat="topic in updateFormData.topics" ng-selected="topic.id==updateFormData.topic_id">{{topic.name}}</md-option>
+          </md-select>
+          <div ng-messages="updateForm.Topic.$error" ng-show="updateForm.Topic.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+   
+        </md-input-container> -->
+
+        <md-input-container>
+          <input type="file" placeholder="*" name="VideoFile" ng-model="VideoFile" ngf-multiple="false" file  accept="audio/*,video/*,video/mp4" ng-required="updateFormData.submitText=='Create'" valid-file/><!-- ngf-accept="'video/*"" -->
+          <!-- <div ng-messages="updateForm.VideoFile.$error" ng-show="updateForm.VideoFile.$touched">
+            <div ng-message="required">This is required!</div>
+          </div> -->
+          
+        </md-input-container>
+        <div layout="row" class="text-red text13" ng-if="updateFormData.triedSubmit && updateForm.VideoFile.$error.validFile">File Required</div>
+
+        <md-input-container ng-show="updateFormData.submitText=='Update'">
+          <input name="VideoUrl" ng-disabled="true" placeholder="Video Url" ng-model="updateFormData.video_url" >
+        </md-input-container>
+
+        <md-input-container>
+          <input name="Description" placeholder="Description" ng-model="updateFormData.desc" >
+          <!-- <div ng-messages="updateForm.FirstName.$error" ng-show="updateForm.FirstName.$touched">
+            <div ng-message="required">This is required!</div>
+          </div> -->
+          <!-- <div class="text-red" ng-show="updateForm.Description.$viewValue==''">
+          This is required!
+          </div> -->
+        </md-input-container>
+
+        <md-input-container>
+          <input name="Length" placeholder="Length" ng-model="updateFormData.length">
+          <!-- <div ng-messages="updateForm.LastName.$error" ng-show="updateForm.LastName.$touched">
+            <div ng-message="required">This is required!</div>
+          </div> -->
+          <!-- <div class="text-red" ng-show="updateForm.Length.$viewValue==''">
+          This is required!
+          </div> -->
+        </md-input-container>
+      
+      </div>
+      <div flex="fill"></div>
+      <div layout="column" flex="45">
+        
+        <md-input-container>
+          <input  name="Keyword" placeholder="Keyword" ng-model="updateFormData.keywords">
+          <!-- <div ng-messages="updateForm.Email.$error" ng-show="updateForm.Email.$touched">
+            <div ng-message="required">This is required!</div>
+            <div ng-message="pattern">Invalid Email</div>
+          </div> -->
+        </md-input-container>
+
+        <md-input-container>
+           
+           <md-select name="SourceVersion"  placeholder="Source Version" ng-model="updateFormData.selected_source_version" style="min-width: 200px;max-width:500px;" class="ng-valid" >
+            <md-option ng-value="'A'" ng-selected="updateFormData.source_version=='A'">A</md-option>
+            <md-option ng-value="'B'" ng-selected="updateFormData.source_version=='B'">B</md-option>
+           </md-select>
+          <!-- <div ng-messages="updateForm.HomePhone.$error" ng-show="updateForm.HomePhone.$touched">
+            <div ng-message="pattern">Invalid phone number</div>
+            <div ng-message="required">At least one phone number is required</div>
+          </div> -->
+        </md-input-container>
+
+        <md-input-container>
+         <input type="number" name="TargetNumber" placeholder="Target Number" ng-model="updateFormData.target_number">
+          
+        </md-input-container>
+          
+        <md-input-container style="margin-top:0px;">
+        
+          <md-select name="QuestionGroup"  placeholder="Question Group" ng-model="updateFormData.selected_question_group" style="min-width: 200px;max-width:500px;" class="ng-valid" >
+            <md-option ng-value="'maternal'" ng-selected="updateFormData.question_group=='maternal'">maternal</md-option>
+            <md-option ng-value="'pediatric'" ng-selected="updateFormData.question_group=='pediatric'">pediatric</md-option>
+            <md-option ng-value="'both'" ng-selected="updateFormData.question_group=='both'">both</md-option>
+          </md-select>
+          <!-- <div class="text-red" ng-messages="updateForm.QuestionGroup.$error" ng-show="updateForm.QuestionGroup.$touched">
+              <div ng-message="required">This is required!</div>
+          </div> -->
+          <!-- <div class="text-red" ng-show="updateForm.QuestionGroup.$viewValue==''">
+            This is required!
+            </div> -->
+        </md-input-container>
+
+        <md-input-container>
+            <input type="number" placeholder="Sort Order" name="SortOrder*" ng-model="updateFormData.sort_order" >
+            <!-- <div class="text-red" ng-show="updateForm.SortOrder.$viewValue==''">
+            This is required!
+            </div> -->
+        </md-input-container>
+        
+         
+
+      </div>
+    </div>
+    
+      <div class="row black-border"></div>
+      <div class="row">
+        <div class="server-error-msg" flex="80">{{updateFormData.message}}</div>
+        <div class="md-caption" flex="20">*mandatory fields</div>
+      </div>
+      
+      <div layout="row" layout-align="center center">
+        
+        <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+        
+        
+          <md-button type="button" style="margin:0 19px" ng-show="updateFormData.submitText=='Update'" class="md-raised red-button text16 " ng-click="deleteVideo()">Delete</md-button>
+       
+        
+        
+        <div ng-show="updateFormData.submitText=='Create'" style="width:19px"></div>
+        <md-button class="md-raised md-primary text16" type="submit" ng-click="
+            updateFormData.triedSubmit=true;">{{updateFormData.submitText}}</md-button>
+          
+      </div>
+    </form>
+
+  </div>
+
+</md-dialog-content>
+</md-dialog>

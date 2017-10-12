@@ -1,0 +1,190 @@
+<md-dialog class="md-transition-in dialog-border">
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text24 white" layout-margin="">{{updateFormData.submitText}} Patient</div>
+    </div>
+
+<md-dialog-content >
+  <div class="md-dialog-content-body">
+  <form name="updateForm" ><!-- ng-submit="profileUpdate(updateForm.$valid)" -->
+    
+    <div layout="row">
+      <div layout="column" flex="45">
+       <div class="grey-paint">&nbsp;</div>
+        <div ng-show="updateFormData.showClinic">
+         <md-input-container >
+         <input name="ClinicianCode"  placeholder="Clinic Code*" ng-model="updateFormData.clinician_code_id" ng-required="true">
+          <div ng-messages="updateForm.ClinicianCode.$error" ng-show="updateForm.ClinicianCode.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+        </div>
+        <md-input-container>
+          <input name="FirstName" placeholder="First Name*" ng-model="updateFormData.first_name" ng-required="true">
+          <div ng-messages="updateForm.FirstName.$error" ng-show="updateForm.FirstName.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+          <input name="LastName" placeholder="Last Name*" ng-model="updateFormData.last_name" ng-required="true">
+          <div ng-messages="updateForm.LastName.$error" ng-show="updateForm.LastName.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+          <input type="email" name="Email" placeholder="Email*" ng-model="updateFormData.email" ng-pattern="/^.+@.+\..+$/" ng-required="true">
+          <div ng-messages="updateForm.Email.$error" ng-show="updateForm.Email.$touched">
+            <div ng-message="required">This is required!</div>
+            <div ng-message="pattern">Invalid Email</div>
+          </div>
+        </md-input-container>
+
+        <!-- <md-input-container>
+           <input type="password" name="Password" placeholder="Password" ng-model="updateFormData.password" >
+         
+        </md-input-container>
+
+        <md-input-container>
+          <input type="password" name="ConfirmPassword" placeholder="Confirm Password" ng-model="updateFormData.password_confirmation" compare-to="updateFormData.password">
+          <div ng-messages="updateForm.confirmPassword.$error" ng-show="updateForm.confirmPassword.$touched">
+            
+            <div ng-message="compareTo">Must match password</div>
+          </div>
+        </md-input-container> -->
+        <md-input-container style="margin-top:0px;">
+           <md-select placeholder="select race" ng-model="updateFormData.race_id" style="min-width: 200px;">
+            <md-option ng-value="race.id" ng-selected="race.id==updateFormData.race_id" ng-repeat="race in updateFormData.racelist track by race.id">{{race.name}}</md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container style="margin-top:0px;">
+            <md-select placeholder="select education" ng-model="updateFormData.education_id" style="min-width: 200px;">
+            <md-option ng-value="education.id" ng-selected="education.id==updateFormData.education_id" ng-repeat="education in updateFormData.educationlist track by education.id">{{education.name}}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <!-- <md-datepicker type="date" md-placeholder="Expected Delivery Date*" name="ExpDOB" ng-show="updateFormData.patient_type!=2" ng-model="updateFormData.expected_child_birth" ng-required="showCalendars"></md-datepicker>
+        <div class="text-red" ng-show="updateForm.ExpDOB.$touched" ng-messages="updateForm.ExpDOB.$error">
+          <div ng-message="valid">The entered value is not a date!</div>
+          <div ng-message="required">This date is required!</div>
+        </div>
+
+        <div style="margin-top:20px"></div>
+        <md-datepicker type="date" md-placeholder="Actual Delivery Date" name="ActDOB" ng-show="updateFormData.patient_type!=2" ng-model="updateFormData.actual_child_birth"></md-datepicker>
+        <div class="text-red" ng-show="updateForm.ActDOB.$touched" ng-messages="updateForm.ActDOB.$error">
+          <div ng-message="valid">The entered value is not a date!</div>
+        </div> -->
+      </div>
+      <div flex="fill"></div>
+      <div layout="column" flex="45">
+        <div class="dark-blue text16">(At least 1 phone number is required)</div>
+         
+        <md-input-container>
+          <input name="CellPhone" ng-model="updateFormData.cell_phone" placeholder="Cell Phone*" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(updateFormData.home_phone.length)">
+          <div ng-messages="updateForm.CellPhone.$error" ng-show="updateForm.CellPhone.$touched">
+            <div ng-message="pattern">Invalid cell number</div>
+            <div ng-message="required">At least one phone number is required</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+           <input name="HomePhone" placeholder="Home Phone*" ng-model="updateFormData.home_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(updateFormData.cell_phone.length)">
+          <div ng-messages="updateForm.HomePhone.$error" ng-show="updateForm.HomePhone.$touched">
+            <div ng-message="pattern">Invalid phone number</div>
+            <div ng-message="required">At least one phone number is required</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+         <input name="City" placeholder="City" ng-model="updateFormData.city">
+        </md-input-container>
+          <md-input-container style="margin-top:-3px;">
+            <label class="match-input-font">State</label>
+            <md-select ng-model="updateFormData.state">
+              <md-option ng-value="state.value" ng-repeat="state in updateFormData.states">{{ state.display }}</md-option>
+            </md-select>
+          </md-input-container>
+
+        <md-input-container>
+          <input name="Address" placeholder="Address" ng-model="updateFormData.address">
+        </md-input-container>
+
+        <md-input-container>
+            <input type="number" placeholder="Zip Code" name="PostalCode" ng-model="updateFormData.postal_code">
+        </md-input-container>
+        
+         
+
+      </div>
+    </div>
+    <div style="margin-top:40px;" layout="row">
+      <div layout="column" flex="40">
+        <h3>Additional Contact</h3>
+      </div>
+      <div layout="column" flex="60">
+        <h5>Preferably someone not living in the same household</h5>
+      </div>
+    </div>
+    <div class="row black-border"></div>
+    
+    <div layout="row">
+      <div layout="column" flex="45">
+        <md-input-container>
+           <input name="ContactName" placeholder="Contact Name" ng-model="updateFormData.contact_name">
+        </md-input-container>
+        <md-input-container>
+           <input name="ContactEmail" type="email" placeholder="Email" ng-model="updateFormData.contact_email" ng-pattern="/^.+@.+\..+$/">
+          <div ng-messages="updateForm.ContactEmail.$error">
+              <div ng-message="pattern">Invalid email</div>
+          </div>
+        </md-input-container>
+
+      </div>
+      <div flex="fill"></div>
+      <div layout="column" flex="45">
+        
+          <md-input-container>
+             <input name="ContactCellPhone" placeholder="Cell Phone" ng-model="updateFormData.contact_cell_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/">
+            <div ng-messages="updateForm.ContactCellPhone.$error">
+              <div ng-message="pattern">Invalid cell number</div>
+            </div>
+          </md-input-container>
+        
+          <md-input-container>
+             <input name="ContactHomePhone" placeholder="Home Phone" ng-model="updateFormData.contact_home_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/">
+            <div ng-messages="updateForm.ContactHomePhone.$error">
+              <div ng-message="pattern">Invalid home number</div>
+            </div>
+          </md-input-container>
+        
+      </div>
+      </div>
+      <div class="row black-border"></div>
+      <div class="row">
+        <div class="server-error-msg" flex="80">{{updateFormData.message}}</div>
+        <div class="md-caption" flex="20">*mandatory fields</div>
+      </div>
+      
+      <div layout="row" layout-align="center center">
+        
+        <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+        
+        <div style="width:19px"></div>
+          <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="patientsSubmit(updateForm.$valid)">{{updateFormData.submitText}}</md-button>
+        
+      </div>
+      <div style="height:20px"></div>
+      <div layout="row" layout-align="center center" ng-show="updateFormData.deletePatient">
+      
+          <md-button type="button" class="md-raised md-warn text16 " ng-click="deactivate()">Terminate Account</md-button>
+      
+      </div>
+      
+    
+    </form>
+
+  </div>
+
+</md-dialog-content>
+</md-dialog>

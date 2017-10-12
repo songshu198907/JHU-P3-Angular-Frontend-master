@@ -1,0 +1,115 @@
+
+<md-dialog class="md-transition-in dialog-border" style="margin:20% auto;">
+  	
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text20 white" layout-margin >Invite Friends and Family to Participate</div>
+    </div>
+	<md-dialog-content>
+
+	<div class="md-dialog-content-body" id="inviteContactContentBdy" style="height:600px;">
+		<div id="inviteScrollcontainer" style="height:600px;">
+		<ion-content style="top:55px !important;background:white;">
+
+		
+			<div layout="column" layout-align="center center" flex="100">
+			
+				
+				
+				<div layout="row" class="text16 MT20" style="width:320px;">Provide us with up to 5 friends and family members who will receive an email asking them to sign in and also take a survey</div>
+				
+
+				<div layout="column" layout-margin style="margin-bottom:10px;width: 100%;">
+				    <div  layout="row" style="height:30px;">
+					    <div flex="40" class="contactname text16">Contact Name</div>
+					    <div flex="20"></div>
+					    <div flex="40" class="accepted text16">Accepted</div>
+				    </div>
+				    
+			      	<div layout="row" ng-repeat="contact in contactList" style="height:30px;">
+			      	
+				         <div flex="40">{{ contact.first_name+" "+contact.last_name }}</div>
+				         <div flex="40"></div> 				        
+				         <md-icon flex="20" md-svg-icon="{{contact.consent_accepted_on ?'check':''}}"></md-icon>
+
+			    	
+			      	</div>
+			    	<md-divider layout="row"></md-divider>      	
+			    </div>
+			    
+			    <div layout="row" ng-show="canAddContacts">
+				<form name="inviteForm" flex="100">
+
+
+			  	<div layout="column" >
+
+				    
+				    <label class="item item-input">
+				      	<span class="input-label">First Name*</span>
+				        <input tabindex="1" name="FirstName" type="text" ng-model="inviteData.first_name" ng-required="true">
+				        <div ng-messages="inviteForm.FirstName.$error" ng-show="inviteForm.FirstName.$touched">
+				          <!-- <div ng-message="required">This is required!</div> -->
+				        </div>
+				    </label>
+
+				      <label class="item item-input">
+				      	<span class="input-label">Last Name*</span>
+				        <input tabindex="2" name="LastName" type="text" ng-model="inviteData.last_name" ng-required="true" >
+				        <div ng-messages="inviteForm.LastName.$error" ng-show="inviteForm.LastName.$touched">
+				          <!-- <div ng-message="required">This is required!</div> -->
+				        </div>
+				      </label>
+
+				      <label class="item item-input">
+				      	<span class="input-label">Email*</span>
+				        <input tabindex="3" type="email" name="Email" ng-model="inviteData.email" ng-pattern="/^.+@.+\..+$/" ng-required="true">
+				        <div ng-messages="inviteForm.Email.$error" ng-show="inviteForm.Email.$touched">
+				          <!-- <div ng-message="required">This is required!</div>
+				          <div ng-message="pattern">Invalid Email</div> -->
+				        </div>
+				      </label>
+				    
+				      <label class="item item-input">
+				      	<span class="input-label">Cell Phone*</span>
+				        <input tabindex="3" name="CellPhone" type="number" placeholder="At least 1 phone # is required" ng-model="inviteData.cell_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(inviteData.home_phone.length)">
+				        <div ng-messages="inviteForm.CellPhone.$error" ng-show="inviteForm.CellPhone.$touched">
+				          <div ng-message="pattern">Invalid cell number</div>
+				          <div ng-message="required"></div>
+				        </div>
+				      </label>
+
+				      <label class="item item-input">
+				      	<span class="input-label">Home Phone*</span>
+				         <input tabindex="4" name="HomePhone" type="number" placeholder="At least 1 phone # is required" ng-model="inviteData.home_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(inviteData.cell_phone.length)">
+				        <div ng-messages="inviteForm.HomePhone.$error" ng-show="inviteForm.HomePhone.$touched">
+				          <div ng-message="pattern">Invalid phone number</div>
+				          <div ng-message="required"></div>
+				        </div>
+				      </label>
+					<label class="item item-input item-select">
+				        <span class="match-input-font">Relationship</span>
+				        <select tabindex="5" ng-model="inviteData.parent_relationship_type">
+				          <option ng-value="relationship.value" ng-repeat="relationship in relationships">{{ relationship.label }}</option>
+				        </select>
+				     </label>
+				    
+				</div>
+			    <div layout="row">
+
+			      	<div class="server-error-msg text16" flex="60" style="margin-top:10px;">{{inviteData.message}}</div>
+				    <div flex="fill"></div>
+				    <md-button class="md-raised md-primary text16" type="submit" ng-click="doInvite(inviteForm.$valid)">Add</md-button>
+		    	</div>
+			</form>
+			</div>
+			<md-dialog-actions class="PT44" layout-align="center center">
+	          <md-button class="md-raised md-primary" ng-click="closeDialog()">OK</md-button>
+	          
+	        </md-dialog-actions>
+		</div>
+		
+	    </ion-content>  
+	    </div>  
+	</div>       
+	
+	</md-dialog-content>
+</md-dialog>

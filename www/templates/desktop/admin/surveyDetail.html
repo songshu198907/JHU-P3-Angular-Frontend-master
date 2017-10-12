@@ -1,0 +1,139 @@
+<div class="nav-view-content admin" >
+  <md-toolbar ngcloak>
+    <div class="md-toolbar-tools">
+
+    <md-button ng-click="goBackToAdmin($event)">
+      <md-icon class="md-secondary"  md-svg-icon="chevron-left"></md-icon>
+        Back
+      </md-button>
+    <div layout="row" flex="fill">
+      <div flex="fill"></div>
+      <div class="logoss" layout="column" layout-align="center center">
+        <img src="img/cu.png" height="70">
+      </div>
+      <div class="logoss" layout="column" layout-align="center center">
+        <img src="img/bloomberg.png" height="70">
+      </div>
+      <div class="logoss" layout="column" layout-align="center center">
+        <img src="img/eu.png" height="70">
+      </div>
+      <div flex="fill"></div>
+    </div>
+
+      <!-- fill up the space between left and right area -->
+      <md-menu md-offset="0 40" ng-model="menu">
+        <md-button aria-label="Open User Menu" ng-click="openMenu($mdOpenMenu, $event)">
+          {{displayName}}<md-icon md-svg-icon="chevron{{menuOpened?'-up':'-down'}}" ></md-icon>
+        </md-button>
+        <md-menu-content >
+          <md-menu-item>
+            <md-button ng-click="logout()">
+              <md-icon md-svg-icon="logout"></md-icon>
+              Sign Out
+            </md-button>
+          </md-menu-item>
+
+        </md-menu-content>
+      </md-menu>
+
+    </div>
+  </md-toolbar>
+  <div layout="row" class="survey-details" >
+    <div layout="row" flex="100" >
+      <div layout="row" flex="100" ng-hide="surveyEditMode">
+        <div layout="row" flex="100" class="text16">
+            <div layout="column" flex="40" >
+              <div>Name: {{ patientSurveyFormData.survey.name }}</div>
+              <div>Type: {{ patientSurveyFormData.survey.survey_type }}</div>
+              <div>Patient Type: {{ patientSurveyFormData.survey.patient_type==0?'Control User':patientSurveyFormData.survey.patient_type==1?'Intervention':'Contact of Intervention' }}</div>
+            </div>
+            
+            <div layout="column" flex="40">
+              <div>Total Questions: {{ patientSurveyFormData.survey.total_questions }}</div>
+              <div>Version Number: {{ patientSurveyFormData.survey.version }}</div>
+              <div>Is Active: {{ patientSurveyFormData.survey.is_active?'Y':'N' }}</div>
+            </div>
+            <div layout="column" flex="10" style="margin-top:-15px;">
+              <!-- <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button> -->
+       
+              
+              <md-button type="button" class="md-raised md-primary survey-details-small-btns" ng-click="editSurveyDetails()">
+                Edit
+              </md-button>
+              <md-button type="button" class="md-raised md-primary survey-details-small-btns" ng-click="copySurvey()">
+                Copy
+              </md-button>
+              <md-button type="button" ng-show="patientSurveyFormData.showDeleteBtn" class="md-raised md-primary survey-details-small-btns" ng-click="deleteSurvey()">
+                Delete
+              </md-button>
+              <md-button type="button" class="md-raised md-primary survey-details-small-btns" ng-click="exportSurvey()">
+                Export
+              </md-button>
+            </div>
+        </div>
+      </div>
+      
+    </div><!--end survey detail-->
+  </div>
+  <div class="row black-border"></div>
+  <div class="row">
+        
+        <h3 flex="50" style="margin-left:20px;">Survey Questions</h3>
+        <div flex="fill"></div>
+        <md-button class="md-icon-button" ng-show="patientSurveyFormData.showDeleteBtn" style="margin: 0px;padding: 0px;max-height: 20px;" aria-label="plus" ng-click="addQuestionToSurvey($event)">
+            <md-icon md-svg-icon="plus"></md-icon>
+        </md-button>
+        
+  </div>
+  <div layout="row" flex="100">
+    <div layout="column" class="accordion_container" >
+        <div class="accordion_tab" ng-repeat="question in patientSurveyFormData.questions" >
+            <div layout="row" class="accordion_tab-title" ng-click="openTab($event,question)">
+            <div layout="column" flex="90">{{question.sort_order}}- {{question.label}}</div>
+            <div layout="row" layout-align="end center" style="height:24px;">
+              <md-button class="md-icon-button" aria-label="edit" ng-click="editQuestion($event,question)">
+                  <md-icon md-svg-icon="pencil"></md-icon>
+              </md-button>
+               
+              <md-button class="md-icon-button" aria-label="delete" ng-show="patientSurveyFormData.showDeleteBtn" ng-click="deleteQuestion($event,question)">
+                  <md-icon md-svg-icon="delete"></md-icon>
+              </md-button>
+
+              <md-button class="md-icon-button" ng-show="patientSurveyFormData.showDeleteBtn" aria-label="add answer" ng-click="addQuestionsAnswer($event,question)">
+                  <md-icon md-svg-icon="plus"></md-icon>
+              </md-button>
+               
+              <!--  <md-button type="button" class="md-raised md-primary" ng-click="editQuestion(question)">Edit</md-button>
+              <md-button type="button" ng-show="patientSurveyFormData.showDeleteBtn" class="md-raised md-primary" ng-click="deleteQuestion(question)">Delete</md-button>
+              <md-button type="button" g-show="patientSurveyFormData.showDeleteBtn" class="md-raised md-primary" ng-click="addQuestionsAnswer(question)">Add Answer</md-button> -->
+             </div>
+            </div>
+             
+
+            <div class="accordion_tab-content" ng-show="question.show">
+            <div ng-show='question.busyLoadingAnswers'>Loading data...</div>
+            <div layout="row" ng-repeat="answer in patientSurveyFormData.answers[question.sort_order]" style="height:24px;">
+                <div layout="column" flex="90">{{answer.sort_order}}-{{answer.label}}</div>
+                <div layout="row" layout-align="end center">
+                
+                    
+
+                    <md-button class="md-icon-button" aria-label="edit" ng-click="editAnswer($event,answer,question)">
+                      <md-icon md-svg-icon="pencil"></md-icon>
+                    </md-button>
+                   <md-button ng-show="answer.skipCodes" class="md-icon-button" aria-label="forward" ng-click="openSkipView($event,answer)">
+                      <md-icon md-svg-icon="skip-forward"></md-icon>
+                    </md-button>
+                   <md-button class="md-icon-button" ng-show="patientSurveyFormData.showDeleteBtn" aria-label="delete" ng-click="deleteAnswer($event,answer,question)">
+                      <md-icon md-svg-icon="delete"></md-icon>
+                   </md-button>
+
+                  <!-- <md-button type="button" class="md-raised md-primary" ng-click="editAnswer(answer)">Edit</md-button>
+                  <md-button type="button" g-show="patientSurveyFormData.showDeleteBtn" class="md-raised md-primary" ng-click="deleteAnswer(answer)">Delete</md-button> -->
+                </div>
+              </div>
+            </div><!-- ng-show="isOpenTab(questeion.id)" -->
+        </div>
+    </div>
+  </div>
+</div>

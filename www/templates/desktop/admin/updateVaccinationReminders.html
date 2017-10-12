@@ -1,0 +1,48 @@
+<md-dialog aria-label="Edit Dialog" class="dialog-border">
+  <md-dialog-content ng-model="updateFormData" class="dilaog-content">
+    <div layout="row" layout-align="center center" class="dialog-header">
+      <h3 class="text-white">
+        {{updateFormData.type}}
+      </h3>
+    </div>
+    <form name="updateForm" ng-submit="editSubmit(updateForm.$valid)" ng-model="updateFormData" >
+      <div layout="row" >
+        <div layout="column" flex="75">
+          <div class="grey-paint">&nbsp;</div>
+          <md-input-container class="md-input-default">
+            <input name="MessageText" placeholder="Message Text*" ng-model="updateFormData.message_text" ng-required="true">
+            <div ng-messages="updateForm.MessageText.$error" ng-show="updateForm.MessageText.$touched">
+              <div ng-message="required">This is required!</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-input-default">
+            <input name="TriggerDaysFromDob" placeholder="Trigger Days From Date of Birth*" ng-model="updateFormData.trigger_days_from_dob" ng-required="true" >
+            <div ng-messages="updateForm.TriggerDaysFromDob.$error" ng-show="updateForm.TriggerDaysFromDob.$touched">
+              <div ng-message="required">This is required!</div>
+            </div>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="server-error-msg" flex="">{{updateFormData.message}}</div>
+        <div class="md-caption" flex=>*mandatory fields</div>
+      </div>
+      <div layout="row" layout-align="center center">
+        <md-dialog-actions>
+          
+          <div>
+            <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+          </div>
+          <div ng-show="updateFormData.deleteVaccinationReminder">
+            <md-button type="button" class="md-raised red-button" ng-click="vaccinationRemindersDelete()">Delete</md-button>
+          </div>
+          <div >
+            <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="vaccinationRemindersSubmit(updateForm.$valid)">
+              {{updateFormData.submitText}}
+            </md-button>
+          </div>
+        </md-dialog-actions>
+      </div>
+    </form>
+  </md-dialog-content>
+</md-dialog>

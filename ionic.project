@@ -1,0 +1,15 @@
+{
+  "name": "momstalkshots",
+  "app_id": "830a5d50",
+  "gulpStartupTasks": [
+    "templatecache",
+    "ng_annotate",
+    "useref",
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

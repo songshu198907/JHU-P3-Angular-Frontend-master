@@ -1,0 +1,99 @@
+
+<div class="nav-view-content">
+<md-toolbar ngcloak>
+  <div class="md-toolbar-tools">
+
+
+
+    <div layout="row" flex="fill" ng-controller="LogosCtrl as controller" ng-show="isNotSurveyTemplate">
+    <div flex="fill"></div>
+
+      <div class="logoss" layout="column" layout-align="center center">
+        <img src="img/cu.png" height="50">
+      </div>
+      <div class="logoss" layout="column" layout-align="center center">
+        <img src="img/bloomberg.png" height="130">
+      </div>
+      <div class="logoss" layout="column" layout-align="center center">
+        <img src="img/eu.png" height="65">
+      </div>
+      <div flex="fill"></div>
+    </div>
+
+    <!-- fill up the space between left and right area -->
+
+    <md-menu md-offset="0 40" ng-model="menu">
+      <md-button aria-label="Open User Menu" ng-click="openMenu($mdOpenMenu, $event)">
+
+        <!-- <md-icon ng-hide="profileNotUpdated || isHealthcareProvider" md-svg-icon="img/icons/exclamation.svg" style="fill:red;" aria-hidden="true" title="update profile"></md-icon> -->
+        {{displayName}}<md-icon md-svg-icon="chevron{{menuOpened?'-up':'-down'}}" ></md-icon>
+      </md-button>
+
+      <md-menu-content >
+       <!--  <md-menu-item>
+
+      <md-menu-content>
+        <md-menu-item>
+
+          <md-button ng-click="navigateToHome()">
+            <md-icon md-svg-icon="home" ></md-icon>
+            Home
+          </md-button>
+
+        </md-menu-item> -->
+
+        <md-menu-item ng-hide="isHealthcareProvider">
+          <md-button ng-click="updateProfile()">
+            <md-icon md-svg-icon="account-check" ></md-icon>
+            Update Profile {{enrollmentId?'('+enrollmentId+')':''}}
+            <div ng-hide="profileNotUpdated" class="text-red text13 MT-15 ML45">Please update your user profile</div>
+          </md-button>
+        </md-menu-item>
+        <md-menu-divider></md-menu-divider>
+        <md-menu-item ng-hide="isHealthcareProvider">
+          <md-button ng-click="toggleNotifications()">
+            <md-icon md-svg-icon="bell{{notificationsEnabled ? '-ring' : '-off'}}"></md-icon>
+            {{notificationsEnabled ? 'Disable' : 'Enable' }} Notification Settings
+          </md-button>
+        </md-menu-item >
+        <md-menu-divider ng-hide="isHealthcareProvider"></md-menu-divider>
+        <md-menu-item ng-if="hasContacts" ng-hide="isHealthcareProvider"><!--ng-if="hasContactUsers"-->
+          <md-button ng-click="InviteContacts()">
+            <md-icon md-svg-icon="account-multiple-plus"></md-icon>
+            Invite
+          </md-button>
+        </md-menu-item>
+        <md-menu-divider ng-if="hasContacts" ng-hide="isHealthcareProvider"></md-menu-divider>
+        <!-- <md-menu-item ng-if="isHealthcareProvider">
+          <md-button ng-click="healthcareContent()">
+            <md-icon md-svg-icon="account-check" ></md-icon>
+            HealthCare Provider Content
+          </md-button>
+        </md-menu-item>
+        <md-menu-divider ng-if="isHealthcareProvider"></md-menu-divider> -->
+        <!-- <md-menu-item >
+          <md-button ng-click="getCSV()">
+            <md-icon md-svg-icon="account-multiple-plus"></md-icon>
+            GetCSV
+          </md-button>
+        </md-menu-item> -->
+        <md-menu-item>
+          <md-button ng-click="logout()">
+            <md-icon md-svg-icon="logout"></md-icon>
+            Sign Out
+          </md-button>
+        </md-menu-item>
+
+      </md-menu-content>
+    </md-menu>
+
+  </div>
+</md-toolbar>
+<ui-view name="homeContent"  id="homeContent" class="flex-resolution home-fix" flex layout="column" ng-cloak>
+
+</ui-view>
+
+</div>
+<!-- <md-content ng-cloak>
+
+</md-content> -->

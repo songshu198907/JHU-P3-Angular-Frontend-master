@@ -1,0 +1,45 @@
+<md-dialog class="md-transition-in dialog-border" >
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text24 white" layout-margin >Notifications</div>
+    </div>
+    <md-dialog-content >
+    <div class="md-dialog-content-body">
+      
+        
+            <form name="notificationsForm" id="notificationForm" ng-cloak>
+                <div layout="column" layout-align="center center" style="width:800px">
+                <md-switch class="md-primary" ng-model="notificationsEnabled" ng-change="onNotificationChange()" ng-true-value="1" ng-false-value="0">
+                  {{notificationsEnabled ? 'on' : 'off'}}
+                </md-switch>
+                <div class="text18" style="width:80%">
+                    You will receive timely notifications with important information.
+                    We encourage you to allow us to send these to your cell phone,
+                    however, you can elect to turn these off.
+                </div>
+                </div>
+                <div ng-if="notificationsEnabled && cellNotificationsEnabled">
+                   
+                    <div class="text18" style="margin-top:20px;" layout="row" layout-align="center center">Please make sure that your cell number is provided</div>
+                    <div layout="row" layout-align="center center">    
+                        <md-input-container style="margin-top:35px;">
+                            <input name="cellPhone" ng-model="notificationData.cellPhone" placeholder="Cell Phone*" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="true" >
+                            <div ng-messages="notificationsForm.cellPhone.$error" ng-show="notificationsForm.cellPhone.$touched">
+                             <div ng-message="required">This is required!</div>
+                              <div ng-message="pattern">Invalid cell number</div>
+                              
+                            </div>
+                        </md-input-container>
+
+                    </div>
+                    <div layout="row" layout-align="center center" class="server-error-msg">{{notificationData.message}}</div>
+                    
+                </div>
+
+                <md-dialog-actions layout="row" layout-align="center center">
+                    <md-button type="button" class="md-raised md-primary" type="submit" ng-click="updateCellPhone(notificationsForm.$valid)">OK</md-button>
+                 </md-dialog-actions>
+            </form>
+            </div>
+</md-dialog-content>
+</md-dialog>

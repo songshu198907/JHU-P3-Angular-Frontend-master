@@ -1,0 +1,35 @@
+<ion-popover-view class="background-white">
+      
+
+        <md-menu-item ng-hide="isHealthcareProvider">
+          <md-button ng-click="popover.hide();updateProfile();">
+            <md-icon md-svg-icon="account-check" ></md-icon>
+            Update Profile {{enrollmentId?'('+enrollmentId+')':''}} 
+            <div ng-hide="profileNotUpdated" class="text-red text13 MT-15 ML45">Please update your user profile</div>
+          </md-button>
+        </md-menu-item>
+        <md-menu-divider></md-menu-divider>
+        <md-menu-item ng-hide="isHealthcareProvider">
+          <md-button ng-click="popover.hide();toggleNotifications();">
+            <md-icon md-svg-icon="bell{{notificationsEnabled ? '-ring' : '-off'}}"></md-icon>
+            {{notificationsEnabled ? 'Disable' : 'Enable' }} Notification Settings
+          </md-button>
+        </md-menu-item >
+        <md-menu-divider ng-hide="isHealthcareProvider"></md-menu-divider>
+        <md-menu-item ng-if="hasContacts" ng-hide="isHealthcareProvider">
+          <md-button ng-click="popover.hide();InviteContacts();">
+            <md-icon md-svg-icon="account-multiple-plus"></md-icon>
+            Invite
+          </md-button>
+        </md-menu-item>
+        <md-menu-divider ng-if="hasContacts" ng-hide="isHealthcareProvider"></md-menu-divider>
+        
+        <md-menu-item>
+          <md-button ng-click="logout();popover.hide();">
+            <md-icon md-svg-icon="logout"></md-icon>
+            Sign Out
+          </md-button>
+        </md-menu-item>
+
+
+</ion-popover-view>

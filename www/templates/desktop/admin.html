@@ -1,0 +1,739 @@
+<div class="height100P">
+  <div class="nav-view-content admin" >
+  <md-toolbar ngcloak>
+    <div class="md-toolbar-tools">
+
+
+
+
+      <div layout="row" flex="fill">
+      <div flex="fill"></div>
+
+        <div class="logoss" layout="column" layout-align="center center">
+          <img src="img/cu.png" height="70">
+        </div>
+        <div class="logoss" layout="column" layout-align="center center">
+          <img src="img/bloomberg.png" height="70">
+        </div>
+        <div class="logoss" layout="column" layout-align="center center">
+          <img src="img/eu.png" height="70">
+        </div>
+        <div flex="fill"></div>
+      </div>
+
+      <!-- fill up the space between left and right area -->
+
+      <md-menu md-offset="0 40" ng-model="menu">
+        <md-button aria-label="Open User Menu" ng-click="openMenu($mdOpenMenu, $event)">
+          {{displayName}}<md-icon md-svg-icon="chevron{{menuOpened?'-up':'-down'}}" ></md-icon>
+        </md-button>
+        <md-menu-content >
+          <md-menu-item>
+            <md-button ng-click="updateProfile()">
+              <md-icon md-svg-icon="account-check" ></md-icon>
+              Update Profile
+              
+            </md-button>
+          </md-menu-item>
+          <md-menu-divider></md-menu-divider>
+          <md-menu-item>
+            <md-button ng-click="logout()">
+              <md-icon md-svg-icon="logout"></md-icon>
+              Sign Out
+            </md-button>
+          </md-menu-item>
+
+        </md-menu-content>
+      </md-menu>
+
+    </div>
+  </md-toolbar>
+
+    <div layout="row" flex>
+      <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-disable-backdrop="" md-whiteframe="4">
+
+        <md-toolbar class="md-theme-indigo">
+          <h1 class="md-toolbar-tools text-white">Admin</h1>
+        </md-toolbar>
+        <md-content flex layout-padding="" style="overflow:hidden;">
+
+            <md-menu-content class="scroll-container" id="admin-menu-container">
+              <md-menu >
+                <md-menu-item>
+                  <md-button  ng-click="showClinicCodes()" ng-class="{'admin-menu-active': toShow == 'cliniccodes'}">
+                    <md-icon md-svg-icon="" md-menu-align-target=""></md-icon>
+                    Clinic Codes
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showClinicBlockRandomizer()" ng-class="{'admin-menu-active': toShow == 'clinicblockrandomizer'}" >
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Clinic Block Randomizer
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showRaces()" ng-class="{'admin-menu-active': toShow == 'races'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Race/Ethnicity
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showEducations()" ng-class="{'admin-menu-active': toShow == 'educations'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Educations
+                  </md-button>
+                </md-menu-item>
+                <!-- <md-menu-item>
+                  <md-button ng-click="showTopics()" ng-class="{'admin-menu-active': toShow == 'topics'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Topics
+                  </md-button>
+                </md-menu-item> -->
+                <!-- <md-menu-item>
+                  <md-button ng-click="showQuestionTypes()" ng-class="{'admin-menu-active': toShow == 'questiontypes'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                      Question Types
+                  </md-button>
+                </md-menu-item> -->
+                <md-menu-item>
+                  <md-button ng-click="showQuestionCodes()" ng-class="{'admin-menu-active': toShow == 'questioncodes'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Question Codes
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showQuestionCategories()" ng-class="{'admin-menu-active': toShow == 'questioncategories'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Question Categories
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showVaccinationReminders()" ng-class="{'admin-menu-active': toShow == 'vaccinationreminders'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Vaccination Reminders
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showHealthCareContent()" ng-class="{'admin-menu-active': toShow == 'healthcarecontent'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Health Care Content
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showVideos()" ng-class="{'admin-menu-active': toShow == 'Videos'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Videos
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showHealthCareUser()" ng-class="{'admin-menu-active': toShow == 'healthcareuser'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Health Care User
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showPatients()" ng-class="{'admin-menu-active': toShow == 'patients'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Patients
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="editSettings()" ng-class="{'admin-menu-active': toShow == 'settings'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Settings
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showPatientSurveyData()" ng-class="{'admin-menu-active': toShow == 'patientsurveydata'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Patient Survey Data
+                  </md-button>
+                </md-menu-item>
+
+                <md-menu-item>
+                  <md-button ng-click="showSurveyTemplateExport()" ng-class="{'admin-menu-active': toShow == 'exportsurveytemplate'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Survey Template Export
+                  </md-button>
+                </md-menu-item>
+
+                 <md-menu-item>
+                  <md-button ng-click="showVideoAuditExport()" ng-class="{'admin-menu-active': toShow == 'videoauditexport'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    Video Audit Export
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="showUserAuditExport()" ng-class="{'admin-menu-active': toShow == 'userauditexport'}">
+                    <md-icon md-svg-icon="house"></md-icon>
+                    User Audit Export
+
+                  </md-button>
+
+                </md-menu-item>
+                <md-menu-item>
+                </md-menu-item>
+              </md-menu>
+
+            </md-menu-content>
+
+        </md-content>
+
+      </md-sidenav>
+
+      <md-content flex layout-padding="" style="position:relative;overflow:hidden;">
+
+        <div layout="column" layout-fill="" layout-align="top left" >
+            <div ng-show="toShow=='cliniccodes'" class="block-scrolling">
+              <h2 style="margin-bottom:0px;">
+                Clinic Codes
+              </h2>
+
+                <md-button ng-click="new($event, 'clinicianCode')">
+                    <md-icon md-svg-icon="plus"></md-icon>
+                    New Clinician Code
+                  </md-button>
+              <md-list class="minheightthat infite-scroll-container" id="clinicInfinite" >
+                <div  infinite-scroll-container='"#clinicInfinite"' infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='cliniccodes' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false' infinite-scroll-parent="true">
+                  <md-list-item class="md-2-line" ng-repeat="item in Pagination.items" ng-click="edit($event, 'clinicianCode', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Name: {{ item.name }}</h3>
+                      <h4>Code: {{ item.code }}</h4>
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+            </md-list>
+          </div>
+          <div ng-show="toShow=='clinicblockrandomizer'" class="block-scrolling">
+            <h2 style="margin-bottom:0px;">
+              Clinic Block Randomizer
+            </h2>
+            <md-input-container style="margin-top:0px;margin-bottom:0px;">
+               <md-select ng-model="selectedBlockRandomizer" style="min-width: 200px;">
+                <md-option ng-value="clinic.id" ng-repeat="clinic in blockRandomzierFilter">{{clinic.name}}</md-option>
+              </md-select>
+            </md-input-container>
+             <md-button ng-click="new($event, 'clinicianBlockRandomizer')">
+                  <md-icon md-svg-icon="plus"></md-icon>
+                    New Clinician Block Randomizer
+                  </md-button>
+              <md-list class="minheightthat infite-scroll-container" id="clinicBlockRandomInfinite" >
+                <div infinite-scroll-container='"#clinicBlockRandomInfinite"' infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='clinicblockrandomizer' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false' infinite-scroll-listen-for-event="list:filtered" infinite-scroll-parent="true">
+                  <md-list-item class="md-2-line" ng-repeat="item in Pagination.items" ng-click="edit($event, 'clinicianBlockRandomizer', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Clinic: {{ item.clinicName }}</h3>
+                      <h4>Patient Type: {{ item.patient_type }}</h4>
+                      <h4 ng-show="item.intervention_group">Intervention Group: {{ item.intervention_group }}</h4>
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+            </md-list>
+          </div>
+          <div ng-show="toShow=='races'">
+            <h2 style="margin-bottom:0px;">
+                Race/Ethnicity
+            </h2>
+
+              <md-button ng-click="new($event, 'races')">
+                  <md-icon md-svg-icon="plus"></md-icon>
+                  New Race/Ethnicity
+              </md-button>
+              <md-button ng-if="Pagination.items.length>0" ng-click="openRaceSorter($event)">
+                  <md-icon md-svg-icon="sort"></md-icon>
+                  Sort Race/Ethnicity
+              </md-button>
+              <md-list class="minheightthat infite-scroll-container" id="RaceList">
+                <div infinite-scroll-container='"#RaceList"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='races' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false'>
+                  <md-list-item class="md-2-line" ng-repeat="item in Pagination.items" ng-click="edit($event, 'races', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Name: {{ item.name }}</h3>
+                      <h3>Id: {{ item.id }}</h3>
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+            </md-list>
+          </div>
+          <div ng-show="toShow=='educations'" class="block-scrolling">
+            <h2 style="margin-bottom:0px;">
+                Educations
+            </h2>
+
+              <md-button ng-click="new($event, 'educations')">
+                  <md-icon md-svg-icon="plus"></md-icon>
+                  New Education
+              </md-button>
+              <md-button ng-if="Pagination.items.length>0" ng-click="openEducationSorter($event)">
+                  <md-icon md-svg-icon="sort"></md-icon>
+                  Sort Education
+              </md-button>
+              <md-list class="minheightthat infite-scroll-container" id="EducationList">
+                <div infinite-scroll-container='"#EducationList"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='educations' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false'>
+                  <md-list-item class="md-2-line" ng-repeat="item in Pagination.items" ng-click="edit($event, 'educations', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Name: {{ item.name }}</h3>
+                      <h3>Id: {{ item.id }}</h3>
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+            </md-list>
+          </div>
+          <div ng-show="toShow=='topics'" class="block-scrolling">
+            <h2 style="margin-bottom:0px;">
+                Topics
+            </h2>
+
+              <md-button ng-click="new($event, 'topics')">
+                  <md-icon md-svg-icon="plus"></md-icon>
+                  New Topic
+                </md-button>
+              <md-list class="minheightthat infite-scroll-container" id="newTopicList">
+                <div infinite-scroll-container='"#newTopicList"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='topics' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false'>
+                  <md-list-item class="md-2-line" ng-repeat="item in Pagination.items" ng-click="edit($event, 'topics', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Name: {{ item.name }}</h3>
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+            </md-list>
+          </div>
+
+          <div ng-show="toShow=='questioncodes'" class="block-scrolling">
+            <h2 style="margin-bottom:0px;">
+                Question Codes
+            </h2>
+
+              <md-button ng-click="new($event, 'questionCodes')">
+                  <md-icon md-svg-icon="plus"></md-icon>
+                  New Question Code
+                </md-button>
+            <md-list class="minheightthat infite-scroll-container" id="questionCodeList">
+                <div infinite-scroll-container='"#questionCodeList"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='questioncodes' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false'>
+                  <md-list-item class="md-2-line" ng-repeat="item in Pagination.items" ng-click="edit($event, 'questionCodes', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Name: {{ item.name }}</h3>
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+            </md-list>
+          </div>
+          <div ng-show="toShow=='questioncategories'" class="block-scrolling">
+            <h2 style="margin-bottom:0px;">
+                Question Categories
+            </h2>
+
+              <md-button ng-click="new($event, 'questionCategories')">
+                  <md-icon md-svg-icon="plus"></md-icon>
+                  New Question Category
+                </md-button>
+              <md-list class="minheightthat infite-scroll-container" id="questionCategoryList">
+                <div infinite-scroll-container='"#questionCategoryList"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='questioncategories' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false'>
+                  <md-list-item class="md-2-line" ng-repeat="item in Pagination.items" ng-click="edit($event, 'questionCategories', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Name: {{ item.name }}</h3>
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+            </md-list>
+          </div>
+          <div ng-show="toShow=='vaccinationreminders'" class="block-scrolling">
+            <h2 style="margin-bottom:0px;">
+                Vaccination Reminders
+            </h2>
+
+              <md-button ng-click="new($event, 'vaccinationReminders')">
+                  <md-icon md-svg-icon="plus"></md-icon>
+                  New Vaccination Reminder
+                </md-button>
+              <md-list class="minheightthat infite-scroll-container" id="vaccinationScroll">
+                <div infinite-scroll-container='"#vaccinationScroll"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='vaccinationreminders' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false'>
+                  <md-list-item class="md-2-line" ng-repeat="item in Pagination.items" ng-click="edit($event, 'vaccinationReminders', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Message Text: {{ item.message_text }}</h3>
+                      <h3>Trigger Days from Date of Birth: {{ item.trigger_days_from_dob }}</h3>
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+            </md-list>
+          </div>
+          <div ng-show="toShow=='healthcarecontent'">
+            <h2 style="margin-bottom:0px;">
+              Health Care Content
+            </h2>
+
+            <div layout="row" >
+              <md-button ng-click="new($event, 'healthcarecontent')" style="padding-left: 0px;">
+                  <md-icon md-svg-icon="plus"></md-icon>
+                  New Health Care Content
+                </md-button>
+              <div layout-align="center center" style="margin:5px 0 0 20px;">
+              <md-button type="button" ng-class="maternalClass" type="submit" ng-click="healthcareContentFilter(1)">
+                Maternal Vaccines
+              </md-button>
+
+              <md-button type="button" ng-class="childhoodClass" type="submit" ng-click="healthcareContentFilter(2)">
+                Childhood Vaccines
+              </md-button>
+
+              <md-button type="button" ng-class="safetyClass" type="submit" ng-click="healthcareContentFilter(3)">
+                Safety Issues
+              </md-button>
+
+              <md-button type="button" ng-class="usefulClass" type="submit" ng-click="healthcareContentFilter(4)">
+                Useful Links
+              </md-button>
+              </div>
+            </div>
+            <md-list class="minheightthat infite-scroll-container" id="healthCareContentScroll">
+                <div infinite-scroll-container='"#healthCareContentScroll"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='healthcarecontent' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false'>
+                  <md-list-item class="md-3-line" ng-repeat="item in Pagination.items" ng-click="edit($event, 'healthcareContent', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Category Group: {{ item.category_group }}</h3>
+                      <h3>Title: {{ item.title }}</h3>
+                      <div class="single-line-ellipsis" >Description: {{ item.desc }}</div>
+
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+            </md-list>
+          </div>
+          <div ng-show="toShow=='Videos'">
+            <h2 style="margin-bottom:0px;">
+              Videos
+            </h2>
+            <md-button ng-click="new($event, 'video')">
+                <md-icon md-svg-icon="plus"></md-icon>
+                New Video
+              </md-button>
+
+             <md-list class="minheightthat infite-scroll-container" id="videoScroll" >
+              <div infinite-scroll-container='"#videoScroll"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='video' || !Pagination.dataExists" infinite-scroll-distance='0' infinite-scroll-immediate-check='false' infinite-scroll-listen-for-event="list:filtered">
+                <md-list-item class="md-2-line" style="height:72px;" ng-repeat="item in Pagination.items" ng-click="edit($event, 'video', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                  <div class="md-list-item-text" layout="column" >
+                    <h3>Title: {{item.title}}</h3>
+                    <h3>Target Number: {{item.target_number}}</h3>
+                    <h3>Question Group:{{item.question_group}}</h3>
+                  </div>
+                </md-list-item>
+                <div ng-show='busy'>Loading data...</div>
+              </div>
+          </div>
+          <div ng-show="toShow=='healthcareuser'">
+            <h2 style="margin-bottom:0px;">
+              Health Care User
+            </h2>
+
+                <md-button ng-click="new($event, 'healthcareuser')">
+                  <md-icon md-svg-icon="plus"></md-icon>
+                  New Health Care User
+                </md-button>
+
+               <md-list class="minheightthat infite-scroll-container" id="healthCareScroll" >
+                <div infinite-scroll-container='"#healthCareScroll"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='healthcareuser' || !Pagination.dataExists" infinite-scroll-distance='0' infinite-scroll-immediate-check='false' infinite-scroll-listen-for-event="list:filtered">
+                  <md-list-item class="md-2-line" style="height:72px;" ng-repeat="item in Pagination.items" ng-click="edit($event, 'healthcareuser', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column" >
+                      <h3>Clinic: {{item.clinic_name}}</h3>
+                      <h3>Name: {{ item.last_name}}, {{item.first_name}}</h3>
+                      <h3>Email: {{ item.email }} </h4>
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+
+            </md-list>
+          </div>
+          <div ng-show="toShow=='patients'" class="block-scrolling" >
+            <h2 style="margin-bottom:0px;">
+              Patients
+            </h2>
+
+                <md-input-container style="margin-top:0px;margin-bottom:8px;">
+                   <md-select placeholder="select clinic" ng-model="patientClinic" style="min-width: 200px;">
+                    <md-option ng-value="clinic.id" ng-repeat="clinic in clinics">{{clinic.name}}</md-option>
+                  </md-select>
+                </md-input-container>
+
+               <md-list class="minheightthat infite-scroll-container" id="patientScroll" >
+                <div infinite-scroll-container='"#patientScroll"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='patients' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false' infinite-scroll-listen-for-event="list:filtered">
+                  <md-list-item class="md-2-line" style="height:72px;" ng-repeat="item in Pagination.items" ng-click="edit($event, 'patients', item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column" >
+                      <h3>Name: {{ item.last_name}}, {{item.first_name}}</h3>
+                      <h4>Email: {{ item.email }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Clinic: {{item.clinic_name}}</h4>
+                    </div>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+
+            </md-list>
+          </div>
+          <div ng-show="toShow=='patientsurveydata'">
+            <h2 style="margin-bottom:0px;">Patient Survey</h2>
+            <md-button ng-click="new($event, 'patientsurveydata')">
+                  <md-icon md-svg-icon="plus"></md-icon>
+                  New Patient Survey
+                </md-button>
+              <md-list class="minheightthat infite-scroll-container" id="PatientSurveyList">
+                <div infinite-scroll-container='"#PatientSurveyList"' infinite-scroll-parent="true" infinite-scroll='Pagination.nextPage()' infinite-scroll-disabled="toShow!='patientsurveydata' || !Pagination.dataExists" infinite-scroll-distance='1' infinite-scroll-immediate-check='false'>
+                  <md-list-item class="md-3-line" ng-repeat="item in Pagination.items" ng-click="openPatientSurveyDetails($event, item)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Name: {{ item.name }}</h3>
+                      <h3>Type: {{ item.survey_type }}</h3>
+                      <h3>Version Number: {{ item.version }}</h3>
+                      <h3>Is Active: {{ item.is_active?'Y':'N' }}</h3>
+                    </div>
+                    <md-icon class="md-secondary" ng-click="openPatientSurveyDetails($event, item)" md-svg-icon="chevron-right"></md-icon>
+                  </md-list-item>
+                  <div ng-show='busy'>Loading data...</div>
+                </div>
+            </md-list>
+          </div>
+
+          <div ng-show="toShow=='settings'" >
+
+              <h2 style="margin-bottom:0px;">
+                {{settingsData.type}}
+              </h2>
+            <div class="minheightthat infite-scroll-container">
+              <form class="settingsForm" name="settingForm" ng-submit="editSubmit(settingForm.$valid)" ng-model="settingsData" >
+                <div layout="row" >
+                  <div layout="column" flex="100">
+                    <div class="grey-paint">&nbsp;</div>
+                    <md-input-container class="md-input-default">
+
+                      <textarea class="text-area-small" placeholder="contact user registration email text*" name="contact_user_registration_email_text" rows="4" ng-model="settingsData.contact_user_registration_email_text" ng-required="true"></textarea>
+                      <div ng-messages="settingForm.contact_user_registration_email_text.$error" ng-show="settingForm.contact_user_registration_email_text.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-input-default">
+                      <input name="contact_user_registration_subject" placeholder="contact user registration subject*" ng-model="settingsData.contact_user_registration_subject" ng-required="true" >
+                      <div ng-messages="settingForm.contact_user_registration_subject.$error" ng-show="settingForm.contact_user_registration_subject.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-input-default">
+
+                      <textarea class="text-area-small" placeholder="forgot password email text*" name="forgot_password_email_text" rows="4" ng-model="settingsData.forgot_password_email_text" ng-required="true" ></textarea>
+                      <div ng-messages="settingForm.forgot_password_email_text.$error" ng-show="settingForm.forgot_password_email_text.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-input-default">
+
+                      <input name="forgot_password_subject" placeholder="forgot password subject*" ng-model="settingsData.forgot_password_subject" ng-required="true" >
+                      <div ng-messages="settingForm.forgot_password_subject.$error" ng-show="settingForm.forgot_password_subject.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-input-default">
+                      <input name="from_email" placeholder="from email*" ng-model="settingsData.from_email" ng-required="true" >
+                      <div ng-messages="settingForm.from_email.$error" ng-show="settingForm.from_email.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-input-default">
+                      <input name="sms_phone_number" ng-disabled="true" placeholder="sms phone number*" ng-model="settingsData.sms_phone_number" ng-required="true" >
+                      <div ng-messages="settingForm.sms_phone_number.$error" ng-show="settingForm.sms_phone_number.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-input-default">
+
+                      <textarea class="text-area-small" class="survey notification email text*" name="survey_notification_email_text" placeholder="survey notification email text*" rows="4" ng-model="settingsData.survey_notification_email_text" ng-required="true" ></textarea>
+                      <div ng-messages="settingForm.survey_notification_email_text.$error" ng-show="settingForm.survey_notification_email_text.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-input-default">
+                      <input name="take_first_survey_text" ng-model="settingsData.take_first_survey_text" placeholder="Take first survey text*" ng-required="true">
+                      <div ng-messages="settingForm.take_first_survey_text.$error" ng-show="settingForm.take_first_survey_text.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-input-default">
+                      <input name="after_first_survey_complete_text" ng-model="settingsData.after_first_survey_complete_text" placeholder="After first survey complete text*" ng-required="true">
+                      <div ng-messages="settingForm.after_first_survey_complete_text.$error" ng-show="settingForm.after_first_survey_complete_text.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-input-default">
+                      <input name="post_video_thanking_text" ng-model="settingsData.post_video_thanking_text" placeholder="Post video thanking text*" ng-required="true">
+                      <div ng-messages="settingForm.post_video_thanking_text.$error" ng-show="settingForm.post_video_thanking_text.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+
+
+                    <md-input-container class="md-input-default">
+                      <input name="survey_notification_subject" ng-model="settingsData.survey_notification_subject" placeholder="survey notification subject*" ng-required="true" >
+                      <div ng-messages="settingForm.survey_notification_subject.$error" ng-show="settingForm.survey_notification_subject.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-input-default">
+                      <textarea name="survey_notification_first_reminder_email_text" class="text-area-small" placeholder="survey notification first reminder email text*" rows="4" ng-model="settingsData.survey_notification_first_reminder_email_text" ng-required="true" ></textarea>
+                      <div ng-messages="settingForm.survey_notification_first_reminder_email_text.$error" ng-show="settingForm.survey_notification_first_reminder_email_text.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-input-default">
+
+                      <input name="survey_notification_first_reminder_subject" ng-model="settingsData.survey_notification_first_reminder_subject" placeholder="survey notification first reminder subject*" ng-required="true" >
+                      <div ng-messages="settingForm.survey_notification_first_reminder_subject.$error" ng-show="settingForm.survey_notification_first_reminder_subject.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-input-default">
+
+                      <textarea class="text-area-small" placeholder="survey notification final sms text*" name="survey_notification_final_sms_text" rows="4" ng-model="settingsData.survey_notification_final_sms_text" ng-required="true" ></textarea>
+                      <div ng-messages="settingForm.survey_notification_final_sms_text.$error" ng-show="settingForm.survey_notification_final_sms_text.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-input-default">
+                      <textarea class="text-area-large" placeholder="terms and conditions*" name="terms_and_conditions" placeholder="terms and conditions*" ng-model="settingsData.terms_and_conditions" rows="5" md-select-on-focus ng-required="true" ></textarea>
+                      <div ng-messages="settingForm.terms_and_conditions.$error" ng-show="settingForm.terms_and_conditions.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-input-default">
+                      <input name="aws_healthcare_content_bucket_name" ng-disabled="true" ng-model="settingsData.aws_healthcare_content_bucket_name" placeholder="AWS healthcare content bucket name*" ng-required="true">
+                      <div ng-messages="settingForm.aws_healthcare_content_bucket_name.$error" ng-show="settingForm.aws_healthcare_content_bucket_name.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-input-default">
+                      <input name="aws_video_bucket_name" ng-disabled="true" ng-model="settingsData.aws_video_bucket_name" placeholder="AWS video bucket name*" ng-required="true">
+                      <div ng-messages="settingForm.aws_video_bucket_name.$error" ng-show="settingForm.aws_video_bucket_name.$touched">
+                        <div ng-message="required">This is required!</div>
+                      </div>
+                    </md-input-container>
+                  </div>
+                </div>
+                <div class="row" layout-align="center center">
+                  <div class="server-error-msg" flex="">{{settingsData.message}}</div>
+                  <div class="md-caption" flex=>*mandatory fields</div>
+                </div>
+                <div layout="row" layout-align="center center">
+                  <md-dialog-actions>
+                    <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="settingsSubmit(settingForm.$valid, settingsData)">
+                      Update
+                    </md-button>
+                  </md-dialog-actions>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div ng-show="toShow=='userauditexport'">
+            <h2 style="margin-bottom:0px;">
+              User Audit Export
+            </h2>
+            <form name="UserAuditLogForm" ng-submit="exportVideoAuditLog(UserAuditLogForm.$valid)" ng-model="userFormData" >
+              <div class="text16" style="margin:10px;">
+                You are attempting to download patient sensitive data. Ensure that you are only downloading to an authorized computer.
+              </div>
+              <div layout="row" >
+                <div layout="column" flex="75">
+                  <md-datepicker type="date" md-placeholder="From Date*" name="fromDate"  ng-model="userFormData.fromDate" ng-required="true"></md-datepicker>
+                <div class="text-red" ng-show="UserAuditLogForm.fromDate.$touched" ng-messages="UserAuditLogForm.fromDate.$error">
+                  <div ng-message="valid">The entered value is not a date!</div>
+                  <div ng-message="required">This date is required!</div>
+                </div>
+                </div>
+              </div>
+
+              <div layout="row" layout-align="center center" >
+                <md-dialog-actions>
+                  <div class="col">
+                    <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="exportUserAuditLog(UserAuditLogForm.$valid)">
+                      Export
+                    </md-button>
+                  </div>
+                </md-dialog-actions>
+              </div>
+            </form>
+          </div>
+          <div ng-show="toShow=='videoauditexport'">
+            <h2 style="margin-bottom:0px;">
+              Video Audit Export
+            </h2>
+            <form name="VideoAuditLogForm" ng-submit="exportVideoAuditLog(VideoAuditLogForm.$valid)" ng-model="videoFormData" >
+              <div class="text16" style="margin:10px;">
+                You are attempting to download patient sensitive data. Ensure that you are only downloading to an authorized computer.
+              </div>
+              <div layout="row" >
+                <div layout="column" flex="75">
+                  <md-datepicker type="date" md-placeholder="From Date*" name="fromDate"  ng-model="videoFormData.fromDate" ng-required="true"></md-datepicker>
+                <div class="text-red" ng-show="VideoAuditLogForm.fromDate.$touched" ng-messages="VideoAuditLogForm.fromDate.$error">
+                  <div ng-message="valid">The entered value is not a date!</div>
+                  <div ng-message="required">This date is required!</div>
+                </div>
+                </div>
+              </div>
+
+              <div layout="row" layout-align="center center">
+                <md-dialog-actions>
+                  <div class="col">
+                    <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="exportVideoAuditLog(VideoAuditLogForm.$valid)">
+                      Export
+                    </md-button>
+                  </div>
+                </md-dialog-actions>
+              </div>
+            </form>
+          </div>
+          <div ng-show="toShow=='exportsurveytemplate'">
+            <h2 style="margin-bottom:0px;">
+              Survey Template Export
+            </h2>
+            <form name="SurveyExportForm" ng-submit="exportSurveyTemplate(SurveyExportForm.$valid)" ng-model="surveyFormData" >
+              <div class="text16" style="margin:10px;">
+                You are attempting to download patient sensitive data. Ensure that you are only downloading to an authorized computer.
+              </div>
+              <div layout="row" >
+
+                <div layout="column" flex="75">
+                  <md-input-container style="margin-top:0px;margin-bottom:8px;">
+                   <md-select name="ClinicName" placeholder="select clinic" ng-model="exportFormData.ClinicName" style="min-width: 100px;" >
+                   <md-option ng-value="{name:''}">All</md-option>
+                    <md-option ng-value="clinic" ng-repeat="clinic in clinics">{{clinic.name}}</md-option>
+
+                  </md-select>
+                </md-input-container>
+
+                </div>
+
+              </div>
+
+              <div layout="row" layout-align="center center">
+                <md-dialog-actions>
+                  <div class="col">
+                    <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="exportSurveyTemplate(SurveyExportForm.$valid)">
+                      Export
+                    </md-button>
+                  </div>
+                </md-dialog-actions>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div flex=""></div>
+
+      </md-content>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>

@@ -1,0 +1,159 @@
+<div class="height100P">
+  <div header></div>
+  <div class="container" style="padding-bottom:40px;" ng-scrollbars-config="scrollConfig" ng-cloak>
+
+
+    <form name="signupForm" autocomplete="off" ng-submit="doSignup(signupForm)" novalidate>
+
+      <div class="dark-blue text24 tellusaboutyourself">Tell Us About Yourself</div>
+      <div layout="row" style="height:100%;">
+        <div layout="column" flex="45">
+          <div class="dark-blue text15">(Clinic code can be provided to you at your clinic)</div>
+          <md-input-container>
+            <input autocomplete="off" name="ClinicianCode" placeholder="Clinic Code*" ng-model="signupData.clinician_code_id" ng-required="true">
+            <div ng-messages="signupForm.ClinicianCode.$error" ng-show="signupForm.ClinicianCode.$touched">
+              <div ng-message="required">This is required!</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <input autocomplete="off" name="FirstName" placeholder="First Name*" ng-model="signupData.first_name" ng-required="true">
+            <div ng-messages="signupForm.FirstName.$error" ng-show="signupForm.FirstName.$touched">
+              <div ng-message="required">This is required!</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <input autocomplete="off" name="LastName" placeholder="Last Name*" ng-model="signupData.last_name" ng-required="true">
+            <div ng-messages="signupForm.LastName.$error" ng-show="signupForm.LastName.$touched">
+              <div ng-message="required">This is required!</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <input autocomplete="off" type="email" name="Email" placeholder="Email*" ng-model="signupData.email" ng-pattern="/^.+@.+\..+$/" ng-required="true">
+            <div ng-messages="signupForm.Email.$error" ng-show="signupForm.Email.$touched">
+              <div ng-message="required">This is required!</div>
+              <div ng-message="pattern">Invalid Email</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <input autocomplete="off" type="email" name="ConfirmEmail" placeholder="Confirm Email" ng-model="signupData.confirm_email" ng-required="true" ng-pattern="signupData.email"
+             autocomplete="false">
+            <div ng-messages="signupForm.ConfirmEmail.$error" ng-show="signupForm.ConfirmEmail.$touched">
+              <div ng-message="required">This is required!</div>
+              <div ng-message="pattern">Must match email</div>
+            </div>
+          </md-input-container>
+
+
+        </div>
+
+
+        <div flex="fill"></div>
+        <div layout="column" flex="45">
+          <div class="dark-blue text16">&nbsp;</div>
+          <md-input-container>
+            <input autocomplete="off" type="password" name="Password" placeholder="Password*" ng-model="signupData.password" ng-required="true">
+            <div ng-messages="signupForm.Password.$error" ng-show="signupForm.Password.$touched">
+              <div ng-message="required">This is required!</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container>
+            <input autocomplete="off" type="password" name="ConfirmPassword" placeholder="Confirm Password" ng-model="signupData.password_confirmation" ng-required="true" ng-pattern="signupData.password">
+            <div ng-messages="signupForm.ConfirmPassword.$error" ng-show="signupForm.ConfirmPassword.$touched">
+              <div ng-message="required">This is required!</div>
+              <div ng-message="pattern">Must match password</div>
+            </div>
+          </md-input-container>
+          <md-input-container>
+            <input autocomplete="off" name="CellPhone" ng-model="signupData.cell_phone" placeholder="Cell Phone*" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(signupData.home_phone.length)">
+            <div ng-messages="signupForm.CellPhone.$error" ng-show="signupForm.CellPhone.$touched">
+              <div ng-message="pattern">Invalid cell number</div>
+              <div ng-message="required"></div>
+            </div>
+          </md-input-container>
+
+          <md-checkbox style="margin-bottom:0px;" ng-model="signupData.no_cell_phone" aria-label="no_cell_phone">
+            I don’t have a cell phone
+          </md-checkbox>
+
+          <md-input-container ng-if="signupData.no_cell_phone">
+            <input autocomplete="off" name="HomePhone" placeholder="Home Phone*" ng-model="signupData.home_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(signupData.cell_phone.length)">
+            <div ng-messages="signupForm.HomePhone.$error" ng-show="signupForm.HomePhone.$touched">
+              <div ng-message="pattern">Invalid phone number</div>
+              <div ng-message="required"></div>
+            </div>
+          </md-input-container>
+
+          <!-- <md-input-container >
+       <input autocomplete="off" name="City" placeholder="City" ng-model="signupData.city" >
+      </md-input-container>
+
+
+        <md-input-container>
+          <label class="match-input-font">State</label>
+          <md-select ng-model="signupData.state">
+            <md-option ng-value="state.value" ng-repeat="state in states">{{ state.display }}</md-option>
+          </md-select>
+        </md-input-container>
+
+      <md-input-container >
+        <input  autocomplete="off" name="Address" placeholder="Address" ng-model="signupData.address" >
+      </md-input-container>
+
+      <md-input-container >
+          <input autocomplete="off" type="number" placeholder="Zip Code" name="PostalCode" ng-model="signupData.postal_code">
+      </md-input-container>     -->
+
+          <md-datepicker type="date" md-placeholder="Expected Delivery Date*" name="ExpDOB" ng-model="signupData.expected_child_birth" md-min-date="min_date" ng-required="true" future-date></md-datepicker>
+          <div class="text-red" ng-messages="signupForm.ExpDOB.$error" ng-show="signupForm.ExpDOB.$touched">
+            <div ng-message="valid">The entered value is not a date!</div>
+            <div ng-message="required">This date is required!</div>
+            <div ng-message="futureDate">Expected Delivery Date must be within 9 months!</div>
+          </div>
+
+          <md-input-container>
+            <label class="match-input-font">Education</label>
+            <md-select ng-model="signupData.education">
+              <md-option ng-value="education.id" ng-repeat="education in educations">{{ education.name }}</md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container>
+            <label class="match-input-font">Race/Ethnicity</label>
+            <md-select ng-model="signupData.race">
+              <md-option ng-value="race.id" ng-repeat="race in races">{{ race.name }}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+      </div>
+ 
+      <div class="row black-border MT20"></div>
+      <div class="row">
+        <div class="server-error-msg" flex="80" class="text18">{{signupData.message}}</div>
+        <div class="md-caption" flex="20">*mandatory fields</div>
+      </div>
+
+      <div layout="row" layout-align="center center" style="margin-bottom:10px;">
+        <div flex="20"></div>
+        <div class="col" flex="30">
+          <md-button class="md-raised text16" ng-click="cancelSignup()">Cancel</md-button>
+        </div>
+        <div class="col" flex="30">
+          <md-button class="md-raised md-primary text16" type="submit">Create Account</md-button>
+        </div>
+        <div flex="20"></div>
+      </div>
+
+
+    </form>
+
+
+  </div>
+
+  <div class="footer">
+  </div>
+</div>

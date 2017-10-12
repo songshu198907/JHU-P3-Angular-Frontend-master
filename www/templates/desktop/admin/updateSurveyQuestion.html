@@ -1,0 +1,122 @@
+<md-dialog class="md-transition-in dialog-border">
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text24 white" layout-margin="">{{updateFormData.type}} {{updateFormData.submitText}}</div>
+    </div>
+
+<md-dialog-content>
+  <div class="md-dialog-content-body">
+  <form name="updateForm" ng-model-options="{ updateOn: 'submit' }" ng-submit="surveyQuestionSubmit(updateForm.$valid)" >
+    
+    <div layout="row">
+      <div layout="column" flex="45">
+        <md-input-container>
+           <md-select name="questionCategory"  placeholder="Select Question Category*" ng-model="updateFormData.selected_category" style="min-width: 200px;">
+            <md-option ng-value="category" ng-repeat="(i,category) in updateFormData.questionCategories track by category.id" ng-selected="category.id==updateFormData.question_category_id">{{category.name}}</md-option>
+          </md-select>
+        </md-input-container>
+         
+        <md-input-container>
+          <input name="Label" maxlength="250" placeholder="Question Label*" ng-model="updateFormData.label" ng-required="true">
+         <!--  <div ng-messages="updateForm.Label.$error" ng-show="updateForm.Label.$touched">
+            <div ng-message="required">This is required!</div>
+          </div> -->
+          <div class="text-red" ng-show="updateForm.Label.$viewValue==''">
+          This is required!
+          </div>
+        </md-input-container>
+        <md-input-container>
+           <md-select name="questionCode"  placeholder="Select Question Code" ng-model="updateFormData.selected_code" style="min-width: 200px;"
+           ng-model-options="{ debounce: { 'default': 500 } }">
+            <md-option ng-value="code" ng-repeat="(i,code) in updateFormData.questionCodes track by code.id" ng-selected="code.id==updateFormData.question_code_id">{{code.name}}</md-option>
+          </md-select>
+          <!-- <div ng-messages="updateForm.questionCode.$error" ng-show="updateForm.questionCode.$touched">
+              <div ng-message="required">This is required!</div>
+            </div> -->
+          <!-- <div class="text-red" ng-show="updateForm.questionCode.$viewValue==''">
+          This is required!
+          </div> -->
+        </md-input-container>
+
+        <md-input-container>
+          <md-select name="questionGroup"  placeholder="Select Question Group*" ng-model="updateFormData.selected_question_group" style="min-width: 200px;" ng-required="true" class="ng-valid">
+           <md-option ng-value="'maternal'" ng-selected="updateFormData.question_group=='maternal'">maternal</md-option>
+            <md-option ng-value="'pediatric'" ng-selected="updateFormData.question_group=='pediatric'">pediatric</md-option>
+            <md-option ng-value="'video'" ng-selected="updateFormData.question_group=='video'">video</md-option>
+            
+            </md-select>
+            <!-- <div class="text-red" ng-messages="updateForm.questionGroup.$error" ng-show="updateForm.questionGroup.$touched">
+              <div ng-message="required">This is required!</div>
+            </div> -->
+           <div class="text-red" ng-show="updateForm.questionGroup.$viewValue==''">
+            This is required!
+            </div>
+        </md-input-container>
+
+        <md-input-container>
+          <input name="questionText" maxlength="500" placeholder="Question Text" ng-model="updateFormData.question_text">
+         <!--  <div ng-messages="updateForm.questionText.$error" ng-show="updateForm.questionText.$touched">
+            <div ng-message="required">This is required!</div>
+            
+          </div> -->
+        </md-input-container>
+        
+
+        </div>
+      <div flex="fill"></div>
+      <div layout="column" flex="45" >
+        <md-input-container>
+          <input   name="didYouKnowText" placeholder="Did You Know" ng-model="updateFormData.did_you_know_text" >
+          
+        </md-input-container>
+
+       
+        <md-input-container>
+           <md-select name="questionType"  placeholder="Question Type*" ng-model="updateFormData.selected_question_type" style="min-width: 200px;" ng-required="true">
+            <md-option ng-value="question_type" ng-repeat="question_type in updateFormData.questionTypes" ng-selected="question_type.id==updateFormData.question_type_id">{{question_type.name}}{{question_type.name !=question_type.control_type?' ('+question_type.control_type+')':''}}</md-option>
+          </md-select>
+         <!--  <div ng-messages="updateForm.questionType.$error" ng-show="updateForm.questionType.$touched">
+              <div ng-message="required">This is required!</div>
+            </div> -->
+          <div class="text-red" ng-show="updateForm.questionType.$viewValue==''">
+            This is required!
+          </div>
+        </md-input-container>
+        <md-input-container>
+           <input name="sortOrder"  type="number" placeholder="Sort Order*" ng-model="updateFormData.sort_order" ng-required="true">
+<!--           <div ng-messages="updateForm.sortOrder.$error" ng-show="updateForm.sortOrder.$touched">
+            <div ng-message="required">This is required!</div>
+            
+          </div> -->
+          <div class="text-red" ng-show="updateForm.sortOrder.$viewValue==''">
+            This is required!
+          </div>
+        </md-input-container>
+
+        <md-checkbox ng-model="updateFormData.required_answer" aria-label="requiredAnswer">
+          Required Answer
+        </md-checkbox>  
+
+      </div>
+    </div>
+    
+    <div class="row black-border"></div>
+    <div class="row">
+        <div class="server-error-msg" flex="80">{{updateFormData.message}}</div>
+        <div class="md-caption" flex="20">*mandatory fields</div>
+      </div>
+      
+      <div layout="row" layout-align="center center">
+        <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+        <div style="width:19px"></div>
+          <md-button class="md-raised md-primary text16" type="submit" >{{updateFormData.submitText}}</md-button>
+        
+      </div>
+ 
+    
+    </form>
+
+  </div>
+
+</md-dialog-content>
+</md-dialog>

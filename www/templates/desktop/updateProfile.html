@@ -1,0 +1,186 @@
+<md-dialog class="md-transition-in dialog-border">
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text24 white" layout-margin="">Update Profile</div>
+    </div>
+
+<md-dialog-content>
+  <div class="md-dialog-content-body">
+  <form name="updateProfileForm" ><!-- ng-submit="profileUpdate(updateProfileForm.$valid)" -->
+    
+    <div layout="row">
+      <div layout="column" flex="45">
+       <div class="grey-paint">&nbsp;</div>
+
+        <md-input-container>
+          <input name="FirstName" placeholder="First Name*" ng-model="updateProfileData.firstName" ng-required="true">
+          <div ng-messages="updateProfileForm.FirstName.$error" ng-show="updateProfileForm.FirstName.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+          <input name="LastName" placeholder="Last Name*" ng-model="updateProfileData.lastName" ng-required="true">
+          <div ng-messages="updateProfileForm.LastName.$error" ng-show="updateProfileForm.LastName.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+          <input type="email" ng-disabled="true" name="Email" placeholder="Email*" ng-model="updateProfileData.email" ng-pattern="/^.+@.+\..+$/" ng-required="true">
+          <div ng-messages="updateProfileForm.Email.$error" ng-show="updateProfileForm.Email.$touched">
+            <div ng-message="required">This is required!</div>
+            <div ng-message="pattern">Invalid Email</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+           <input type="password" name="Password" placeholder="Password" ng-model="updateProfileData.password" >
+         <!--  <div ng-messages="updateProfileForm.password.$error" ng-show="updateProfileForm.password.$touched">
+            <div ng-message="required">This is required!</div>
+          </div> -->
+        </md-input-container>
+
+        <md-input-container>
+          <input type="password" name="ConfirmPassword" placeholder="Confirm Password" ng-model="updateProfileData.passwordConfirmation" compare-to="updateProfileData.password">
+          <div ng-messages="updateProfileForm.confirmPassword.$error" ng-show="updateProfileForm.confirmPassword.$touched">
+            <!-- <div ng-message="required">This is required!</div> -->
+            <div ng-message="compareTo">Must match password</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+           <md-select placeholder="Select Race/Ethnicity" ng-model="updateProfileData.race" style="min-width: 200px;">
+            <md-option ng-value="race.id" ng-repeat="race in races">{{race.name}}</md-option>
+          </md-select>
+        </md-input-container>
+          
+
+        <md-datepicker type="date" md-placeholder="Expected Delivery Date*" name="ExpDOB" ng-show="showCalendars" ng-model="updateProfileData.expectedChildBirth" ng-required="showCalendars"></md-datepicker>
+        <div class="text-red" ng-show="updateProfileForm.ExpDOB.$touched" ng-messages="updateProfileForm.ExpDOB.$error">
+          <div ng-message="valid">The entered value is not a date!</div>
+          <div ng-message="required">This date is required!</div>
+        </div>
+
+        <div style="margin-top:20px"></div>
+        <md-datepicker type="date" md-placeholder="Actual Delivery Date" name="ActDOB" ng-show="showCalendars" md-max-date="today" ng-model="updateProfileData.actualChildBirth"></md-datepicker>
+        <div class="text-red" ng-show="updateProfileForm.ActDOB.$touched" ng-messages="updateProfileForm.ActDOB.$error">
+          <div ng-message="valid">The entered value is not a date!</div>
+          <div ng-message="maxdate">The entered value is a future date!</div>
+        </div>
+      </div>
+      <div flex="fill"></div>
+      <div layout="column" flex="45">
+        <div class="dark-blue text16">(At least 1 phone number is required)</div>
+         
+        <md-input-container>
+          <input name="CellPhone" ng-model="updateProfileData.cellPhone" placeholder="Cell Phone*" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(updateProfileData.homePhone.length)">
+          <div ng-messages="updateProfileForm.CellPhone.$error" ng-show="updateProfileForm.CellPhone.$touched">
+            <div ng-message="pattern">Invalid cell number</div>
+            <div ng-message="required">At least one phone number is required</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+           <input name="HomePhone" placeholder="Home Phone*" ng-model="updateProfileData.homePhone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(updateProfileData.cellPhone.length)">
+          <div ng-messages="updateProfileForm.HomePhone.$error" ng-show="updateProfileForm.HomePhone.$touched">
+            <div ng-message="pattern">Invalid phone number</div>
+            <div ng-message="required">At least one phone number is required</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+         <input name="City" placeholder="City" ng-model="updateProfileData.city">
+        </md-input-container>
+          <md-input-container style="margin-top:-3px;">
+            <label class="match-input-font">State</label>
+            <md-select ng-model="updateProfileData.state">
+              <md-option ng-value="state.value" ng-repeat="state in states">{{ state.display }}</md-option>
+            </md-select>
+          </md-input-container>
+
+        <md-input-container>
+          <input name="Address" placeholder="Address" ng-model="updateProfileData.address">
+        </md-input-container>
+
+        <md-input-container>
+            <input type="number" placeholder="Zip Code" name="PostalCode" ng-model="updateProfileData.postalCode">
+        </md-input-container>
+        
+         <md-input-container >
+            <md-select placeholder="Select Education" ng-model="updateProfileData.education" style="min-width: 200px;">
+            <md-option ng-value="education.id" ng-repeat="education in educations">{{education.name}}</md-option>
+          </md-select>
+        </md-input-container>
+
+      </div>
+    </div>
+    <div style="margin-top:40px;" layout="row">
+      <div layout="column" flex="40">
+        <h3>Additional Contact</h3>
+      </div>
+      <div layout="column" flex="60">
+        <h5>Preferably someone not living in the same household</h5>
+      </div>
+    </div>
+    <div class="row black-border"></div>
+    
+    <div layout="row">
+      <div layout="column" flex="45">
+        <md-input-container>
+           <input name="ContactName" placeholder="Contact Name" ng-model="updateProfileData.contactName">
+        </md-input-container>
+        <md-input-container>
+           <input name="ContactEmail" type="email" placeholder="Email" ng-model="updateProfileData.contactEmail" ng-pattern="/^.+@.+\..+$/">
+          <div ng-messages="updateProfileForm.ContactEmail.$error">
+              <div ng-message="pattern">Invalid email</div>
+          </div>
+        </md-input-container>
+
+      </div>
+      <div flex="fill"></div>
+      <div layout="column" flex="45">
+        
+          <md-input-container>
+             <input name="ContactCellPhone" placeholder="Cell Phone" ng-model="updateProfileData.contactCellPhone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/">
+            <div ng-messages="updateProfileForm.ContactCellPhone.$error">
+              <div ng-message="pattern">Invalid cell number</div>
+            </div>
+          </md-input-container>
+        
+          <md-input-container>
+             <input name="ContactHomePhone" placeholder="Home Phone" ng-model="updateProfileData.contactHomePhone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/">
+            <div ng-messages="updateProfileForm.ContactHomePhone.$error">
+              <div ng-message="pattern">Invalid home number</div>
+            </div>
+          </md-input-container>
+        
+      </div>
+      </div>
+      <div class="row black-border"></div>
+      <div class="row">
+        <div class="server-error-msg" flex="80">{{updateProfileData.message}}</div>
+        <div class="md-caption" flex="20">*mandatory fields</div>
+      </div>
+      
+      <div layout="row" layout-align="center center">
+        
+        <md-button type="button" class="md-raised grey-button" ng-click="profileCancel()">Cancel</md-button>
+        
+        <div style="width:19px"></div>
+          <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="profileUpdate(updateProfileForm.$valid)">Update</md-button>
+        
+      </div>
+      <div style="height:20px"></div>
+      <div layout="row" layout-align="center center">
+      
+          <md-button type="button" class="md-raised md-warn text16 " ng-click="deactivate()">Terminate Account</md-button>
+      
+      </div>
+      
+    
+    </form>
+
+  </div>
+
+</md-dialog-content>
+</md-dialog>

@@ -1,0 +1,118 @@
+<md-dialog aria-label="Edit Dialog" class="dialog-border">
+    <div layout="row" layout-align="center center" class="dialog-header">
+      <h3 class="text-white">
+        {{updateFormData.type}}
+      </h3>
+    </div>
+  <md-dialog-content>
+    <div class="md-dialog-content-body">
+      <form name="updateForm"  ng-model-options="{ updateOn: 'submit' }" ng-submit="patientSurveyDetailSubmit(updateForm.$valid)" >
+        
+          <div layout="row" >
+            <div layout="column" flex="45">
+              <md-input-container >
+               <input name="name"  placeholder="Name*" ng-model="updateFormData.name" ng-required="true">
+               <!--  <div ng-messages="updateForm.Name.$error" ng-show="updateForm.Name.$touched">
+                  <div ng-message="required">This is required!</div>
+                </div> -->
+                <div class="text-red" ng-show="updateForm.name.$viewValue==''">
+                This is required!
+                </div>
+              </md-input-container>
+              
+
+              <md-input-container>
+                <md-select name="SurveyType" ng-disabled="!updateFormData.showDeleteBtn && updateFormData.submitText=='Update'" placeholder="Survey Type*" ng-model="updateFormData.selected_survey_type" style="min-width: 200px;" ng-required="true" ng-class="ng-valid" ng-model-options="{ debounce: { 'default': 500 } }">
+                  <md-option ng-value="'registration'" ng-selected="updateFormData.survey_type=='registration'">registration</md-option>
+                  <md-option ng-value="'30 day'" ng-selected="updateFormData.survey_type=='30 day'">30 day</md-option>
+                  <md-option ng-value="'18 months'" ng-selected="updateFormData.survey_type=='18 months'">18 months</md-option>
+                  <md-option ng-value="'video'" ng-selected="updateFormData.survey_type=='video'">video</md-option>
+                </md-select>
+               <!--  <div ng-messages="updateForm.SurveyType.$error" ng-show="updateForm.SurveyType.$touched">
+                  <div ng-message="required">This is required!</div>
+                </div> -->
+                <div class="text-red" ng-show="updateForm.SurveyType.$viewValue==''">
+                This is required!
+                </div>
+               
+              </md-input-container>
+              <md-input-container >
+                <md-select ng-disabled="(!updateFormData.showDeleteBtn && updateFormData.submitText=='Update') || (updateForm.SurveyType.$viewValue=='video')" name="PatientType" placeholder="Patient Type*" ng-model="updateFormData.selected_patient_type" style="min-width: 200px;" ng-required="updateForm.SurveyType.$viewValue!='video'" ng-class="ng-valid" ng-model-options="{ debounce: { 'default': 500 } }">
+                  <md-option  ng-repeat="type in updateFormData.patientTypes track by type.id" ng-value="type.id" ng-selected="(type.id==1 && updateForm.SurveyType.$viewValue=='video') || (type.id===updateFormData.selected_patient_type)">{{type.name}}</md-option>
+                </md-select>
+              <!--   <div ng-messages="updateForm.SurveyType.$error" ng-show="updateForm.SurveyType.$touched">
+                    <div ng-message="required">This is required!</div>
+                </div> -->
+                <div class="text-red" ng-show="updateForm.PatientType.$viewValue=='' && updateForm.PatientType.$viewValue!=0">
+                This is required!
+                </div>
+              </md-input-container>
+
+              <md-input-container ng-show="updateForm.PatientType.$viewValue==1">
+               
+                <md-select ng-disabled="!updateFormData.showDeleteBtn && updateFormData.submitText=='Update'" name="InterventionGroup"  placeholder="Intervention Group*" ng-model="updateFormData.selected_intervention_group" style="min-width: 200px;" ng-required="updateForm.PatientType.$viewValue==1">
+                <md-option ng-value="1" ng-selected="updateFormData.intervention_group=='1'">1</md-option>
+                <md-option ng-value="2" ng-selected="updateFormData.intervention_group=='2'">2</md-option>
+                </md-select>
+                <!-- <div ng-messages="updateForm.InterventionGroup.$error" ng-show="updateForm.InterventionGroup.$touched">
+                  <div ng-message="required">This is required!</div>
+                </div> -->
+               <div class="text-red" ng-show="updateForm.InterventionGroup.$viewValue==''">
+                This is required!
+                </div>
+              </md-input-container>
+
+              
+              
+            </div>
+            <div flex="fill"></div>
+            <div layout="column" flex="45">
+               
+              <md-input-container>
+              
+                <input ng-disabled="!updateFormData.showDeleteBtn && updateFormData.submitText=='Update'" type="number" name="TotalQuestions" ng-model="updateFormData.total_questions" placeholder="Total Questions*"  ng-required="true">
+                
+               <!--  <div ng-messages="updateForm.TotalQuestions.$error" ng-show="updateForm.TotalQuestions.$touched">
+                  <div ng-message="pattern">This is required</div>
+                  
+                </div> -->
+                <div class="text-red" ng-show="updateForm.TotalQuestions.$viewValue==''">
+                This is required!
+                </div>
+              </md-input-container>
+
+              <md-input-container>
+                <input ng-disabled="!updateFormData.showDeleteBtn && updateFormData.submitText=='Update'" type="number" name="Version" placeholder="Version Number*" ng-model="updateFormData.version" ng-required="true">
+                 
+                <!-- <div ng-messages="updateForm.Version.$error" ng-show="updateForm.Version.$touched">
+                  <div ng-message="pattern">This is required</div>
+                </div> -->
+                <div class="text-red" ng-show="updateForm.Version.$viewValue==''">
+                This is required!
+                </div>
+              </md-input-container>
+
+              <md-checkbox style="margin-top:20px; margin-right:5px;" ng-model="updateFormData.is_active" aria-label="isActive">
+              Is Active
+              </md-checkbox>
+
+            </div>
+          </div>
+          <div class="row">
+              <div class="server-error-msg" flex="80">{{updateFormData.message}}</div>
+              <div class="md-caption" flex="20">*mandatory fields</div>
+          </div>
+            
+          <div layout="row" layout-align="center center">
+              
+              <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+              
+              <div style="width:19px"></div>
+
+              <md-button class="md-raised md-primary text16" type="submit" >{{updateFormData.submitText}}</md-button>
+          </div>
+            
+      </form>
+    </div>
+  </md-dialog-content>
+</md-dialog>

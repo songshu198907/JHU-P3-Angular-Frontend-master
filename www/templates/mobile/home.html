@@ -1,0 +1,22 @@
+
+<div class="nav-view-content">
+<md-toolbar ngcloak>
+  <div class="md-toolbar-tools">
+
+    <md-menu md-offset="0 40" ng-model="menu">
+      <md-button aria-label="Open User Menu" ng-click="popover.show($event)">
+        <!-- <md-icon ng-hide="profileNotUpdated || isHealthcareProvider" md-svg-icon="img/icons/exclamation.svg" style="fill:red;" aria-hidden="true" title="update profile"></md-icon> -->
+        {{displayName}}<md-icon md-svg-icon="chevron{{menuOpened?'-up':'-down'}}" ></md-icon>
+      </md-button>
+
+    </md-menu>
+
+  </div>
+</md-toolbar>
+
+<ui-view name="homeContent"  id="homeContent"  layout="column" layout="fill" ng-cloak>
+
+</ui-view>
+
+</div>
+

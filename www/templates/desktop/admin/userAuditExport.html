@@ -1,0 +1,36 @@
+<md-dialog aria-label="Edit Dialog" class="dialog-border">
+  <md-dialog-content ng-model="updateFormData" class="dilaog-content">
+    <div layout="row" layout-align="center center" class="dialog-header">
+      <h3 class="text-white">
+        USER AUDIT LOG EXPORT
+      </h3>
+    </div>
+    <form name="UserAuditLogForm" ng-submit="exportVideoAuditLog(UserAuditLogForm.$valid)" ng-model="updateFormData" >
+     
+      <div layout="row" >
+        <div layout="column" flex="75">
+          <md-datepicker type="date" md-placeholder="From Date*" name="fromDate"  ng-model="updateFormData.fromDate" ng-required="showCalendars"></md-datepicker>
+        <div class="text-red" ng-show="UserAuditLogForm.fromDate.$touched" ng-messages="updateForm.fromDate.$error">
+          <div ng-message="valid">The entered value is not a date!</div>
+          <div ng-message="required">This date is required!</div>
+        </div>
+        </div>
+      </div>
+      
+      <div layout="row" layout-align="center center" >
+        <md-dialog-actions>
+          
+          
+            <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+         
+          
+          
+            <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="exportUserAuditLog(UserAuditLogForm.$valid)">
+              Export
+            </md-button>
+
+        </md-dialog-actions>
+      </div>
+    </form>
+  </md-dialog-content>
+</md-dialog>

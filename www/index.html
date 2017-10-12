@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Moms Talk Shots</title>
+
+    <link href="lib/angular-material/angular-material.min.css" rel="stylesheet">
+
+    <link rel='stylesheet' href='lib/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" type="text/css"/>
+    <!-- include google material icons used throughout the app-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <script>
+       if( /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent))
+       {
+         document.write('<link rel="stylesheet" href="css/mobile.css"><\/script>');
+       }else{
+         document.write('<link rel="stylesheet" href="css/style.css"><\/script>');
+       }
+    </script>
+    <link rel="stylesheet" type="text/css" href="lib/ng-sortable/dist/ng-sortable.min.css">
+
+    <!-- OPTIONAL: default style -->
+    <link rel="stylesheet" type="text/css" href="lib/ng-sortable/dist/ng-sortable.style.min.css">
+    <!--[if IE]>
+        <script src="lib/angular-shims-placeholder/dist/angular-shims-placeholder.min.js"></script>
+    <![endif]-->
+    
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/underscore/underscore.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+
+
+    <!-- Angular Material Dependencies -->
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-aria/angular-aria.min.js"></script>
+    <!-- Angular Material Javascript -->
+    <script src="lib/angular-material/angular-material.min.js"></script>
+    <script src="lib/angular-messages/angular-messages.min.js"></script>
+
+    <!--Scrollbars dependency-->
+
+    <script src="lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!--Scrollbars javascript-->
+    <script src="lib/ng-scrollbars/dist/scrollbars.min.js"></script>
+
+    <script src='lib/angular-loading-bar/build/loading-bar.min.js'></script>
+    <script type='text/javascript' src='lib/ng-infinite-scroll/ng-infinite-scroll.min.js'></script>
+
+
+    <script src="lib/ap-sdk/ap_sdk.js"></script>
+    <script src="lib/jsonpath/jsonpath-0.8.0.js"></script>
+    <script src="lib/ngStorage/ngStorage-0.3.7.js"></script>
+    <script src="lib/wicked-good-xpath/wgxpath.install.js"></script>
+    <script src="lib/angular-ellipsis/angular-ellipsis.min.js"></script>
+    <script src="lib/videogular/videogular.js"></script>
+    <script src="lib/videogular-controls/vg-controls.js"></script>
+    <script src="lib/videogular-overlay-play/vg-overlay-play.js"></script>
+    <script src="lib/videogular-poster/vg-poster.js"></script>
+    <script src="lib/videogular-buffering/vg-buffering.js"></script>
+    <script src="lib/ng-sortable/dist/ng-sortable.min.js"></script>
+    
+
+
+<!-- <script src="lib/promise-tracker/promise-tracker.js"></script>
+<script src="lib/promise-tracker/promise-tracker-http-interceptor.js"></script> -->
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/factories.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers/baseAuthController.js"></script>
+    <script src="js/controllers/signup.js"></script>
+    <script src="js/controllers/login.js"></script>
+    <script src="js/controllers/home.js"></script>
+    <script src="js/controllers/admin.js"></script>
+    <script src="js/controllers/adminDialogs.js"></script>
+    <script src="js/controllers/healthCare.js"></script>
+    <script src="js/controllers/changePassword.js"></script>
+    <script src="js/controllers/video.js"></script>
+    <script src="js/controllers/video2.js"></script>
+    <script src="js/controllers/videoTile.js"></script>
+    <script src="js/controllers/surveyDetail.js"></script>
+    <script src="js/controllers/logos.js"></script>
+
+  </head>
+
+  <body ng-app="Jhu" style="background:black;">
+    <div ng-show="loading" class="app-content-loading ng-hide">
+      <i class="fa fa-spinner fa-spin loading-spinner"></i>
+    </div>
+    <!-- <div ui-view></div> -->
+    
+    <ion-nav-view id="main-view"></ion-nav-view>
+
+  </body>
+</html>

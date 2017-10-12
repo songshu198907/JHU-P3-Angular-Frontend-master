@@ -1,0 +1,51 @@
+<div class="container flex">
+	<div class="circles1"><div class="circle-content"></div></div><div class="circles2"><div class="circle-content"></div></div><div class="circles3"><div class="circle-content"></div></div><div class="circles4"><div class="circle-content"></div></div><div class="circles5"><div class="circle-content"></div></div><div class="circles6"><div class="circle-content"></div></div>
+	<div layout="column" layout-align="center center" layout-margin>
+		<div class="text24 dark-blue" layout-margin>Video Gallery</div>
+		<div class="text16 dark-blue" ng-hide="noSourceVideos">You have no surveys to take.</div>
+		<!-- <div class="text16 dark-blue">However, you can still search and re-watch videos that may be of interest to you.</div> -->
+		<br>
+	<!-- <md-input-container class="md-icon-float">
+        <label>{{'Search...'}}</label> -->
+        <!-- <md-icon md-font-icon="fa fa-search"></md-icon> -->
+        <!-- <input ng-model="searchInput" id="sInput" ng-change="filterCartoList(searchInput)" my-enter="filterCartoList(searchInput)"></md-icon>
+    </md-input-container> -->
+    	<div ng-show="noSourceVideos">
+    		<div class="text16 dark-blue">There are no videos to watch at this time.</div>
+    	</div>
+    </div>
+    <div class="tile-container" style="margin-bottom:42px;">
+	    <div ng-controller="VideoTileCtrl as controller" layout-align="space-around center"  layout="row" layout-wrap>
+	    	<div class="video-container"   flex="40" ng-repeat="config in controller.videoConfigs" >
+	    	<p class="text18 dark-blue" layout-align="center center" data-ng-bind="config.videoDetails.title"></p>
+			<videogular vg-update-state="controller.onPause($state, config.videoDetails.id)" vg-update-time="controller.onUpdateTime($currentTime, $duration, config.videoDetails.id)" vg-theme="config.theme" vg-start-time="config.startTime">
+				<vg-media ng-repeat="source in config.sources" vg-src="source"
+						vg-tracks="config.tracks">
+				</vg-media>
+	 
+				<vg-controls>
+					<vg-play-pause-button ng-></vg-play-pause-button>
+					<vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+					<vg-scrub-bar ng-disabled="true">
+						<vg-scrub-bar-current-time ng-disabled="true"></vg-scrub-bar-current-time>
+					</vg-scrub-bar>
+					<vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+					<vg-volume>
+						<vg-mute-button></vg-mute-button>
+						<vg-volume-bar></vg-volume-bar>
+					</vg-volume>
+					<vg-fullscreen-button></vg-fullscreen-button>
+				</vg-controls>
+	 
+				<vg-overlay-play></vg-overlay-play>
+				<vg-poster vg-url='config.plugins.poster'></vg-poster>
+			</videogular>
+			<div class="my-desc-layer" layout-align="top center">
+                      <p class="dark-blue my-desc-layers" ng-model="config.videoDetails.desc" ng-model-options='{ debounce: 5000 }'> {{config.videoDetails.desc | characters: 250 :true}}<a ng-show="config.videoDetails.desc.length>250" ng-click="readMoreModal(config.videoDetails.desc)" class="desc-read-more">Read More</a></p>
+                      </div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+  </div>
+</div>

@@ -1,0 +1,217 @@
+<ion-header-bar align-title="left" class="bar-positive dark-blue text24 tellusaboutyourself">>
+Tell Us About Yourself
+</ion-header-bar>
+<ion-view>
+<ion-content delegate-handle="signupContent" >
+<!-- <div class="circles1"><div class="circle-content"></div></div><div class="circles2"><div class="circle-content"></div></div><div class="circles3"><div class="circle-content"></div></div><div class="circles4"><div class="circle-content"></div></div><div class="circles5"><div class="circle-content"></div></div><div class="circles6"><div class="circle-content"></div></div>
+ -->
+
+<form name="signupForm" autocomplete="off" ng-submit="doSignup(signupForm)" novalidate >
+     <label class="item item-input">
+        <span class="input-label">Clinic Code*</span>
+       <input autocomplete="off" tabindex="1" placeholder="Clinic code can be provided to you at your clinic" type="text" name="ClinicianCode" ng-model="signupData.clinician_code_id" ng-required="true"  >
+        <div ng-messages="signupForm.ClinicianCode.$error" ng-show="signupForm.ClinicianCode.$touched">
+          <div ng-message="required">Required!</div>
+        </div>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">First Name*</span>
+        <input autocomplete="off" tabindex="2" type="text" name="FirstName" ng-model="signupData.first_name" ng-required="true" >
+        <div ng-messages="signupForm.FirstName.$error" ng-show="signupForm.FirstName.$touched">
+          <div ng-message="required">Required!</div> 
+        </div>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Last Name*</span>
+        <input autocomplete="off" tabindex="3" type="text" name="LastName" ng-model="signupData.last_name" ng-required="true" >
+        <div ng-messages="signupForm.LastName.$error" ng-show="signupForm.LastName.$touched">
+          <div ng-message="required">Required!</div>
+        </div>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Email*</span>
+        <input autocomplete="off" tabindex="4" type="email" name="Email" ng-model="signupData.email" ng-pattern="/^.+@.+\..+$/" ng-required="true" >
+        <div ng-messages="signupForm.Email.$error" ng-show="signupForm.Email.$touched">
+          <!-- <div ng-message="required">This is required!</div> -->
+          <div ng-message="pattern">Invalid Email</div>
+        </div>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Confirm Email*</span>
+        <input autocomplete="off" tabindex="5" type="email" name="ConfirmEmail" ng-model="signupData.confirm_email" ng-required="true" ng-pattern="signupData.email" autocomplete="false" >
+        <div ng-messages="signupForm.ConfirmEmail.$error" ng-show="signupForm.ConfirmEmail.$touched">
+          <!-- <div ng-message="required">This is required!</div> -->
+          <div ng-message="pattern">Must match email</div>
+        </div>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Password*</span>
+         <input autocomplete="off" tabindex="6" type="password" name="Password" ng-model="signupData.password" ng-required="true" >
+        <div ng-messages="signupForm.Password.$error" ng-show="signupForm.Password.$touched">
+          <div ng-message="required">Required!</div>
+        </div>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Confirm Password*</span>
+        <input autocomplete="off" tabindex="7" type="password" name="ConfirmPassword" ng-model="signupData.password_confirmation" ng-required="true" ng-pattern="signupData.password" >
+        <div ng-messages="signupForm.ConfirmPassword.$error" ng-show="signupForm.ConfirmPassword.$touched">
+          <div ng-message="required">Required!</div>
+          <div ng-message="pattern">Must match password</div>
+        </div>
+      </label>
+   
+    
+      <label class="item item-input">
+        <span class="input-label">Cell Phone*</span>
+        <input autocomplete="off" tabindex="9" type="tel" placeholder="At least 1 phone # is required" name="CellPhone" ng-model="signupData.cell_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(signupData.home_phone.length)" >
+        <div ng-messages="signupForm.CellPhone.$error" ng-show="signupForm.CellPhone.$touched">
+          <div ng-message="pattern">Invalid cell number</div>
+          <div ng-message="required"></div>
+        </div>
+      </label>
+      <ion-checkbox ng-model="signupData.no_cell_phone">I don’t have a cell phone</ion-checkbox>
+      <label class="item item-input" ng-show="signupData.no_cell_phone">
+          <span class="input-label">Home Phone*</span>
+         <input autocomplete="off" tabindex="10" type="tel" placeholder="At least 1 phone # is required" name="HomePhone" ng-model="signupData.home_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(signupData.cell_phone.length)" >
+        <div ng-messages="signupForm.HomePhone.$error" ng-show="signupForm.HomePhone.$touched" >
+          <div ng-message="pattern">Invalid phone number</div>
+          <div ng-message="required"></div>
+        </div>
+      </label>
+
+      <!-- <label class="item item-input">
+        <span class="input-label">City</span>
+       <input tabindex="11"  autocomplete="off" type="text" name="City" ng-model="signupData.city" >
+      </label>
+
+        <label class="item item-input item-select">
+          <label class="match-input-font">State</label>
+          <select tabindex="12" ng-model="signupData.state" >
+            <option ng-value="state.value" ng-repeat="state in states">{{ state.display }}</option>
+          </select>
+        </label>
+
+      <label class="item item-input">
+        <span class="input-label">Address</span>
+        <input  tabindex="13" autocomplete="off"  type="text" name="Address" ng-model="signupData.address" >
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Zip Code</span>
+          <input tabindex="14" autocomplete="off" type="number" name="PostalCode" ng-model="signupData.postal_code" >
+      </label>-->
+      <!-- <option ng-value="race.id" ng-repeat="race in races">{{ race.name }}</option> -->
+      <!-- <div class="item ">
+        <label class="match-input-font">Race</label>
+        <select style="border:1px solid white;width:100%;color:white;height:45px;" tabindex="8" data-ng-options="race.id as race.name for race in races track by race.id" ng-model="signupData.race" >
+          
+        </select>
+      </div>
+      <div class="item item-input item-select">
+          <label class="match-input-font">Education</label>
+          <select style="border:1px solid white;width:100%;color:white;height:45px;" tabindex="15" ng-model="signupData.education" >
+            <option ng-value="education.id" ng-repeat="education in educations">{{ education.name }}</option>
+          </select>
+        </div>  -->
+        <div class="item item-input item-select">
+            <span class="input-label">Race/Ethnicity</span>
+        
+        <md-input-container style="width:99%;background:white;color:black;">
+
+            <md-select style="" ng-model="signupData.race">
+              <md-option ng-value="race.id" ng-repeat="race in races">{{ race.name }}</md-option>
+            </md-select>
+          </md-input-container>
+          </div>
+        <div class="item item-input item-select">
+        
+            <span class="input-label">Education</span>
+            <md-input-container style="width:99%;background:white;color:black;">
+            <md-select style="" ng-model="signupData.education">
+              <md-option ng-value="education.id" ng-repeat="education in educations">{{ education.name }}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+          
+      <label class="item item-input item-select">
+        <span class="input-label">Exp. Delivery Date*</span>
+        <input type="date" tabindex="16" name="ExpDOB" ng-model="signupData.expected_child_birth" ng-required="true" max="{{max_date_mobile}}" min="{{min_date_mobile}}" future-date>
+         <div class="text-red" ng-messages="signupForm.ExpDOB.$error" ng-show="signupForm.ExpDOB.$touched">
+          <div ng-message="valid">Invalid date!</div>
+          <div ng-message="required">Required!</div>
+          <div ng-message="min">Must be a future date</div>
+          <div ng-message="futureDate">Must be within 9 months!</div>
+        </div>
+      </label>
+    
+    </div>
+  </div>
+  <!-- <div class="row extra-height">
+    <div class="col" flex="40">
+      <div class="dark-blue text24">Additional Contact</div>
+    </div>
+    <div class="col" flex="60">
+      <div class="dark-blue text16">Preferably someone not living in the same household</div>
+    </div>
+  </div>
+  <div class="row black-border"></div>
+   <label class="item item-input">
+      <span class="input-label">Contact Name</span>
+       <input tabindex="17" autocomplete="off"  type="text"  name="ContactName" ng-model="signupData.contact_name" >
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Contact Email</span>
+       <input tabindex="18" autocomplete="off"  type="text" name="ContactEmail" type="email" ng-model="signupData.contact_email" ng-pattern="/^.+@.+\..+$/" >
+      <div ng-messages="signupForm.ContactEmail.$error" >
+          <div ng-message="pattern">Invalid email</div>
+      </div>
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Cell Phone</span>
+      <input tabindex="19" autocomplete="off"  type="tel" name="ContactCellPhone" ng-model="signupData.contact_cell_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" >
+        <div ng-messages="signupForm.ContactCellPhone.$error" >
+          <div ng-message="pattern">Invalid cell number</div>
+        </div>
+    </label>
+    
+    <label class="item item-input">
+      <span class="input-label">Home Phone</span>
+      <input tabindex="20" autocomplete="off"  type="tel" name="ContactHomePhone" ng-model="signupData.contact_home_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" >
+        <div ng-messages="signupForm.ContactHomePhone.$error" >
+          <div ng-message="pattern">Invalid home number</div>
+        </div>
+    </label> -->
+      
+
+    
+    <div style="background-color: #0e2144 !important;color: white;">
+    <div class="row" ></div>
+        <div class="row" >
+          <div class="server-error-msg" style="color:red;" flex="50">{{signupData.message}}</div>
+          <div class="md-caption" flex="50">*mandatory fields</div>
+        </div>
+    
+        <div layout="row" style="padding-bottom:20px;" layout-align="center center">
+          <div flex="10"></div>
+          <div flex="30">
+            <md-button class="md-raised text16" ng-click="cancelSignup()">Cancel</md-button>
+          </div>
+          <div flex="40">
+            <md-button tabindex="21" class="md-raised md-primary text16" type="submit" >Create Account</md-button>
+          </div>
+          <div flex="20"></div>
+        </div>
+    </div>
+    
+  
+  </form>
+  
+
+</ion-content>
+</ion-view>

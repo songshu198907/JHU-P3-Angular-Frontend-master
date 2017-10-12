@@ -1,0 +1,75 @@
+<md-dialog class="md-transition-in dialog-border">
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text24 white" layout-margin="">Update Profile</div>
+    </div>
+
+<md-dialog-content>
+  <div class="md-dialog-content-body">
+  <form name="updateProfileForm" ><!-- ng-submit="profileUpdate(updateProfileForm.$valid)" -->
+    
+    <div layout="row">
+      <div layout="column" flex="90">
+       <div class="grey-paint">&nbsp;</div>
+
+        <md-input-container>
+          <input name="FirstName" placeholder="First Name*" ng-model="updateProfileData.firstName" ng-required="true">
+          <div ng-messages="updateProfileForm.FirstName.$error" ng-show="updateProfileForm.FirstName.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+          <input name="LastName" placeholder="Last Name*" ng-model="updateProfileData.lastName" ng-required="true">
+          <div ng-messages="updateProfileForm.LastName.$error" ng-show="updateProfileForm.LastName.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+          <input type="email" ng-disabled="true" name="Email" placeholder="Email*" ng-model="updateProfileData.email" ng-pattern="/^.+@.+\..+$/" ng-required="true">
+          <div ng-messages="updateProfileForm.Email.$error" ng-show="updateProfileForm.Email.$touched">
+            <div ng-message="required">This is required!</div>
+            <div ng-message="pattern">Invalid Email</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+           <input type="password" name="Password" placeholder="Password" ng-model="updateProfileData.password" >
+
+        </md-input-container>
+
+        <md-input-container>
+          <input type="password" name="ConfirmPassword" placeholder="Confirm Password" ng-model="updateProfileData.passwordConfirmation" compare-to="updateProfileData.password">
+          <div ng-messages="updateProfileForm.confirmPassword.$error" ng-show="updateProfileForm.confirmPassword.$touched">
+            <!-- <div ng-message="required">This is required!</div> -->
+            <div ng-message="compareTo">Must match password</div>
+          </div>
+        </md-input-container>
+        
+    
+    </div>
+   </div>
+      <div class="row black-border"></div>
+      <div class="row">
+        <div class="server-error-msg" flex="80">{{updateProfileData.message}}</div>
+        <div class="md-caption" flex="20">*mandatory fields</div>
+      </div>
+      
+      <div layout="row" layout-align="center center">
+        
+        <md-button type="button" class="md-raised grey-button" ng-click="profileCancel()">Cancel</md-button>
+        
+        <div style="width:19px"></div>
+          <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="profileUpdate(updateProfileForm.$valid)">Update</md-button>
+        
+      </div>
+    
+      
+    
+    </form>
+
+  </div>
+
+</md-dialog-content>
+</md-dialog>

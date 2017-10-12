@@ -1,0 +1,97 @@
+<md-dialog class="md-transition-in dialog-border">
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text24 white" layout-margin="">{{updateFormData.submitText}} Health Care Content</div>
+    </div>
+
+<md-dialog-content>
+  <div class="md-dialog-content-body">
+  <form name="updateForm" ng-submit="healthcareContentSubmit(updateForm.$valid)" >
+    
+    <div layout="row" >
+        <div layout="column" flex="95">
+          <div class="grey-paint">&nbsp;</div>
+          <md-input-container >
+           <md-select name="CategoryGroup"  placeholder="Category Group*" ng-model="updateFormData.selected_category_group" style="min-width: 200px;max-width:500px;" ng-required="true" >
+            <md-option ng-value="'maternal vaccines'" ng-selected="updateFormData.category_group=='maternal vaccines'">maternal vaccines</md-option>
+            <md-option ng-value="'childhood vaccines'" ng-selected="updateFormData.category_group=='childhood vaccines'">childhood vaccines</md-option>
+            <md-option ng-value="'safety issues'" ng-selected="updateFormData.category_group=='safety issues'">safety issues</md-option>
+            <md-option ng-value="'useful links'" ng-selected="updateFormData.category_group=='useful links'">useful links</md-option>
+            </md-select>
+            <div class="text-red" ng-messages="updateForm.CategoryGroup.$error" ng-show="updateForm.CategoryGroup.$touched">
+              <div ng-message="required">This is required!</div>
+            </div>
+        
+        </md-input-container>
+
+           <md-input-container>
+          <input name="Title" placeholder="Title*" ng-model="updateFormData.title" style="min-width: 200px;max-width:500px;" ng-required="true">
+          <div ng-messages="updateForm.Title.$error" ng-show="updateForm.Title.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+
+        
+
+        <!-- <md-input-container>
+             <md-select name="Topics"  placeholder="Topics*" placeholder="select topic*" ng-model="updateFormData.selected_topic" style="min-width:200px;max-width:500px;" ng-required="true">
+              <md-option ng-value="topic" ng-repeat="(i,topic) in updateFormData.topics track by clinic.id" ng-selected="topic.id==updateFormData.topic_id">{{topic.name}}</md-option>
+            </md-select>
+          </md-input-container>-->
+        <md-input-container> 
+          <textarea name="Description" placeholder="Description" rows="3" style="min-width:200px;max-width:500px;min-height:100px;max:height:400px;" maxlength="250" ng-model="updateFormData.desc" ></textarea>
+         <!--  <div ng-messages="updateForm.Description.$error" ng-show="updateForm.Description.$touched">
+            <div ng-message="required">This is required!</div>
+          </div> -->
+        </md-input-container>
+       
+        <md-input-container ng-show="updateFormData.selected_category_group != 'useful links'">
+          <input type="file" style="min-width: 200px;max-width:500px;" name="PDFFile" placeholder="*" ngf-multiple="false" ngf-accept="application/pdf" ng-model="PDFFile" accept="application/pdf" ng-required="updateFormData.selected_category_group != 'useful links' && updateFormData.submitText=='Create'" file valid-file /><!-- ngf-select="uploadFiles($files)" -->
+
+          
+           <!-- <div ng-messages="updateForm.PDFFile.$error" ng-show="updateForm.PDFFile.$viewValue==''"
+           > 
+            <div ng-message="validFile">This is required!</div>
+            <div ng-message="required">This is required!</div>
+          </div> -->
+        </md-input-container>
+        <div layout="row" class="text-red text13" ng-if="updateFormData.triedSubmit && updateForm.PDFFile.$error.validFile">File Required</div>
+        
+
+        <md-input-container ng-hide="updateFormData.submitText=='Create' && updateFormData.selected_category_group != 'useful links'">
+          <input name="ExternalLink"  placeholder="External Link*" ng-disabled="updateFormData.submitText!='Create'" ng-model="updateFormData.external_link" style="min-width:200px;max-width:500px;" ng-required="updateFormData.submitText=='Create' && updateFormData.selected_category_group == 'useful links'">
+          <div ng-messages="updateForm.ExternalLink.$error" ng-show="updateForm.ExternalLink.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+         <md-input-container>
+          <input name="Keywords"  placeholder="Keywords" ng-model="updateFormData.keywords" style="min-width:200px;max-width:500px;">
+          <!-- <div ng-messages="updateForm.Keywords.$error" ng-show="updateForm.Keywords.$touched">
+            <div ng-message="required">This is required!</div>
+          </div> -->
+        </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="server-error-msg" flex="">{{updateFormData.message}}</div>
+        <div class="md-caption" flex="">*mandatory fields</div>
+      </div>
+      <div layout="row" layout-align="center center">
+        <md-dialog-actions sytle="border: 0px; overflow:hidden;">
+          
+            <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+            <md-button type="button" ng-show="updateFormData.submitText=='Update'" class="md-raised red-button" ng-click="healthCareContentDelete()">Delete</md-button>
+            <md-button class="md-raised md-primary text16" type="submit" ng-click="
+            updateFormData.triedSubmit=true;">
+              {{updateFormData.submitText}}
+            </md-button>
+        </md-dialog-actions>
+      </div>
+    
+    </form>
+
+  </div>
+
+</md-dialog-content>
+</md-dialog>

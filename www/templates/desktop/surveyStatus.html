@@ -1,0 +1,80 @@
+<div class="container flex">
+
+
+  <div ng-hide="showQuestions || isComplete" class="animate-show" layout="row">
+    <div flex="fill"></div>
+      <div layout="column" layout-align="center center" layout-margin flex="60" class="form-style"  >
+        <!-- <div class="text24 dar-blue" layout-margin>Thanks for participating in this clinical trial!</div>
+        <div class="text20 dark-blue" layout-margin >You have a survey to complete.</div>
+        <div class="text20 dark-blue" layout-margin> Please remember to finish the survey.</div> -->
+        <div class="text20 dark-blue" ng-cloak layout-margin ng-bind-html="take_first_survey_text"></div>
+        <md-button id="takeSurvey" style="margin-top:30px;" class="md-raised md-primary text16" type="submit" ng-click="surveyStart()" >Take Survey</md-button>
+      </div>
+      <div flex="fill"></div>
+    </div>    
+
+  <div ng-if="showQuestions" class="animate-show" layout="row">
+    <div flex="fill"></div>
+    <div layout="column" layout-align="center center" flex="80" layout-margin style="margin-top:10px;margin-bottom:20px;">
+      <div class="text24 white handle-decoration" ng-bind-html="currentQuestion.question_text" layout-margin></div>
+      <div layout="row" layout-margin>
+        <md-progress-linear class="fat-loading-bar" md-mode="determinate" value="{{percentage}}"  ></md-progress-linear>
+        <span class="text18 white">{{percentage}}%</span>
+      </div>
+
+    <form style="padding: 0 0 2em 0;width:95%;" >
+        <div class="fadea" ng-if="hideAnswers" class="list">
+          <div class="text18 dark-blue handle-decoration" layout-margin style="margin-top:10px;margin-bottom:30px;text-align:center;" ng-bind-html="currentQuestion.label">
+          </div>
+          <div layout="row" layout-align="center center" flex="none">
+            <md-radio-group ng-if="currentQuestion.question_type_id==1" layout="row" layout-align="center center" ng-model="questionData.answer" style="width:100%;">
+              <span class="vertical-radio-parent" layout="row" ng-repeat="item in currentQuestion.possibleAnswers">
+                <div ng-if="$index != 0" ></div>
+                <md-radio-button ng-click="currentQuestion.required_answer && !currentQuestion.survey_answer_id && nextQuestion(currentQuestion,false,user_survey_id,item.id)" class="md-radio-button-vertical" ng-value="item.id" aria-label="item.label">{{item.label}} </md-radio-button>
+
+              </span>
+
+            </md-radio-group>
+
+            <md-input-container class="Width400" ng-if="currentQuestion.question_type_id==2 || currentQuestion.question_type_id==6">
+                <input type="text" placeholder="Answer"  ng-model="questionData.answer"/>
+            </md-input-container>
+
+            <md-radio-group ng-if="currentQuestion.question_type_id==3" ng-model="questionData.answer" >
+               <md-radio-button ng-click="currentQuestion.required_answer && !currentQuestion.survey_answer_id && nextQuestion(currentQuestion,false,user_survey_id,item.id)" ng-repeat="item in currentQuestion.possibleAnswers" ng-value="item.id" >
+                  {{ item.label }}
+                </md-radio-button>
+            </md-radio-group>
+
+            <md-datepicker ng-if="currentQuestion.question_type_id==4" ng-model="questonData.answer" md-placeholder="Enter date" ></md-datepicker>
+
+            <md-slider flex min="0" max="10" step="1" ng-if="currentQuestion.question_type_id==5" ng-model="questionData.answer" class="md-warn"></md-slider>
+          </div>
+          <div layout="row" layout-align="space-between center" style="margin-top:30px;" layout-margin >
+            <md-button ng-if="currentQuestion.sort_order >= 2" class="md-raised md-primary text16" ng-click="previousQuestion()" >
+              <md-icon md-svg-icon="chevron-left" ></md-icon>
+              Back
+            </md-button>
+            <div flex="fill"></div>
+            <md-button id="surveyCompleteBtn" ng-if="!completeSurveyButton && (!currentQuestion.required_answer || currentQuestion.question_type_id==2 || currentQuestion.question_type_id==6 || currentQuestion.survey_answer_id>0) && (currentQuestion.question_type_id==1 || currentQuestion.question_type_id==3 || currentQuestion.question_type_id==2 || currentQuestion.question_type_id==6)" class="md-raised md-primary text16" ng-click="nextQuestion(currentQuestion,false,user_survey_id)">
+              {{(question && currentQuestion.sort_order==question.question_count)? "Complete Survey" : "Next"}}
+              <md-icon ng-if="currentQuestion.sort_order!=question.question_count" md-svg-icon="chevron-right" ></md-icon>
+            </md-button>
+            <md-button ng-if="completeSurveyButton" class="md-raised md-primary text16" ng-click="nextQuestion(currentQuestion,true,user_survey_id)">
+              Complete Survey
+              <md-icon ng-if="currentQuestion.sort_order!=question.question_count" md-svg-icon="chevron-right" ></md-icon>
+            </md-button>
+          </div>
+          </div>
+          <div class="fadea"  ng-if="hideAnswers" layout="row" layout-margin>
+                <div class="didyouknow" ng-if="currentQuestion.did_you_know_text && currentQuestion.did_you_know_text!=''"><md-icon md-svg-icon="lightbulb"></md-icon><span class="innerdidyouknow">Did You Know </span><br><p class="handle-decoration" ng-bind-html="currentQuestion.did_you_know_text"></p></div>
+                <!-- {{currentQuestion.did_you_know_text}} -->
+          </div>
+        </div>
+        <div flex="fill"></div>
+      </form>
+      </div>
+  </div>
+</div>
+  <div class="footer">
+  </div>

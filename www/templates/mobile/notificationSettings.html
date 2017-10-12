@@ -1,0 +1,49 @@
+<md-dialog class="md-transition-in dialog-border" >
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text20 white" layout-margin >Notifications</div>
+    </div>
+    <md-dialog-content >
+    <div class="md-dialog-content-body">
+      
+        
+            <form name="notificationsForm" id="notificationForm" ng-cloak>
+                <div layout="column" layout-align="center center">
+
+                <ion-toggle class="md-primary padding-special" ng-model="notificationsEnabled" ng-change="onNotificationChange()" ng-true-value="1" ng-false-value="0">
+
+                  {{notificationsEnabled ? 'on' : 'off'}}
+                </ion-toggle>
+                <div class="text16" style="width:300px">
+                    You will receive timely notifications with important information.
+                    We encourage you to allow us to send these to your cell phone,
+                    however, you can elect to turn these off.
+                </div>
+                </div>
+                <div ng-if="notificationsEnabled && cellNotificationsEnabled">
+                   
+                    <div class="text13" style="margin:20px 0;" layout="column" layout-align="center center">Please make sure that your cell number is provided</div>
+                    <div layout="column" layout-align="center center">    
+                        <label class="item item-input toggle-btn">
+                            <span class="input-label" style="color:black;background-color:transparent !important;">Cell Phone*</span>
+                            <input name="cellPhone" type="number" class="transparent-input Width250" ng-model="notificationData.cellPhone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="true" >
+                            <i ng-show="notificationData.cellPhone" ng-click="notificationData.cellPhone=''" class="clear-search icon ion-ios7-close"></i>
+                            <div ng-messages="notificationsForm.cellPhone.$error" ng-show="notificationsForm.cellPhone.$touched">
+                             <!-- <div ng-message="required">This is required!</div> -->
+                              <div ng-message="pattern">Invalid cell number</div>
+                              
+                            </div>
+                        </label>
+
+                    </div>
+                    <div layout="row" layout-align="center center" class="server-error-msg">{{notificationData.message}}</div>
+                    
+                </div>
+
+                <md-dialog-actions layout="row" layout-align="center center">
+                    <md-button type="button" class="md-raised md-primary" type="submit" ng-click="updateCellPhone(notificationsForm.$valid)">OK</md-button>
+                 </md-dialog-actions>
+            </form>
+            </div>
+</md-dialog-content>
+</md-dialog>

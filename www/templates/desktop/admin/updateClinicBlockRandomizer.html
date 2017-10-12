@@ -1,0 +1,53 @@
+<md-dialog aria-label="Edit Dialog" class="dialog-border">
+  <md-dialog-content ng-model="updateFormData" class="dilaog-content">
+    <div layout="row" layout-align="center center" class="dialog-header">
+      <h3 class="text-white">
+        {{updateFormData.submitText}} {{updateFormData.type}}
+      </h3>
+    </div>
+    <form name="updateForm" ng-submit="editSubmit(updateForm.$valid)" ng-model="updateFormData" >
+      <div layout="row" >
+        <div layout="column" flex="75">
+          <div class="grey-paint">&nbsp;</div>
+           <md-input-container>
+             <md-select name="ClinicianCode"  placeholder="Clinic Code*" placeholder="select clinic" ng-model="updateFormData.selected_clinic" style="min-width: 100px;" ng-required="true">
+              <md-option ng-value="clinic" ng-repeat="(i,clinic) in updateFormData.clinics track by clinic.id" ng-selected="clinic.id==updateFormData.clinician_code_id">{{clinic.name}}</md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container>
+             <md-select name="PatientType"  placeholder="Patient Type*" placeholder="select patient type" ng-model="updateFormData.selected_patient" style="min-width: 100px;" ng-required="true">
+              <md-option ng-value="'Group A'" ng-selected="updateFormData.patient_type=='Group A'">Group A</md-option>
+              <md-option ng-value="'Group B'" ng-selected="updateFormData.patient_type=='Group B'">Group B</md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container ng-if="updateFormData.selected_patient!='Group B'">
+             <md-select name="InterventionGroup"  placeholder="Intervention Group*" placeholder="select intervention group" ng-model="updateFormData.intervention_group" style="min-width: 100px;" ng-required="updateFormData.selected_patient=='Group A'" ng-model-options="{ debounce: { 'default': 500 } }">
+              <md-option ng-value="1" ng-selected="updateFormData.intervention_group=='1'">1</md-option>
+              <md-option ng-value="2" ng-selected="updateFormData.intervention_group=='2'">2</md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container ng-if="updateFormData.submitText!='Update'" class="md-input-default">
+            <input type="number" min="1" max="100" name="createCount" placeholder="Count" ng-model="updateFormData.create_count" ng-model-options="{ debounce: { 'default': 500 } }">
+            <h5>(maximum count of 100)</h5>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="server-error-msg" flex="">{{updateFormData.message}}</div>
+        <div class="md-caption" flex="">*mandatory fields</div>
+      </div>
+      <div layout="row" layout-align="center center">
+        <md-dialog-actions sytle="border: 0px;">
+          
+          
+            <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+       
+            <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="clinicBlockRandomizerSubmit(updateForm.$valid)">
+              {{updateFormData.submitText}}
+            </md-button>
+      
+        </md-dialog-actions>
+      </div>
+    </form>
+  </md-dialog-content>
+</md-dialog>

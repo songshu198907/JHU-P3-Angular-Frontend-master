@@ -1,0 +1,70 @@
+<!-- <div class="footer-container"> -->
+
+<div class="login-container" style="padding-bottom:40px;overflow: scroll;">
+
+<div class="wrapper">
+
+  <div class="login-form">
+
+    <div layout="row" layout-xs="column" layout-sm="column" flex="fill">
+    
+      <div flex="fill"></div>
+      <div class="logoss" layout="column" layout-align="center center">
+        <img src="img/cu.png" height="80">
+      </div>
+      <div class="logoss" layout="column" layout-align="center center">
+        <img src="img/bloomberg.png" height="180">
+      </div>
+      <div class="logoss" layout="column" layout-align="center center">
+        <img src="img/eu.png" height="160">
+      </div>
+      <div flex="fill"></div>
+    </div>
+
+    <form autocomplete="off" name="loginForm" class="valign-wrapper form-style" >
+        <md-input-container class="md-block">
+          <input autocomplete="off" name="Email" placeholder="Email" type="email" ng-model="loginData.username" ng-pattern="/^.+@.+\..+$/" maxlength="150" ng-required="true">
+          <div ng-messages="loginForm.Email.$error" ng-show="loginForm.Email.$touched">
+             <div ng-message-exp="['required', 'maxlength', 'pattern']">
+              <!-- Your email must be between 10 and 100 characters long and look like an e-mail address. -->
+            </div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+           <input autocomplete="new-password" type="password" placeholder="Password" name="Password" ng-model="loginData.password" ng-required="true">
+          <div ng-messages="loginForm.Password.$error" ng-show="loginForm.Password.$touched">
+              <!-- <div ng-message="required" >This is required!</div> -->
+          </div>
+        </md-input-container>
+        <!-- <div class="server-error-msg">{{loginData.message}}</div> -->
+        <div class="row">
+          <div flex="fill"></div>
+          <div class="col" flex="50">
+            <md-button type="submit" class="md-raised md-primary button-block text16" ng-click="doLogin(loginForm.$valid)">Log In</md-button>
+          </div>
+          <div flex="fill"></div>
+        </div>
+        <a ng-click="showPrompt($event)" class="button button-positive button-clear button">Forgot Password?</a>
+    </form>
+  </div>
+  <div class="signup-container">
+  <div class="fix-opacity">
+    <div class="row">
+      <div flex="fill"></div>
+      <div flex="none" style="font-weight:bold;" class="text20 space-bottom">Not yet registered? </div>
+      <div flex="fill"></div>
+    </div>
+    <div class="row form-style" >
+      <div flex="fill"></div>
+      <div class="col" flex="50">
+        <md-button type="button" layout-align="center center" class="md-raised  button-block md-secondary text16" ng-click="signup(loginForm.$valid)">Sign Up</md-button>
+      </div>
+      <div flex="fill"></div>
+    </div>
+  </div>
+  </div>
+
+  </div>
+
+</div>
+

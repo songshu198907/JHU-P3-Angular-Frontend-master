@@ -1,0 +1,139 @@
+
+
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-nav-bar class="bar-positive">
+
+
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+        <md-menu style="padding:0px;color:white;">
+          <md-button aria-label="Open User Menu" style="margin:0px;color:white;" ng-click="openMenu($mdOpenMenu, $event)">
+          {{displayName}}<md-icon md-svg-icon="chevron{{menuOpened?'-up':'-down'}}" ></md-icon>
+          </md-button>
+          <md-menu-content >
+            <md-menu-item>
+              <md-button ng-click="logout()">
+                <md-icon md-svg-icon="logout"></md-icon>
+                Sign Out
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </ion-nav-buttons> 
+
+      <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-nav-bar>
+  <!-- <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+      <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+  </ion-side-menu-content> -->
+
+  <!-- Left menu -->
+  <ion-side-menu side="left" class="ionic-side-menu">
+    <ion-content>
+        <ion-list>
+          
+          <ion-item menu-close ng-click="selectCategory('maternal vaccines')" ng-class="currentCategory == 'maternal vaccines'?'active':''">
+                <h4 class="white">MATERNAL VACCINES</h4>
+          </ion-item>
+
+          <ion-item menu-close ng-click="selectCategory('childhood vaccines')" ng-class="currentCategory == 'childhood vaccines'?'active':''">
+              <h4 class="white">CHILDHOOD VACCINES</h4>
+          </ion-item>
+
+          <ion-item menu-close ng-click="selectCategory('safety issues')" ng-class="currentCategory == 'safety issues'?'active':''">
+              <h4 class="white">SAFETY ISSUES</h4>
+          </ion-item>
+
+          <ion-item menu-close ng-click="selectCategory('paternal videos')" ng-class="currentCategory == 'paternal videos'?'active':''">
+              <h4 class="white">PARENTAL VIDEOS</h4>
+          </ion-item>
+
+          <ion-item menu-close ng-click="selectCategory('useful links')" ng-class="currentCategory == 'useful links'?'active':''">
+              <h4 class="white">USEFUL LINKS</h4>
+          </ion-item>
+
+        </ion-list>
+    </ion-content>
+   
+
+  </ion-side-menu>
+
+  <ion-side-menu-content overflow-scroll="true">
+  <!-- Main content, usually <ion-nav-view> -->
+
+    <div class="health-care-view container PT44 Scroll-Y PB20" flex>
+      <div class="health-care-main-content">
+      <ul class="content-items" layout="row" layout-align="start center" layout-wrap>
+      <div ng-show="videoTab" class="tile-container">
+          <div ng-controller="VideoTileCtrl as controller"layout-align="space-around center"  layout="row" layout-wrap>
+              
+                <div class="video-container"   flex="30" ng-repeat="config in controller.videoConfigs" >
+        <p class="text18 dark-blue" layout-align="center center" data-ng-bind="config.videoDetails.title"></p>
+      <videogular vg-update-state="controller.onPause($state, config.videoDetails.id)" vg-update-time="controller.onUpdateTime($currentTime, $duration, config.videoDetails.id)" vg-theme="config.theme" vg-start-time="config.startTime">
+        <vg-media vg-src="config.sources"
+            vg-tracks="config.tracks">
+        </vg-media>
+   
+        <vg-controls>
+          <vg-play-pause-button ng-></vg-play-pause-button>
+          <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+          <vg-scrub-bar ng-disabled="true">
+            <vg-scrub-bar-current-time ng-disabled="true"></vg-scrub-bar-current-time>
+          </vg-scrub-bar>
+          <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+          <vg-volume>
+            <vg-mute-button></vg-mute-button>
+            <vg-volume-bar></vg-volume-bar>
+          </vg-volume>
+          <vg-fullscreen-button></vg-fullscreen-button>
+        </vg-controls>
+   
+        <vg-overlay-play></vg-overlay-play>
+
+      </videogular>
+      <div class="my-desc-layer" layout-align="top center">
+                      <p class="dark-blue my-desc-layers" ng-model="config.videoDetails.desc" ng-model-options='{ debounce: 5000 }'> {{config.videoDetails.desc | characters: 250 :true}}<a ng-show="config.videoDetails.desc.length>250" ng-click="readMoreModal(config.videoDetails.desc)" class="desc-read-more">Read More</a></p>
+                      </div>
+      </div>
+                
+          </div>
+        </div>
+
+        <li ng-show="!videoTab" ng-repeat="item in items" class="content-item" flex="50" flex-gt-sm="30">
+          <h3 class="title">{{capitalizeWords(item.title)}}</h3>
+          <p class="desc">
+            {{item.desc}}
+          </p>
+          <a href="{{item.external_link}}" target="_blank">
+            <md-button flex-gt-sm="60" type="button" class="button-small md-raised md-primary text16 md-ink-ripple">
+              <span>Read More</span>
+              <div class="md-ripple-container"></div>
+            </md-button>
+          </a>
+        </li>
+        <!-- <div  ng-show="delay" class="message-empty" ng-show="items.length == 0" layout="row" layout-align="center center">
+        <h4></h4> -->
+      </div>
+      </ul>
+      </div>
+    </div>
+
+  </ion-side-menu-content>
+
+  <!-- Right menu -->
+  <!-- <ion-side-menu side="right">
+  </ion-side-menu> -->
+
+</ion-side-menus>
+ 
+

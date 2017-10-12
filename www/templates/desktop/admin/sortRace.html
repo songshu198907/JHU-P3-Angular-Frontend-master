@@ -1,0 +1,37 @@
+<md-dialog aria-label="Edit Dialog" class="dialog-border">
+  <md-dialog-content class="dilaog-content" style="overflow:hidden;">
+    <div layout="row" layout-align="center center" class="dialog-header">
+      <h3 class="text-white">
+        Sort Race/Ethnicity
+      </h3>
+    </div>
+    
+      <div id="scrollable-container" >
+       <div class="sortable-row" as-sortable="dragRaceControlListeners" data-ng-model="updateFormData.sort">
+          <div ng-repeat="item in updateFormData.sort" as-sortable-item>
+              <div style="padding:5px;" as-sortable-item-handle>{{item.name}}</div>
+          </div>
+      </div>
+      <!-- <ul data-as-sortable="dragEducationControlListeners" data-ng-model="updateFormData.items">
+         <li data-ng-repeat="item in updateFormData.items" data-as-sortable-item>
+            <div data-as-sortable-item-handle>
+              <span class="card-title">{{item.name}}</span>
+            </div>
+         </li>
+      </ul> -->
+    </div>
+    
+    <div layout="row" layout-align="center center">
+        <md-dialog-actions sytle="border: 0px;">
+          
+          
+            <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+       
+            <md-button type="button" class="md-raised md-primary text16" ng-click="sortRaceUpdate()">
+              Update Order
+            </md-button>
+      
+        </md-dialog-actions>
+      </div>
+  </md-dialog-content>
+</md-dialog>

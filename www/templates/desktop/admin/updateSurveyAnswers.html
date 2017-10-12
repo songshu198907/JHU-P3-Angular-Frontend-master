@@ -1,0 +1,72 @@
+<md-dialog class="md-transition-in dialog-border">
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text24 white" layout-margin="">{{updateFormData.type}} {{updateFormData.submitText}}</div>
+    </div>
+
+<md-dialog-content>
+  <div class="md-dialog-content-body">
+  <form name="updateForm" ng-submit="surveyAnswerSubmit(updateForm)" ng-model-options="{ updateOn: 'submit' }" style="width:650px;">
+    
+    
+      <div layout="row">
+      <md-input-container>
+          <input name="Label" style="min-width:600px;" placeholder="Answer Label*" ng-model="updateFormData.label" ng-required="true">
+          <!-- <div ng-messages="updateForm.Label.$error" ng-show="updateForm.Label.$touched">
+            <div ng-message="required">This is required!</div>
+          </div> -->
+          <div class="text-red" ng-show="updateForm.Label.$viewValue==''">
+          This is required!
+          </div>
+        </md-input-container>
+         
+      </div> 
+      <div layout="row" >
+        <div layout="column" flex="45">
+        <md-input-container>
+          <input  type="number" name="videoTargetNumber" style="max-width:250px;" placeholder="Video Target Number" ng-model="updateFormData.video_target_number" >
+          
+        </md-input-container>
+      
+        <md-input-container>
+          <input  type="number" name="Weight" placeholder="Weight" style="max-width:250px;" ng-model="updateFormData.weight" >
+          
+        </md-input-container>
+        </div>
+        <div layout="column" flex="fill"></div>
+        <div layout="column" flex="45">
+        <md-input-container>
+           <input name="sortOrder" placeholder="Sort Order*" style="max-width:250px;" ng-model="updateFormData.sort_order" ng-required="true" >
+          <div class="text-red" ng-show="updateForm.sortOrder.$viewValue==''">
+          This is required!
+          </div>
+        </md-input-container>
+
+        
+        <md-button type="button" ng-show="updateFormData.submitText=='Update'" class="md-raised grey-button small-button" ng-click="openSkipView($event,updateFormData)">Skip</md-button>
+        </div>
+      </div>
+    
+    
+    <div class="row black-border"></div>
+    <div class="row">
+        <div class="server-error-msg" flex="80">{{updateFormData.message}}</div>
+        <div class="md-caption" flex="20">*mandatory fields</div>
+      </div>
+      
+      <div layout="row" layout-align="center center">
+        
+        <md-button type="button" class="md-raised grey-button" ng-click="updateForm.$rollbackViewValue();editCancel();">Cancel</md-button>
+        
+        <div style="width:19px"></div>
+          <md-button  class="md-raised md-primary text16" type="submit">{{updateFormData.submitText}}</md-button>
+        
+      </div>
+ 
+    
+    </form>
+
+  </div>
+
+</md-dialog-content>
+</md-dialog>

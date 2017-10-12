@@ -1,0 +1,13 @@
+<md-dialog class="md-transition-in dialog-border">
+  <md-dialog-content class="dialog-content">
+  <div layout="row" layout-align="center center" class="dialog-header">
+      <div class="text24 white">{{title}}</div>
+  </div>
+  <div class="md-dialog-content-body" >
+   <div class="text16" style="margin:10px;">{{body}}</div>
+  </div>
+  </md-dialog-content>
+  <md-dialog-actions layout-align="center center">
+   <md-button type="button" aria-label="OK" class="md-primary md-raised " ng-click="closeDialog()"><span class="ng-binding ng-scope">OK</span></md-button>
+  </md-dialog-actions>
+</md-dialog>

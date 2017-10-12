@@ -1,0 +1,39 @@
+<md-dialog class="md-transition-in dialog-border">
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text24 white" layout-margin="">{{updateFormData.type}} {{updateFormData.submitText}}</div>
+    </div>
+
+<md-dialog-content>
+  <div class="md-dialog-content-body">
+  <form name="updateForm" ng-submit="skipLogicSubmit(updateForm.$valid)">
+    
+    <!-- <div layout="row"> -->
+      <div layout="row" sytle="width:100%;display:block" ng-repeat="(i,code) in updateFormData.detail.questionCodes track by code.id" >
+      <md-checkbox ng-model="code.selected" ng-model-options="{ updateOn: 'submit' }" aria-label="code" >
+          {{code.name}}
+      </md-checkbox> 
+      </div>
+    <!-- </div> -->
+    <div class="row black-border"></div>
+    <div class="row">
+        <div class="server-error-msg" flex="80">{{updateFormData.message}}</div>
+        <div class="md-caption" flex="20">*mandatory fields</div>
+    </div>
+      
+    <div layout="row" layout-align="center center">
+        
+        <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+        
+        <div style="width:19px"></div>
+          <md-button class="md-raised md-primary text16" type="submit">{{updateFormData.submitText}}</md-button>
+        
+    </div>
+ 
+    
+    </form>
+
+  </div>
+
+</md-dialog-content>
+</md-dialog>

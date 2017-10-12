@@ -1,0 +1,128 @@
+<md-dialog class="md-transition-in dialog-border">
+  
+    <div layout="row" layout-align="center center" class="dialog-header">
+        <div class="text24 white" layout-margin="">{{updateFormData.submitText}} Health Care User</div>
+    </div>
+
+<md-dialog-content>
+  <div class="md-dialog-content-body">
+  <form name="updateForm" ><!-- ng-submit="profileUpdate(updateForm.$valid)" -->
+    
+    <div layout="row">
+      <div layout="column" flex="45">
+        <md-input-container>
+           <md-select name="ClinicianCode"  placeholder="Clinic Code*" ng-model="updateFormData.selected_clinic" style="min-width: 200px;">
+            <md-option ng-value="clinic" ng-repeat="(i,clinic) in updateFormData.clinics track by clinic.id" ng-selected="clinic.id==updateFormData.clinician_code_id">{{clinic.name}}</md-option>
+          </md-select>
+        </md-input-container>
+         
+        <md-input-container>
+          <input name="FirstName" placeholder="First Name*" ng-model="updateFormData.first_name" ng-required="true">
+          <div ng-messages="updateForm.FirstName.$error" ng-show="updateForm.FirstName.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+          <input name="LastName" placeholder="Last Name*" ng-model="updateFormData.last_name" ng-required="true">
+          <div ng-messages="updateForm.LastName.$error" ng-show="updateForm.LastName.$touched">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+          <input type="email" name="Email" placeholder="Email*" ng-model="updateFormData.email" ng-pattern="/^.+@.+\..+$/" ng-required="true">
+          <div ng-messages="updateForm.Email.$error" ng-show="updateForm.Email.$touched">
+            <div ng-message="required">This is required!</div>
+            <div ng-message="pattern">Invalid Email</div>
+          </div>
+        </md-input-container>
+        <!-- <div ng-hide="updateFormData.submitText!='Create'" >
+          <md-input-container >
+             <input type="password" name="Password" placeholder="Password" ng-model="updateFormData.password" >
+           
+          </md-input-container>
+
+          <md-input-container >
+            <input type="password" name="ConfirmPassword" placeholder="Confirm Password" ng-model="updateFormData.password_confirmation" compare-to="updateFormData.password">
+            <div ng-messages="updateForm.confirmPassword.$error" ng-show="updateForm.confirmPassword.$touched">
+              
+              <div ng-message="compareTo">Must match password</div>
+            </div>
+          </md-input-container>
+        </div> -->
+       <!--  <md-input-container>
+           <md-select placeholder="select race" ng-model="updateFormData.race" style="min-width: 200px;">
+            <md-option ng-value="race.id" ng-repeat="race in updateFormData.racelist">{{race.name}}</md-option>
+          </md-select>
+        </md-input-container>
+ -->      </div>
+      <div flex="fill"></div>
+      <div layout="column" flex="45" >
+        <div class="dark-blue text16">(At least 1 phone number is required)</div>
+         
+        <md-input-container>
+          <input name="CellPhone" ng-model="updateFormData.cell_phone" placeholder="Cell Phone*" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(updateFormData.home_phone.length)">
+          <div ng-messages="updateForm.CellPhone.$error" ng-show="updateForm.CellPhone.$touched">
+            <div ng-message="pattern">Invalid cell number</div>
+            <div ng-message="required">At least one phone number is required</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+           <input name="HomePhone" placeholder="Home Phone*" ng-model="updateFormData.home_phone" ng-pattern="/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/" ng-required="!(updateFormData.cell_phone.length)">
+          <div ng-messages="updateForm.HomePhone.$error" ng-show="updateForm.HomePhone.$touched">
+            <div ng-message="pattern">Invalid phone number</div>
+            <div ng-message="required">At least one phone number is required</div>
+          </div>
+        </md-input-container>
+
+       <!--  <md-input-container ng-hide="updateFormData.submitText!='Create'">
+         <input name="City"  placeholder="City" ng-model="updateFormData.city">
+        </md-input-container>
+          <md-input-container  style="margin-top:-3px;" ng-hide="updateFormData.submitText!='Create'">
+            <label class="match-input-font">State</label>
+            <md-select ng-model="updateFormData.state">
+              <md-option ng-value="state.value" ng-repeat="state in updateFormData.states">{{ state.display }}</md-option>
+            </md-select>
+          </md-input-container>
+
+        <md-input-container ng-hide="updateFormData.submitText!='Create'">
+          <input name="Address"  placeholder="Address" ng-model="updateFormData.address">
+        </md-input-container>
+
+        <md-input-container ng-hide="updateFormData.submitText!='Create'">
+            <input type="number" placeholder="Zip Code" name="PostalCode" ng-model="updateFormData.postal_code">
+        </md-input-container> -->
+        
+         <!-- <md-input-container >
+            <md-select placeholder="select education" ng-model="updateFormData.education" style="min-width: 200px;">
+            <md-option ng-value="education.id" ng-repeat="education in updateFormData.educationlist">{{education.name}}</md-option>
+          </md-select>
+        </md-input-container> -->
+
+      </div>
+    </div>
+    
+    <div class="row black-border"></div>
+    <div class="row">
+        <div class="server-error-msg" flex="80">{{updateFormData.message}}</div>
+        <div class="md-caption" flex="20">*mandatory fields</div>
+      </div>
+      
+      <div layout="row" layout-align="center center">
+        
+        <md-button type="button" class="md-raised grey-button" ng-click="editCancel()">Cancel</md-button>
+        
+        <div style="width:19px"></div>
+          <md-button type="button" class="md-raised md-primary text16" type="submit" ng-click="healthcareSubmit(updateForm.$valid)">{{updateFormData.submitText}}</md-button>
+        
+      </div>
+ 
+    
+    </form>
+
+  </div>
+
+</md-dialog-content>
+</md-dialog>

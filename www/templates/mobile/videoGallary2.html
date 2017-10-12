@@ -1,0 +1,36 @@
+<ion-content class="has-header">
+<div class="circles1"><div class="circle-content"></div></div><div class="circles2"><div class="circle-content"></div></div><div class="circles3"><div class="circle-content"></div></div><div class="circles4"><div class="circle-content"></div></div><div class="circles5"><div class="circle-content"></div></div><div class="circles6"><div class="circle-content"></div></div>
+	<div layout="column" layout-align="center center" layout-margin>
+		<div class="text24 dark-blue" layout-margin>Thank You</div>
+		<div class="text20 dark-blue" style="margin:0 10%;" layout-margin ng-bind-html="after_first_survey_complete_text"></div>
+		<div class="text18 dark-blue">{{video.title}}</div>
+    </div>
+    <div layout="column" layout-align="center center" layout-margin>
+	    <div ng-controller="Video2Ctrl as controller">
+			<videogular  vg-update-state="controller.onPause($state)" vg-change-source="controller.onPlayerReady($source)" vg-update-time="controller.onUpdateTime($currentTime, $duration)" vg-theme="controller.config.theme" vg-start-time="controller.config.startTime">
+				<vg-media vg-src="controller.config.sources"
+						vg-tracks="controller.config.tracks">
+				</vg-media>
+	 
+				<vg-controls>
+					<vg-play-pause-button></vg-play-pause-button>
+					<vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+					<vg-scrub-bar ng-disabled="true" style="pointer-events: none;">
+						<vg-scrub-bar-current-time ng-disabled="true"></vg-scrub-bar-current-time>
+					</vg-scrub-bar>
+					<vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+					<vg-volume>
+						<vg-mute-button></vg-mute-button>
+						<vg-volume-bar></vg-volume-bar>
+					</vg-volume>
+					<vg-fullscreen-button></vg-fullscreen-button>
+				</vg-controls>
+	 
+				<vg-overlay-play></vg-overlay-play>
+				<vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+			</videogular>
+		</div>
+		
+	</div>
+	
+</ion-content>
