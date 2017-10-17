@@ -3218,9 +3218,7 @@
   sdk.run(["$injector", function($injector) {
 
     var httpAdapters = [];
-    
-    
-    
+
 
     if(httpAdapters.length) {
       angular.forEach(httpAdapters, function(adapter) {
@@ -3294,19 +3292,19 @@
 
           var manager = $authenticationManagerFactory.create($vaccineSurveySdkDispatcher);
 
-          
+
 
           manager.addStrategy({
-            
+
             matchField: "password",
             lookupField: "email",
             roleField: "role",
-            
+
             strategyName: "password",
             strategyType: "Password"
           });
 
-          
+
 
           return manager;
         }
@@ -3474,103 +3472,103 @@
           service: "$clinicianBlockRandomizer",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "clinician_code_id",
               label: "clinician_code_id",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "intervention_group",
               label: "intervention_group",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "patient_type",
               label: "patient_type",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "sorted_by_clinic_id",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "filter_by_clinic_id",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
             {
               name: "cliniciancode",
               service: "$clinicianCode",
@@ -3578,42 +3576,26 @@
               fk: "clinician_code_id",
               pk: "id"
             },
-            
+
           ],
 
           hasOne: [
-            
+
           ],
 
           hasMany: [
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -3649,93 +3631,93 @@
           service: "$clinicianCode",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "code",
               label: "code",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "name",
               label: "name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "sorted_by_name",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
           ],
 
           hasOne: [
-            
+
           ],
 
           hasMany: [
-            
+
             {
               name: "clinicianblockrandomizers",
               service: "$clinicianBlockRandomizer",
@@ -3743,7 +3725,7 @@
               fk: "clinician_code_id",
               pk: "id"
             },
-            
+
             {
               name: "users",
               service: "$user",
@@ -3751,32 +3733,18 @@
               fk: "clinician_code_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -3812,86 +3780,86 @@
           service: "$education",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "name",
               label: "name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "sorted_by_name",
               type: "ObjectQueryScope",
-              
+
             },
             {
               name: "sorted_by_id",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
           ],
 
           hasOne: [
-            
+
           ],
 
           hasMany: [
-            
+
             {
               name: "users",
               service: "$user",
@@ -3899,32 +3867,18 @@
               fk: "education_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -3960,145 +3914,145 @@
           service: "$healthcareProviderContent",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "category_group",
               label: "category_group",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "desc",
               label: "desc",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "external_link",
               label: "external_link",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "keywords",
               label: "keywords",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "title",
               label: "title",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "topic_id",
               label: "topic_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "search_content",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "sorted_by_name",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "filter_by_category_group",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
             {
               name: "topic",
               service: "$topic",
@@ -4106,44 +4060,26 @@
               fk: "topic_id",
               pk: "id"
             },
-            
+
           ],
 
           hasOne: [
-            
+
           ],
 
           hasMany: [
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -4179,122 +4115,110 @@
           service: "$jobAuditLogging",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "created_at",
               label: "created_at",
-              
-              
+
+
               type: "time",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "name",
               label: "name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "rows_effected",
               label: "rows_effected",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
           ],
 
           hasOne: [
-            
+
           ],
 
           hasMany: [
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -4330,81 +4254,81 @@
           service: "$questionCategory",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "name",
               label: "name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "sorted_by_name",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
           ],
 
           hasOne: [
-            
+
           ],
 
           hasMany: [
-            
+
             {
               name: "surveyquestions",
               service: "$surveyQuestion",
@@ -4412,32 +4336,18 @@
               fk: "question_category_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -4473,81 +4383,81 @@
           service: "$questionCode",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "name",
               label: "name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "sorted_by_name",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
           ],
 
           hasOne: [
-            
+
           ],
 
           hasMany: [
-            
+
             {
               name: "surveyquestions",
               service: "$surveyQuestion",
@@ -4555,7 +4465,7 @@
               fk: "question_code_id",
               pk: "id"
             },
-            
+
             {
               name: "usersurveyanswers",
               service: "$userSurveyAnswer",
@@ -4563,32 +4473,18 @@
               fk: "question_code_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -4624,93 +4520,93 @@
           service: "$questionType",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "control_type",
               label: "control_type",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "name",
               label: "name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "sorted_by_name",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
           ],
 
           hasOne: [
-            
+
           ],
 
           hasMany: [
-            
+
             {
               name: "surveyquestions",
               service: "$surveyQuestion",
@@ -4718,32 +4614,18 @@
               fk: "question_type_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -4779,86 +4661,86 @@
           service: "$race",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "name",
               label: "name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "sorted_by_name",
               type: "ObjectQueryScope",
-              
+
             },
             {
               name: "sorted_by_id",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
           ],
 
           hasOne: [
-            
+
           ],
 
           hasMany: [
-            
+
             {
               name: "users",
               service: "$user",
@@ -4866,32 +4748,18 @@
               fk: "race_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -4927,91 +4795,91 @@
           service: "$searchAuditLogging",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "created_at",
               label: "created_at",
-              
-              
+
+
               type: "time",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "search_term",
               label: "search_term",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "user_id",
               label: "user_id",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
             {
               name: "user",
               service: "$user",
@@ -5019,38 +4887,22 @@
               fk: "user_id",
               pk: "id"
             },
-            
+
           ],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -5086,86 +4938,68 @@
           service: "$sendGrid",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
           ],
 
-          belongsTo: [
-            
-          ],
+          belongsTo: [],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "SendGrid",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -5201,192 +5035,192 @@
           service: "$setting",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "aws_healthcare_content_bucket_name",
               label: "aws_healthcare_content_bucket_name",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "aws_video_bucket_name",
               label: "aws_video_bucket_name",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "contact_user_registration_email_text",
               label: "contact_user_registration_email_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "contact_user_registration_subject",
               label: "contact_user_registration_subject",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "forgot_password_email_text",
               label: "forgot_password_email_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "forgot_password_subject",
               label: "forgot_password_subject",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "from_email",
               label: "from_email",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "sms_phone_number",
               label: "sms_phone_number",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_completion_email_subject",
               label: "survey_completion_email_subject",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_completion_email_text",
               label: "survey_completion_email_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_notification_email_text",
               label: "survey_notification_email_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_notification_final_sms_text",
               label: "survey_notification_final_sms_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_notification_first_reminder_email_text",
               label: "survey_notification_first_reminder_email_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_notification_first_reminder_subject",
               label: "survey_notification_first_reminder_subject",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_notification_subject",
               label: "survey_notification_subject",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
@@ -5397,8 +5231,8 @@
             {
               name: "take_first_survey_text",
               label: "take_first_survey_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
@@ -5408,8 +5242,8 @@
             {
               name: "after_first_survey_complete_text",
               label: "after_first_survey_complete_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
@@ -5418,20 +5252,20 @@
             },{
               name: "post_video_thanking_text",
               label: "post_video_thanking_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "terms_and_conditions",
               label: "terms_and_conditions",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
@@ -5439,77 +5273,56 @@
               file_type: "Image"
             },
 
-            
-            
 
-            
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
           ],
 
-          belongsTo: [
-            
-          ],
+          belongsTo: [],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -5545,177 +5358,173 @@
           service: "$survey",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "intervention_group",
               label: "intervention_group",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "is_active",
               label: "is_active",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "name",
               label: "name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "patient_type",
               label: "patient_type",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_type",
               label: "survey_type",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "total_questions",
               label: "total_questions",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "version",
               label: "version",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "create_copy",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "active_surveys_by_type_patient",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "get_sorted_surveys",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "delete_survey",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "generate_csv_results",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
-          belongsTo: [
-            
-          ],
+          belongsTo: [],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
           hasMany: [
-            
+
             {
               name: "surveyquestions",
               service: "$surveyQuestion",
@@ -5723,7 +5532,7 @@
               fk: "survey_id",
               pk: "id"
             },
-            
+
             {
               name: "usersurveys",
               service: "$userSurvey",
@@ -5731,40 +5540,18 @@
               fk: "survey_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -5800,151 +5587,151 @@
           service: "$surveyAnswer",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "allow_free_form",
               label: "allow_free_form",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "free_form_data_type",
               label: "free_form_data_type",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "label",
               label: "label",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "sort_order",
               label: "sort_order",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_question_id",
               label: "survey_question_id",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "video_target_number",
               label: "video_target_number",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "weight",
               label: "weight",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "get_answers_by_question",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "delete_question_answer",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
             {
               name: "surveyquestion",
               service: "$surveyQuestion",
@@ -5952,15 +5739,13 @@
               fk: "survey_question_id",
               pk: "id"
             },
-            
+
           ],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
           hasMany: [
-            
+
             {
               name: "usersurveyanswers",
               service: "$userSurveyAnswer",
@@ -5968,34 +5753,18 @@
               fk: "survey_answer_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -6031,193 +5800,193 @@
           service: "$surveyQuestion",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "did_you_know_text",
               label: "did_you_know_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "label",
               label: "label",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "question_category_id",
               label: "question_category_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "question_code_id",
               label: "question_code_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "question_group",
               label: "question_group",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "question_text",
               label: "question_text",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "question_type_id",
               label: "question_type_id",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "required_answer",
               label: "required_answer",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "sort_order",
               label: "sort_order",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_id",
               label: "survey_id",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "get_question_by_survey",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "delete_survey_question",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "get_question_by_question_code",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
             {
               name: "questioncategory",
               service: "$questionCategory",
@@ -6225,7 +5994,7 @@
               fk: "question_category_id",
               pk: "id"
             },
-            
+
             {
               name: "questioncode",
               service: "$questionCode",
@@ -6233,7 +6002,7 @@
               fk: "question_code_id",
               pk: "id"
             },
-            
+
             {
               name: "questiontype",
               service: "$questionType",
@@ -6241,7 +6010,7 @@
               fk: "question_type_id",
               pk: "id"
             },
-            
+
             {
               name: "survey",
               service: "$survey",
@@ -6249,15 +6018,13 @@
               fk: "survey_id",
               pk: "id"
             },
-            
+
           ],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
           hasMany: [
-            
+
             {
               name: "surveyanswers",
               service: "$surveyAnswer",
@@ -6265,7 +6032,7 @@
               fk: "survey_question_id",
               pk: "id"
             },
-            
+
             {
               name: "usersurveyanswers",
               service: "$userSurveyAnswer",
@@ -6273,36 +6040,18 @@
               fk: "survey_question_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -6338,118 +6087,98 @@
           service: "$surveyQuestionSkipLogic",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "skip_question_codes",
               label: "skip_question_codes",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_answer_id",
               label: "survey_answer_id",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "get_skip_logic_by_answers",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
-          belongsTo: [
-            
-          ],
+          belongsTo: [],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -6485,81 +6214,77 @@
           service: "$topic",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "name",
               label: "name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "sorted_by_name",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
-          belongsTo: [
-            
-          ],
+          belongsTo: [],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
           hasMany: [
-            
+
             {
               name: "healthcareprovidercontents",
               service: "$healthcareProviderContent",
@@ -6567,32 +6292,18 @@
               fk: "topic_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -6628,86 +6339,68 @@
           service: "$twilio",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
           ],
 
-          belongsTo: [
-            
-          ],
+          belongsTo: [],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "TwilioAPI",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -6743,523 +6436,533 @@
           service: "$user",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "actual_child_birth",
               label: "actual_child_birth",
-              
-              
+
+
               type: "date",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "address",
               label: "address",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "cell_phone",
               label: "cell_phone",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "city",
               label: "city",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "clinician_code_id",
               label: "clinician_code_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "clinic_name",
               label: "clinic_name",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "consent_accepted_on",
               label: "consent_accepted_on",
-              
-              
+
+
               type: "time",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "contact_cell_phone",
               label: "contact_cell_phone",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "contact_email",
               label: "contact_email",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "contact_home_phone",
               label: "contact_home_phone",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "contact_name",
               label: "contact_name",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "deactivated_on",
               label: "deactivated_on",
-              
-              
+
+
               type: "time",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "education_id",
               label: "education_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "email",
               label: "email",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "expected_child_birth",
               label: "expected_child_birth",
-              
-              
+
+
               type: "date",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "first_name",
               label: "first_name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "has_contact_users",
               label: "has_contact_users",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "home_phone",
               label: "home_phone",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "intervention_group",
               label: "intervention_group",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "is_deactive",
               label: "is_deactive",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "last_name",
               label: "last_name",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "parent_relationship_type",
               label: "parent_relationship_type",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "parent_user_id",
               label: "parent_user_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "password",
               label: "password",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "password_confirmation",
               label: "password_confirmation",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "password_digest",
               label: "password_digest",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "patient_type",
               label: "patient_type",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "postal_code",
               label: "postal_code",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "race_id",
               label: "race_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "reason_for_deactivation",
               label: "reason_for_deactivation",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "reset_password",
               label: "reset_password",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "role",
               label: "role",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "state",
               label: "state",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "updated_user_profile",
               label: "updated_user_profile",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "vaccination_reminders",
               label: "vaccination_reminders",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "x_session_id",
               label: "x_session_id",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+            {
+              name: "created_at",
+              label: "created_at",
+
+              type: "time",
+              required: false,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            }
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "reset_password",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "consent_accepted",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "deactivate",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "myprofile",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "get_my_contacts",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "get_patients_by_clinics",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "get_healthcare_by_clinic",
               type: "ObjectQueryScope",
-              
+
             },
             {
               name: "get_users_by_race",
@@ -7269,17 +6972,17 @@
               name: "get_users_by_education",
               type: "ObjectQueryScope",
             },
-            
+
             {
               name: "patient_survey_export",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
             {
               name: "cliniciancode",
               service: "$clinicianCode",
@@ -7287,7 +6990,7 @@
               fk: "clinician_code_id",
               pk: "id"
             },
-            
+
             {
               name: "education",
               service: "$education",
@@ -7295,7 +6998,7 @@
               fk: "education_id",
               pk: "id"
             },
-            
+
             {
               name: "race",
               service: "$race",
@@ -7303,15 +7006,13 @@
               fk: "race_id",
               pk: "id"
             },
-            
+
           ],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
           hasMany: [
-            
+
             {
               name: "userauditloggings",
               service: "$userAuditLogging",
@@ -7319,7 +7020,7 @@
               fk: "user_id",
               pk: "id"
             },
-            
+
             {
               name: "searchauditloggings",
               service: "$searchAuditLogging",
@@ -7327,7 +7028,7 @@
               fk: "user_id",
               pk: "id"
             },
-            
+
             {
               name: "usersurveys",
               service: "$userSurvey",
@@ -7335,46 +7036,18 @@
               fk: "user_id",
               pk: "id"
             },
-            
+
           ],
-          
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -7410,121 +7083,121 @@
           service: "$userAuditLogging",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "ip_address",
               label: "ip_address",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "logged_in_at",
               label: "logged_in_at",
-              
-              
+
+
               type: "time",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "logged_out_at",
               label: "logged_out_at",
-              
-              
+
+
               type: "time",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "user_agent",
               label: "user_agent",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "user_id",
               label: "user_id",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "user_audit_export",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
             {
               name: "user",
               service: "$user",
@@ -7532,40 +7205,22 @@
               fk: "user_id",
               pk: "id"
             },
-            
+
           ],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -7601,339 +7256,435 @@
           service: "$userSurvey",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "completed_at",
               label: "completed_at",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "completition",
               label: "completition",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "created_at",
               label: "created_at",
-              
-              
+
+
               type: "time",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "currentuseranswers",
               label: "currentuseranswers",
-              
-              
+
+
               type: "array",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "first_question",
               label: "first_question",
-              
-              
+
+
               type: "hash",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "first_question_id",
               label: "first_question_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "first_reminder",
               label: "first_reminder",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "is_complete",
               label: "is_complete",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "matched_videos",
               label: "matched_videos",
-              
-              
+
+
               type: "array",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
+            {
+              name: "post_matched_videos",
+              label: "post_matched_videos",
+
+
+              type: "array",
+              required: false,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            },
+
             {
               name: "maternal_video_complete",
               label: "maternal_video_complete",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "maternal_video_number",
               label: "maternal_video_number",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "maternal_video_position",
               label: "maternal_video_position",
-              
-              
+
+
               type: "float",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
+            // 30 day video for maternal
+            {
+              name: "post_maternal_video_complete",
+              label: "post_maternal_video_complete",
+
+
+              type: "boolean",
+              required: false,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            },
+
+            {
+              name: "post_maternal_video_number",
+              label: "post_maternal_video_number",
+
+
+              type: "string",
+              required: false,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            },
+
+            {
+              name: "post_maternal_video_position",
+              label: "post_maternal_video_position",
+
+
+              type: "float",
+              required: false,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            },
+
+
+            //
             {
               name: "pediatric_video_complete",
               label: "pediatric_video_complete",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "pediatric_video_number",
               label: "pediatric_video_number",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "pediatric_video_position",
               label: "pediatric_video_position",
-              
-              
+
+
               type: "float",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
+
+            // new columns for 30-day video
             {
-              name: "question_count",
-              label: "question_count",
-              
-              
-              type: "integer",
-              required: false,
-              auto: false,
-              file_url: false,
-              file_type: "Image"
-            },
-            
-            {
-              name: "second_reminder",
-              label: "second_reminder",
-              
-              
+              name: "post_pediatric_video_complete",
+              label: "post_pediatric_video_complete",
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
-              name: "survey_id",
-              label: "survey_id",
-              
-              
-              type: "integer",
-              required: true,
-              auto: false,
-              file_url: false,
-              file_type: "Image"
-            },
-            
-            {
-              name: "user_id",
-              label: "user_id",
-              
-              
-              type: "integer",
-              required: true,
-              auto: false,
-              file_url: false,
-              file_type: "Image"
-            },
-            
-            {
-              name: "video_source_version",
-              label: "video_source_version",
-              
-              
+              name: "post_pediatric_video_number",
+              label: "post_pediatric_video_number",
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
+            {
+              name: "post_pediatric_video_position",
+              label: "post_pediatric_video_position",
+
+
+              type: "float",
+              required: false,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            },
+            //
+
+            {
+              name: "question_count",
+              label: "question_count",
+
+
+              type: "integer",
+              required: false,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            },
+
+            {
+              name: "second_reminder",
+              label: "second_reminder",
+
+
+              type: "boolean",
+              required: false,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            },
+
+            {
+              name: "survey_id",
+              label: "survey_id",
+
+
+              type: "integer",
+              required: true,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            },
+
+            {
+              name: "user_id",
+              label: "user_id",
+
+
+              type: "integer",
+              required: true,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            },
+
+            {
+              name: "video_source_version",
+              label: "video_source_version",
+
+
+              type: "string",
+              required: false,
+              auto: false,
+              file_url: false,
+              file_type: "Image"
+            },
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "get_patients_survey",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "getfirstquestion",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "compelete_survey",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "get_video_survey",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
+            {
+              name: "get_post_video_survey",
+              type: "ObjectQueryScope",
+
+            },
+
             {
               name: "check_survey_exists",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "check_survey_count",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "generate_csv_results",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
             {
               name: "survey",
               service: "$survey",
@@ -7941,7 +7692,7 @@
               fk: "survey_id",
               pk: "id"
             },
-            
+
             {
               name: "user",
               service: "$user",
@@ -7949,52 +7700,22 @@
               fk: "user_id",
               pk: "id"
             },
-            
+
           ],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -8030,193 +7751,193 @@
           service: "$userSurveyAnswer",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "applied_skip_logic_id",
               label: "applied_skip_logic_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "free_form_response",
               label: "free_form_response",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "nextquestion",
               label: "nextquestion",
-              
-              
+
+
               type: "hash",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "previousquestion",
               label: "previousquestion",
-              
-              
+
+
               type: "hash",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "question_code_id",
               label: "question_code_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "question_group",
               label: "question_group",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "question_order",
               label: "question_order",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "skipped",
               label: "skipped",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_answer_id",
               label: "survey_answer_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "survey_question_id",
               label: "survey_question_id",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "user_survey_id",
               label: "user_survey_id",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "previousquestion",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
           belongsTo: [
-            
+
             {
               name: "questioncode",
               service: "$questionCode",
@@ -8224,7 +7945,7 @@
               fk: "question_code_id",
               pk: "id"
             },
-            
+
             {
               name: "surveyanswer",
               service: "$surveyAnswer",
@@ -8232,7 +7953,7 @@
               fk: "survey_answer_id",
               pk: "id"
             },
-            
+
             {
               name: "surveyquestion",
               service: "$surveyQuestion",
@@ -8240,40 +7961,22 @@
               fk: "survey_question_id",
               pk: "id"
             },
-            
+
           ],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -8309,186 +8012,164 @@
           service: "$userSurveyVideo",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "is_complete",
               label: "is_complete",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "sort_order",
               label: "sort_order",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "user_survey_id",
               label: "user_survey_id",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "video_number",
               label: "video_number",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "video_position",
               label: "video_position",
-              
-              
+
+
               type: "float",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "video_source_version",
               label: "video_source_version",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "video_type",
               label: "video_type",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "get_videos_for_user_survey_id",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "get_video_by_id",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
-          belongsTo: [
-            
-          ],
+          belongsTo: [],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -8524,126 +8205,104 @@
           service: "$vaccinationReminder",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "message_text",
               label: "message_text",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "trigger_days_from_dob",
               label: "trigger_days_from_dob",
-              
-              
+
+
               type: "integer",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "sorted_by_trigger_days",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "send_vaccination_reminders",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
-          belongsTo: [
-            
-          ],
+          belongsTo: [],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -8679,250 +8338,224 @@
           service: "$video",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "desc",
               label: "desc",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "is_active",
               label: "is_active",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "keywords",
               label: "keywords",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "length",
               label: "length",
-              
-              
+
+
               type: "float",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "question_group",
               label: "question_group",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "sort_order",
               label: "sort_order",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "source_version",
               label: "source_version",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "target_number",
               label: "target_number",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "title",
               label: "title",
-              
-              
+
+
               type: "string",
               required: true,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "topic_id",
               label: "topic_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "video_url",
               label: "video_url",
-              
-              
+
+
               type: "string",
               required: false,
               auto: false,
               file_url: true,
               file_type: "Video"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "search_video_scoped_by_race_edu",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "search_video_by_keyword",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "sorted_by_name",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "video_gallery",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
-          belongsTo: [
-            
-          ],
+          belongsTo: [],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
@@ -8958,162 +8591,140 @@
           service: "$videoAuditLogging",
 
           fields: [
-            
+
             {
               name: "id",
               label: "id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: true,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "created_at",
               label: "created_at",
-              
-              
+
+
               type: "time",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "duration",
               label: "duration",
-              
-              
+
+
               type: "float",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "user_id",
               label: "user_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "video_id",
               label: "video_id",
-              
-              
+
+
               type: "integer",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
             {
               name: "watched_entire_video",
               label: "watched_entire_video",
-              
-              
+
+
               type: "boolean",
               required: false,
               auto: false,
               file_url: false,
               file_type: "Image"
             },
-            
+
           ],
 
           scopes: [
-            
+
             {
               name: "all",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "exact_match",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "count",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "count_exact_match",
               type: "AggregateQueryScope",
-              
+
               aggregateField: "id"
-              
+
             },
-            
+
             {
               name: "export_video_log",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
             {
               name: "by_video_and_user_id",
               type: "ObjectQueryScope",
-              
+
             },
-            
+
           ],
 
-          belongsTo: [
-            
-          ],
+          belongsTo: [],
 
-          hasOne: [
-            
-          ],
+          hasOne: [],
 
-          hasMany: [
-            
-          ],
-          
+          hasMany: [],
+
           interface: "Encrypted Mysql",
-          
+
           isDirectToSource: false,
-          
-          
+
+
           adapterConfigurations: {
-            
-            
-            
-            
-            scopes: {
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            }
+
+
+            scopes: {}
           }
         }
       );
